@@ -1,5 +1,4 @@
 {
-	"version": 2,
 	"settings": {
 		"appearanceTools": false,
 		"border": {
@@ -9,59 +8,59 @@
 			"width": false
 		},
 		"color": {
-			"custom": false,
-			"customGradient": false,
-			"customDuotone": false,
-			"link": false,
 			"background": true,
-			"text": true,
+			"custom": false,
+			"customDuotone": false,
+			"customGradient": false,
+			"link": false,
 			"palette": [
 				{
-					"slug": "primary",
 					"color": "#000",
-					"name": "Primary"
+					"name": "Primary",
+					"slug": "primary"
 				},
 				{
-					"slug": "secondary",
 					"color": "#B6C4FF",
-					"name": "Secondary"
+					"name": "Secondary",
+					"slug": "secondary"
 				},
 				{
-					"slug": "tertiary",
 					"color": "#7B61FF",
-					"name": "Tertiary"
+					"name": "Tertiary",
+					"slug": "tertiary"
 				},
 				{
-					"slug": "quarternary",
 					"color": "#FFE8E8",
-					"name": "Quaternary"
+					"name": "Quaternary",
+					"slug": "quarternary"
 				}
-			]
+			],
+			"text": true
 		},
 		"layout": {
 			"contentSize": "640px",
 			"wideSize": "1280px"
 		},
 		"spacing": {
-			"padding": false,
-			"margin": true
+			"margin": true,
+			"padding": false
 		},
 		"typography": {
 			"customFontSize": false,
 			"dropCap": false,
-			"fontWeight": false,
-			"lineHeight": false,
-			"fontStyle": false,
-			"textDecoration": false,
-			"textTransform": false,
 			"fontFamilies": [
 				{
 					"fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
-					"slug": "system-fonts",
-					"name": "System Fonts"
+					"name": "System Fonts",
+					"slug": "system-fonts"
 				}
 			],
-			"fontSizes": []
+			"fontSizes": [],
+			"fontStyle": false,
+			"fontWeight": false,
+			"lineHeight": false,
+			"textDecoration": false,
+			"textTransform": false
 		}
 	},
 	"styles": {
@@ -70,21 +69,22 @@
 			"text": "var(--wp--preset--color--black)"
 		},
 		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--system-fonts)",
 			"fontSize": "var(--step-0)",
-			"lineHeight": "1.5",
-			"fontFamily": "var(--wp--preset--font-family--system-fonts)"
+			"lineHeight": "1.5"
 		}
 	},
 	"templateParts": [
 		{
-			"name": "header",
 			"area": "header",
+			"name": "header",
 			"title": "Header"
 		},
 		{
-			"name": "footer",
 			"area": "footer",
+			"name": "footer",
 			"title": "Footer"
 		}
-	]
+	],
+	"version": 2
 }
