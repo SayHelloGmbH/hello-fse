@@ -5,5 +5,11 @@
 		"layout": {
 			"contentSize": "1140px"
 		}
+	},
+	"styles": {
+		"typography": {
+			"fontSize": "var(--step-0)",
+			"lineHeight": "1.5"
+		}
 	}
 }
