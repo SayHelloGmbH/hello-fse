@@ -2,6 +2,30 @@
 	"version": 2,
 	"settings": {
 		"appearanceTools": true,
+		"color": {
+			"palette": [
+				{
+					"slug": "primary",
+					"color": "#000",
+					"name": "Primary"
+				},
+				{
+					"slug": "secondary",
+					"color": "#B6C4FF",
+					"name": "Secondary"
+				},
+				{
+					"slug": "tertiary",
+					"color": "#7B61FF",
+					"name": "Tertiary"
+				},
+				{
+					"slug": "quarternary",
+					"color": "#FFE8E8",
+					"name": "Quaternary"
+				}
+			]
+		},
 		"layout": {
 			"contentSize": "1140px"
 		}
