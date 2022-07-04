@@ -39,7 +39,8 @@
 			]
 		},
 		"layout": {
-			"contentSize": "1140px"
+			"contentSize": "640px",
+			"wideSize": "1280px"
 		},
 		"spacing": {
 			"padding": false,
