@@ -28,6 +28,9 @@
 		},
 		"layout": {
 			"contentSize": "1140px"
+		},
+		"typography": {
+			"fontSizes": []
 		}
 	},
 	"styles": {
