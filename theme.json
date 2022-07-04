@@ -37,12 +37,14 @@
 			],
 			"text": true
 		},
+		"custom": {
+			"unit": "1rem"
+		},
 		"layout": {
 			"contentSize": "640px",
 			"wideSize": "1280px"
 		},
 		"spacing": {
-			"margin": true,
 			"padding": false
 		},
 		"typography": {
@@ -67,6 +69,9 @@
 		"color": {
 			"background": "var(--wp--preset--color--white)",
 			"text": "var(--wp--preset--color--black)"
+		},
+		"spacing": {
+			"blockGap": "var(--wp--custom--unit)"
 		},
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--system-fonts)",
