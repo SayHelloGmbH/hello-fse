@@ -70,7 +70,8 @@
 		},
 		"typography": {
 			"fontSize": "var(--step-0)",
-			"lineHeight": "1.5"
+			"lineHeight": "1.5",
+			"fontFamily": "var(--wp--preset--font-family--system-fonts)"
 		}
 	},
 	"templateParts": [
