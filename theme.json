@@ -1,8 +1,20 @@
 {
 	"version": 2,
 	"settings": {
-		"appearanceTools": true,
+		"appearanceTools": false,
+		"border": {
+			"color": false,
+			"radius": false,
+			"style": false,
+			"width": false
+		},
 		"color": {
+			"custom": false,
+			"customGradient": false,
+			"customDuotone": false,
+			"link": false,
+			"background": true,
+			"text": true,
 			"palette": [
 				{
 					"slug": "primary",
@@ -29,14 +41,48 @@
 		"layout": {
 			"contentSize": "1140px"
 		},
+		"spacing": {
+			"padding": false,
+			"margin": true
+		},
 		"typography": {
+			"customFontSize": false,
+			"dropCap": false,
+			"fontWeight": false,
+			"lineHeight": false,
+			"fontStyle": false,
+			"textDecoration": false,
+			"textTransform": false,
+			"fontFamilies": [
+				{
+					"fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
+					"slug": "system-fonts",
+					"name": "System Fonts"
+				}
+			],
 			"fontSizes": []
 		}
 	},
 	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--white)",
+			"text": "var(--wp--preset--color--black)"
+		},
 		"typography": {
 			"fontSize": "var(--step-0)",
 			"lineHeight": "1.5"
 		}
-	}
+	},
+	"templateParts": [
+		{
+			"name": "header",
+			"area": "header",
+			"title": "Header"
+		},
+		{
+			"name": "footer",
+			"area": "footer",
+			"title": "Footer"
+		}
+	]
 }
