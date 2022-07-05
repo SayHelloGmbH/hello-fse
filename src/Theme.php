@@ -61,6 +61,8 @@ class Theme
 				\SayHello\Theme\Package\Media::class,
 				\SayHello\Theme\Package\Navigation::class,
 				\SayHello\Theme\Package\Shyify::class,
+
+				\SayHello\Theme\Block\ShtMenuToggle::class,
 			]
 		);
 

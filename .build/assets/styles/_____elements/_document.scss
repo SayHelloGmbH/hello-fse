@@ -7,20 +7,11 @@ body {
 }
 
 html {
-	&.is--menuopen {
+	&.is--mobilemenu--open {
 		overflow: hidden;
-		position: fixed;
 		top: 0;
 		width: 100vw;
 		height: calc(100 * var(--vh));
-
-		&.admin-bar {
-			margin-top: 0 !important;
-
-			body {
-				margin-top: var(--c-adminbar-height);
-			}
-		}
 
 		@include breakpoint(desktop) {
 			overflow-y: auto;

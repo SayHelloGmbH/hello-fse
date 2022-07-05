@@ -44,7 +44,7 @@ $rem-font-size: map-get($rem-base, value) + 0px;
 	}
 	@if ($size) {
 		@if ($line-height) {
-			line-height: ($line-height/strip-unit($size));
+			line-height: calc($line-height/strip-unit($size));
 		}
 	}
 	@if ($av) {

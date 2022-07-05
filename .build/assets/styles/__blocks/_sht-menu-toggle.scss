@@ -1,0 +1,81 @@
+body {
+	--menutoggle-color: currentColor;
+	--menutoggle-color-open: currentColor;
+	--menutoggle-width: #{rem-calc(24px)};
+	--menutoggle-height: #{rem-calc(24px)}; // needs to be an odd number
+	--menutoggle-margin: 0;
+}
+
+.wp-block-sht-menu-toggle {
+	position: relative;
+	cursor: pointer;
+	color: var(--menutoggle-color);
+	flex: 0 0 var(--menutoggle-width);
+	width: var(--menutoggle-width);
+	height: var(--menutoggle-height);
+	margin: var(--menutoggle-margin);
+	transition: none;
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+
+	&:active,
+	&:hover {
+		color: var(--menutoggle-color-open);
+		outline: none;
+	}
+
+	&__line {
+		display: block;
+		will-change: transform;
+		position: absolute;
+		width: var(--menutoggle-width);
+		height: 3px;
+		background-color: currentColor;
+		@include transition;
+
+		&:nth-child(1) {
+			top: 0;
+		}
+
+		&:nth-child(2) {
+			top: 50%;
+		}
+
+		&:nth-child(3) {
+			top: 100%;
+		}
+	}
+
+	&__text {
+		font-size: rem-calc(12px);
+		@include av(66.667);
+		line-height: 1;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+	&[aria-expanded='true'] {
+		.wp-block-sht-menu-toggle__line {
+			&:nth-child(1) {
+				transform: rotate(45deg);
+				top: 50%;
+			}
+			&:nth-child(2) {
+				opacity: 0;
+			}
+			&:nth-child(3) {
+				transform: rotate(-45deg);
+				top: 50%;
+			}
+		}
+	}
+}
+
+@include context-view {
+	.wp-block-sht-menu-toggle {
+		@include breakpoint(desktop) {
+			display: none;
+		}
+	}
+}

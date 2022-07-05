@@ -11,33 +11,4 @@ body {
 .c-masthead {
 	padding-top: var(--c-masthead-padding-top);
 	padding-bottom: var(--c-masthead-padding-bottom);
-
-	&__toggler {
-		@include breakpoint(laptop) {
-			display: none;
-		}
-	}
-
-	&__inner {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		max-width: var(--constraint-narrow);
-		margin-left: auto;
-		margin-right: auto;
-		padding: var(--unit--medium) var(--unit);
-
-		@include breakpoint(narrow) {
-			padding-left: 0;
-			padding-right: 0;
-		}
-
-		@include breakpoint(laptop) {
-			max-width: var(--constraint-medium);
-		}
-	}
-
-	&__title {
-		font-size: 1rem;
-	}
 }

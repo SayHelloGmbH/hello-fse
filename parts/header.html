@@ -1,7 +1,17 @@
-<!-- wp:group {"layout":{"inherit":true}} -->
-<div class="wp-block-group"><!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
-<div class="wp-block-group alignwide"><!-- wp:site-title /-->
+<!-- wp:group {"tagName":"header","className":"c-masthead","layout":{"inherit":true}} -->
+<header class="wp-block-group c-masthead"><!-- wp:group {"align":"wide","className":"c-masthead__inner","layout":{"inherit":true}} -->
+<div class="wp-block-group alignwide c-masthead__inner"><!-- wp:columns {"verticalAlignment":"center","isStackedOnMobile":false,"align":"full"} -->
+<div class="wp-block-columns alignfull are-vertically-aligned-center is-not-stacked-on-mobile"><!-- wp:column {"verticalAlignment":"center","width":""} -->
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:site-title /-->
 
 <!-- wp:site-tagline /--></div>
-<!-- /wp:group --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"verticalAlignment":"center","width":"2.5rem","hiddenForDesktop":true} -->
+<div class="wp-block-column is-vertically-aligned-center is-hidden-for--desktop" style="flex-basis:2.5rem"><!-- wp:sht/menu-toggle -->
+<button aria-expanded="false" data-root-style="is--mobilemenu--open" aria-controls="mobilemenu" id="mobilemenu" class="wp-block-sht-menu-toggle"><span class="wp-block-sht-menu-toggle__line wp-block-sht-menu-toggle__line--1"></span><span class="wp-block-sht-menu-toggle__line wp-block-sht-menu-toggle__line--2"></span><span class="wp-block-sht-menu-toggle__line wp-block-sht-menu-toggle__line--3"></span></button>
+<!-- /wp:sht/menu-toggle --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group --></header>
 <!-- /wp:group -->

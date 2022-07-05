@@ -37,73 +37,119 @@
  *
  */
 
-const controllers = document.querySelectorAll('[aria-controls]');
+const controllers = document.querySelectorAll(
+	'[aria-controls]:not([data-standalone-controller])'
+);
 
 if (!!controllers) {
-    var clickHandler = function () {
-        let target = document.querySelector('#' + this.getAttribute('aria-controls'));
+	var clickHandler = function () {
+		let target = document.querySelector(
+			'#' + this.getAttribute('aria-controls')
+		);
 
-        if (!target) {
-            console.error(`Target #${this.getAttribute('aria-controls')} not found`);
-            return;
-        }
+		if (!target) {
+			console.error(
+				`Target #${this.getAttribute('aria-controls')} not found`
+			);
+			return;
+		}
 
-        target.setAttribute(
-            'aria-hidden',
-            target.getAttribute('aria-hidden') == 'true' ? 'false' : 'true'
-        );
+		// Close all referenced elements before opening the new target
+		if (!!target.dataset.closeAll && target.dataset.closeAll !== '') {
+			const toClose = document.querySelectorAll(target.dataset.closeAll);
+			if (!!toClose) {
+				toClose.forEach((element) => {
+					element.setAttribute('aria-hidden', 'true');
+					document
+						.querySelectorAll(`[aria-controls="${element.id}"]`)
+						.forEach((controller) => {
+							controller.setAttribute('aria-expanded', 'false');
+						});
+				});
+			}
+		}
 
-        document.querySelectorAll(`[aria-controls="${target.id}"]`).forEach(controller => {
-            controller.setAttribute(
-                'aria-expanded',
-                target.getAttribute('aria-hidden') === 'true' ? 'false' : 'true'
-            );
-        });
+		if (!!this.dataset.close) {
+			target.setAttribute('aria-hidden', 'true');
+		} else if (!!this.dataset.open) {
+			target.setAttribute('aria-hidden', 'false');
+		} else {
+			target.setAttribute(
+				'aria-hidden',
+				this.getAttribute('aria-expanded') == 'false' ? 'false' : 'true'
+			);
+		}
 
-        // Focus the first form field in the Target if there is one
-        if (
-            target.getAttribute('aria-hidden') === 'false' &&
-            target.querySelectorAll('input,textarea').length
-        ) {
-            let field_focused = false,
-                fields = target.querySelectorAll('input,textarea');
+		document
+			.querySelectorAll(`[aria-controls="${target.id}"]`)
+			.forEach((controller) => {
+				controller.setAttribute(
+					'aria-expanded',
+					target.getAttribute('aria-hidden') === 'true'
+						? 'false'
+						: 'true'
+				);
+			});
 
-            if (!!fields.length) {
-                fields.forEach(field => {
-                    if (field_focused) {
-                        return;
-                    }
-                    let style = window.getComputedStyle(field);
-                    if (!(style.display === 'none' || style.visibility === 'hidden')) {
-                        target.querySelector('input').focus();
-                        field_focused = true;
-                    }
-                });
-            }
-        }
+		// Focus the first form field in the target if there is one
+		if (
+			target.getAttribute('aria-hidden') === 'false' &&
+			target.querySelectorAll('input,textarea').length
+		) {
+			let field_focused = false,
+				fields = target.querySelectorAll('input,textarea');
 
-        if (!!target.dataset.toggleStyle && target.dataset.toggleStyle !== '') {
-            if (target.getAttribute('aria-hidden') === 'false') {
-                target.classList.add(target.dataset.toggleStyle);
-            } else {
-                target.classList.remove(target.dataset.toggleStyle);
-            }
-        }
+			if (!!fields.length) {
+				fields.forEach((field) => {
+					if (field_focused) {
+						return;
+					}
+					let style = window.getComputedStyle(field);
+					if (
+						!(
+							style.display === 'none' ||
+							style.visibility === 'hidden'
+						)
+					) {
+						target.querySelector('input').focus();
+						field_focused = true;
+					}
+				});
+			}
+		}
 
-        if (!!target.dataset.rootStyle && target.dataset.rootStyle !== '') {
-            if (target.getAttribute('aria-hidden') === 'false') {
-                document.documentElement.classList.add(target.dataset.rootStyle);
-            } else {
-                document.documentElement.classList.remove(target.dataset.rootStyle);
-            }
-        }
+		if (!!target.dataset.toggleStyle && target.dataset.toggleStyle !== '') {
+			if (target.getAttribute('aria-hidden') === 'false') {
+				target.classList.add(target.dataset.toggleStyle);
+			} else {
+				target.classList.remove(target.dataset.toggleStyle);
+			}
+		}
 
-        if (!!this.getAttribute('data-blurme')) {
-            this.blur();
-        }
-    };
+		if (!!target.dataset.rootStyle && target.dataset.rootStyle !== '') {
+			target.dataset.rootStyle.split(' ').forEach((style) => {
+				if (target.getAttribute('aria-hidden') === 'false') {
+					document.documentElement.classList.add(style);
+				} else {
+					document.documentElement.classList.remove(style);
+				}
+			});
+		}
 
-    controllers.forEach(controller => {
-        controller.addEventListener('click', clickHandler);
-    });
+		if (!!this.getAttribute('data-blurme')) {
+			this.blur();
+		}
+	};
+
+	controllers.forEach((controller) => {
+		controller.addEventListener('click', clickHandler);
+	});
+
+	if (!!document.querySelector('#mobilemenu')) {
+		document.querySelector('#mobilemenu').dataset.rootStyle =
+			'is--mobilemenu--open';
+		document
+			.querySelector('#mobilemenu')
+			.setAttribute('data-hidden', 'true');
+	}
 }
