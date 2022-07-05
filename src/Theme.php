@@ -67,6 +67,7 @@ class Theme
 		add_action('after_setup_theme', [$this, 'themeSupports']);
 		add_action('comment_form_before', [$this, 'enqueueReplyScript']);
 		add_action('wp_head', [$this, 'noJsScript']);
+		add_filter('body_class', [$this, 'bodyClasses'], 10, 1);
 
 		$this->cleanHead();
 	}
@@ -156,5 +157,24 @@ class Theme
 		if (is_singular() && get_option('thread_comments')) {
 			wp_enqueue_script('comment-reply');
 		}
+	}
+
+	/**
+	 * Provides a function that adds custom
+	 * css Classes to Website
+	 *
+	 * @param array $classes Default body classes
+	 *
+	 * @return array Containing all necessary Classes
+	 */
+	public function bodyClasses(array $classes)
+	{
+		$classes[] = 'no-js';
+
+		if ($this->debug) {
+			$classes[] = 'c-body--themedev';
+		}
+
+		return $classes;
 	}
 }
