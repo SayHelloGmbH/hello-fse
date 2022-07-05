@@ -1,59 +1,28 @@
-.c-mobilemenu {
-	position: fixed;
-	top: var(--masthead--height);
-	bottom: 0;
-	right: 0;
-	transform: translateX(100vw);
-	opacity: 0;
-	z-index: 2;
-	width: 100vw;
-	transition: opacity 300ms ease;
-	width: 100%;
-	height: calc(var(--dvh) * 100);
-	overflow: auto;
-	padding: 0 var(--wp--custom--spacing--outer-gutter) !important;
-
-	@include breakpoint(laptop) {
+@include context-view {
+	.c-mobilemenu {
 		display: none;
-	}
+		box-sizing: border-box;
+		position: fixed;
+		top: var(--masthead--height);
+		bottom: 0;
+		left: 0;
+		// Don't use "right" here: it creates a scroll overflow
+		width: 100%;
+		transform: translateX(100vw);
+		opacity: 0;
+		z-index: 2;
+		transition: opacity 300ms ease;
+		height: calc(var(--vh) * 100);
+		overflow: auto;
 
-	&[aria-hidden='false'] {
-		transform: translateX(0);
-		opacity: 1;
-	}
-
-	.wp-block-polylang-language-switcher {
-		list-style: none;
-		padding: 0;
-		text-align: center;
-
-		a {
-			color: currentColor;
-			text-decoration: none;
+		@include breakpoint(laptop) {
+			display: none;
 		}
-	}
 
-	&__footer {
-		margin-top: #{rem-calc(87px)} !important;
-	}
-
-	&__inner {
-		max-width: var(--constraint-narrow);
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.sub-menu {
-		display: none;
-	}
-
-	.wp-block-shb-nav-menu__entry--current > .sub-menu,
-	.wp-block-shb-nav-menu__entry--current_item_ancestor > .sub-menu {
-		display: block;
-	}
-
-	.wpml-ls-statics-footer {
-		@include typo(16, 24);
-		margin: 0;
+		&[aria-hidden='false'] {
+			display: block;
+			transform: translateX(0);
+			opacity: 1;
+		}
 	}
 }

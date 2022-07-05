@@ -1,22 +1,21 @@
 .wp-block-cover {
-    &.has-background-dim {
-        color: var(--wp--preset--color--white);
-    }
+	&.has-background-dim {
+		color: var(--wp--preset--color--white);
+	}
 
-    &__inner-container {
-        @extend .h-stack;
-        padding-top: var(--unit);
-        padding-bottom: var(--unit);
-        width: 100vw;
-        max-width: var(--constraint-narrow);
-        color: inherit !important;
-    }
+	&__inner-container {
+		@extend .h-stack;
+		padding-top: var(--unit);
+		padding-bottom: var(--unit);
+		max-width: var(--constraint-narrow);
+		color: inherit !important;
+	}
 }
 
 @include context-edit {
-    .wp-block-cover {
-        .block-editor-block-list__block {
-            color: inherit;
-        }
-    }
+	.wp-block-cover {
+		.block-editor-block-list__block {
+			color: inherit;
+		}
+	}
 }
