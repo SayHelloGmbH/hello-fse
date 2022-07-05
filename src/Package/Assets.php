@@ -55,6 +55,10 @@ class Assets
 		$deps[] = 'fancybox';
 
 		wp_enqueue_script('sht-script', $this->theme_url . '/assets/scripts/ui' . ($min ? '.min' : '') . '.js', $deps, filemtime($this->theme_path . '/assets/scripts/ui' . ($min ? '.min' : '') . '.js'), true);
+		wp_localize_script('sht-script', 'sht_theme', [
+			'directory_uri' => get_template_directory_uri(),
+			'version' => wp_get_theme()->get('Version')
+		]);
 	}
 
 	public function registerAdminAssets()
