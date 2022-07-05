@@ -32,7 +32,7 @@ a {
 
 a,
 button {
-	@include transition();
+	@include transition(opacity);
 }
 
 button {
