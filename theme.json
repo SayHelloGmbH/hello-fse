@@ -59,39 +59,39 @@
 			],
 			"fontSizes": [
 				{
-					"slug": "xsmall",
+					"name": "Extra small",
 					"size": ".75rem",
-					"name": "Extra small"
+					"slug": "xsmall"
 				},
 				{
-					"slug": "small",
+					"name": "Small",
 					"size": "0.875rem",
-					"name": "Small"
+					"slug": "small"
 				},
 				{
-					"slug": "medium",
+					"name": "Medium",
 					"size": "1.125rem",
-					"name": "Medium"
+					"slug": "medium"
 				},
 				{
-					"slug": "large",
+					"name": "Large",
 					"size": "1.25rem",
-					"name": "Large"
+					"slug": "large"
 				},
 				{
-					"slug": "xlarge",
+					"name": "Extra large",
 					"size": "1.5rem",
-					"name": "Extra large"
+					"slug": "xlarge"
 				},
 				{
-					"slug": "xxlarge",
+					"name": "Extra-extra large",
 					"size": "1.875rem",
-					"name": "Extra-extra large"
+					"slug": "xxlarge"
 				},
 				{
-					"slug": "xxxlarge",
+					"name": "Huge",
 					"size": "2.25rem",
-					"name": "Huge"
+					"slug": "xxxlarge"
 				}
 			],
 			"fontStyle": false,
@@ -135,11 +135,6 @@
 			"h6": {
 				"typography": {
 					"fontSize": "var(--step--0)"
-				}
-			},
-			"figcaption": {
-				"typography": {
-					"fontSize": "var(--step---1)"
 				}
 			}
 		},
