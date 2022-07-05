@@ -41,8 +41,8 @@
 			"unit": "1rem"
 		},
 		"layout": {
-			"contentSize": "640px",
-			"wideSize": "1280px"
+			"contentSize": "600px",
+			"wideSize": "1200px"
 		},
 		"spacing": {
 			"padding": false
