@@ -11,4 +11,5 @@ body {
 .c-masthead {
 	padding-top: var(--c-masthead-padding-top);
 	padding-bottom: var(--c-masthead-padding-bottom);
+	@extend %h-guttered;
 }
