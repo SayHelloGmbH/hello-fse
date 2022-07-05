@@ -15,7 +15,6 @@ $context: 'admin';
 
 @import '../../../assets/settings.json';
 
-@import '________settings/__all.settings';
 @import '_______tools/mixins/context';
 
 @include context-admin {
