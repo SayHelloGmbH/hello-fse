@@ -52,7 +52,7 @@ input {
 		-webkit-appearance: none; // remove inner shadow
 		border: var(--field-border);
 		border-radius: var(--field-radius);
-		padding: var(--unit-small);
+		padding: var(--unit--small);
 		display: block;
 		width: 100%;
 
@@ -132,7 +132,7 @@ textarea {
 	resize: vertical;
 	border: var(--field-border);
 	border-radius: var(--field-radius);
-	padding: var(--unit-small);
+	padding: var(--unit--small);
 	display: block;
 	width: 100%;
 

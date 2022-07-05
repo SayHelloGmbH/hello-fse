@@ -103,13 +103,13 @@ ol {
 	counter-reset: item;
 
 	li:before {
-		margin-right: var(--unit-small);
+		margin-right: var(--unit--small);
 		content: counters(item, '.') '. ';
 		counter-increment: item;
 	}
 
 	ol {
-		margin-top: var(--unit-small);
+		margin-top: var(--unit--small);
 		padding-left: 1.2em;
 	}
 }
