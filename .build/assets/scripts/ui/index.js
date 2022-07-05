@@ -1,4 +1,3 @@
-// import { c, color, theme, is_mobile } from './modules/settings.js';
 // import './modules/settings';
 import './_polyfill';
 import './a11y';
