@@ -4,7 +4,6 @@ if (!defined('DISALLOW_FILE_EDIT')) {
 	define('DISALLOW_FILE_EDIT', true);
 }
 
-
 if (!function_exists('dump')) {
 	function dump($var, $exit = false)
 	{
@@ -15,12 +14,21 @@ if (!function_exists('dump')) {
 	}
 }
 
-if (version_compare(get_bloginfo('version'), '6.0', '<') || version_compare(PHP_VERSION, '8.0', '<') || !class_exists('acf')) {
+$php_required = '8.0';
+$wp_required = '6.0';
+
+if (version_compare(get_bloginfo('version'), $wp_required, '<') || version_compare(PHP_VERSION, $php_required, '<')) {
 	add_action(
 		'admin_notices',
-		function () {
+		function () use ($php_required, $wp_required) {
 			// translators: Admin notice for system requirements
-			echo '<div class="error"><p>' . sprintf(__('Dieses Theme benötigt PHP %1$s (oder neuer), WordPress %2$s (oder neuer) und das Plugin «Advanced Custom Fields». Ihre Website verfügt über PHP %3$s und WordPress %4$s. Bitte aktualisieren Sie die Abhängigkeiten. Das Theme wurde automatisch deaktiviert.', 'sha'), '7.0', '5.0', PHP_VERSION, $GLOBALS['wp_version']) . '</p></div>';
+			echo '<div class="error"><p>' . sprintf(
+				__('Das ausgewählte Theme benötigt PHP %1$s (oder neuer) und WordPress %2$s (oder neuer). Ihre Website verfügt über PHP %3$s und WordPress %4$s. Bitte aktualisieren Sie die Abhängigkeiten, damit keine fatale Fehler erzeugt werden.', 'sha'),
+				$php_required,
+				$wp_required,
+				PHP_VERSION,
+				$GLOBALS['wp_version']
+			) . '</p></div>';
 		}
 	);
 
