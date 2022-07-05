@@ -60,12 +60,12 @@
 			"fontSizes": [
 				{
 					"slug": "xsmall",
-					"size": "1rem",
+					"size": ".75rem",
 					"name": "Extra small"
 				},
 				{
 					"slug": "small",
-					"size": "1rem",
+					"size": "0.875rem",
 					"name": "Small"
 				},
 				{
