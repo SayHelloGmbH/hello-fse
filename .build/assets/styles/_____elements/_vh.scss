@@ -1,3 +1,16 @@
-:root {
-    --vh: 1vh;
+/**
+ * VH is the viewport height. This works fine in most browsers,
+ * but Safari changes the vieport height on scrolling, which
+ * messes up calculations based on vh. The new viewport unit svh
+ * is being introduced, which is the smallest viewport height,
+ * i.e. the viewport height before Safari fucks it up.
+ * https://dev.to/frehner/css-vh-dvh-lvh-svh-and-vw-units-27k4
+ *
+ * If 1svh isn't natively supported, it'll be faked by the svh JavaScript.
+ *
+ * Since July 2022
+ **/
+
+body {
+	--vh: 1svh;
 }
