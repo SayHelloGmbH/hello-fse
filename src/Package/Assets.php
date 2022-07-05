@@ -10,16 +10,8 @@ namespace SayHello\Theme\Package;
 class Assets
 {
 
-	public $font_version = '1.0';
 	public $theme_url = '';
 	public $theme_path = '';
-
-	public function __construct()
-	{
-		$this->font_version = sht_theme()->version;
-		$this->theme_url    = get_template_directory_uri();
-		$this->theme_path   = get_template_directory();
-	}
 
 	public function run()
 	{
@@ -43,18 +35,18 @@ class Assets
 		 */
 		$deps = ['wp-block-library'];
 
-		wp_enqueue_style('fancybox', $this->theme_url . '/assets/plugins/fancybox/jquery.fancybox.min.css', [], '3.4.0');
+		wp_enqueue_style('fancybox', get_template_directory_uri() . '/assets/plugins/fancybox/jquery.fancybox.min.css', [], '3.4.0');
 		$deps[] = 'fancybox';
 
-		wp_enqueue_style('sht-style', $this->theme_url . '/assets/styles/ui' . ($min ? '.min' : '') . '.css', $deps, filemtime($this->theme_path . '/assets/styles/ui' . ($min ? '.min' : '') . '.css'));
+		wp_enqueue_style('sht-style', get_template_directory_uri() . '/assets/styles/ui' . ($min ? '.min' : '') . '.css', $deps, filemtime(get_template_directory() . '/assets/styles/ui' . ($min ? '.min' : '') . '.css'));
 
 		// Javascript
 		$deps = [];
 
-		wp_enqueue_script('fancybox', $this->theme_url . '/assets/plugins/fancybox/jquery.fancybox.min.js', ['jquery'], '3.4.0', true);
+		wp_enqueue_script('fancybox', get_template_directory_uri() . '/assets/plugins/fancybox/jquery.fancybox.min.js', ['jquery'], '3.4.0', true);
 		$deps[] = 'fancybox';
 
-		wp_enqueue_script('sht-script', $this->theme_url . '/assets/scripts/ui' . ($min ? '.min' : '') . '.js', $deps, filemtime($this->theme_path . '/assets/scripts/ui' . ($min ? '.min' : '') . '.js'), true);
+		wp_enqueue_script('sht-script', get_template_directory_uri() . '/assets/scripts/ui' . ($min ? '.min' : '') . '.js', $deps, filemtime(get_template_directory() . '/assets/scripts/ui' . ($min ? '.min' : '') . '.js'), true);
 		wp_localize_script('sht-script', 'sht_theme', [
 			'directory_uri' => get_template_directory_uri(),
 			'version' => wp_get_theme()->get('Version')
@@ -63,22 +55,24 @@ class Assets
 
 	public function registerAdminAssets()
 	{
-		//wp_enqueue_style('sht-admin-editor-style', $this->theme_url . '/assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css', ['wp-edit-blocks'], filemtime($this->theme_path . '/assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css'));
-		wp_enqueue_style('sht-admin-style', $this->theme_url . '/assets/styles/admin' . (sht_theme()->debug ? '' : '.min') . '.css', ['sht-admin-editor-style', 'wp-edit-blocks'], filemtime($this->theme_path . '/assets/styles/admin' . (sht_theme()->debug ? '' : '.min') . '.css'));
+		//wp_enqueue_style('sht-admin-editor-style', get_template_directory_uri() . '/assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css', ['wp-edit-blocks'], filemtime(get_template_directory() . '/assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css'));
+		wp_enqueue_style('sht-admin-style', get_template_directory_uri() . '/assets/styles/admin' . (sht_theme()->debug ? '' : '.min') . '.css', ['sht-admin-editor-style', 'wp-edit-blocks'], filemtime(get_template_directory() . '/assets/styles/admin' . (sht_theme()->debug ? '' : '.min') . '.css'));
 	}
 
 	public function editorStyle()
 	{
-		if (file_exists($this->theme_path . '/assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css')) {
-			add_editor_style($this->theme_url . '/assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css');
-		}
+		add_theme_support('editor-styles');
+		add_editor_style('assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css');
+		// if (file_exists(get_template_directory() . '/assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css')) {
+		// 	add_editor_style('assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css');
+		// }
 	}
 
 	public function loadFonts()
 	{
 		$theme_url = str_replace(get_home_url(), '', get_template_directory_uri());
 		$theme_path = get_template_directory();
-		$font_name = sanitize_title(sht_theme()->name) . '-font-' . $this->font_version;
+		$font_name = sanitize_title(sht_theme()->name) . '-font-' . sht_theme()->version;
 
 		if (!file_exists("{$theme_path}/assets/fonts/woff2.css")) {
 			return;
