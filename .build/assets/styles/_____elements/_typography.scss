@@ -1,187 +1,178 @@
-:root {
-    // Temporary solution until fontSizes is fully supported in FSE
-    --font-size--tiny: #{rem-calc(12px)};
-    --font-size--small: #{rem-calc(14px)};
-    --font-size--medium: #{rem-calc(18px)};
-    --font-size--large: #{rem-calc(24px)};
-    --font-size--xlarge: #{rem-calc(36px)};
-    --font-size--huge: #{rem-calc(42px)};
-}
-
 body {
-    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-        'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    --font-family-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	/* @link https://utopia.fyi/type/calculator?c=375,16,1.2,1280,18,1.2,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
 
-    --font-weight-normal: 400;
-    --font-weight-bold: 700;
+	--step---2: clamp(0.69rem, calc(0.66rem + 0.15vw), 0.78rem);
+	--step---1: clamp(0.83rem, calc(0.79rem + 0.18vw), 0.94rem);
+	--step--0: clamp(1rem, calc(0.95rem + 0.22vw), 1.13rem);
+	--step--1: clamp(1.2rem, calc(1.14rem + 0.27vw), 1.35rem);
+	--step--2: clamp(1.44rem, calc(1.37rem + 0.32vw), 1.62rem);
+	--step--3: clamp(1.73rem, calc(1.64rem + 0.38vw), 1.94rem);
+	--step--4: clamp(2.07rem, calc(1.97rem + 0.46vw), 2.33rem);
+	--step--5: clamp(2.49rem, calc(2.36rem + 0.55vw), 2.8rem);
 
-    --radius: 0;
+	--font-weight-normal: 400;
+	--font-weight-bold: 700;
 
-    // Probably not necessary but useful for browser debugging
-    --wp--preset--font-size--rem-base: #{$rem-font-size};
-}
+	--radius: 0;
 
-body {
-    font-family: var(--font-family);
-    font-weight: 400;
-    line-height: var(--wp--custom--line-height--regular);
-    font-size: 1rem;
+	// Probably not necessary but useful for browser debugging
+	--wp--preset--font-size--rem-base: #{$rem-font-size};
+
+	-webkit-font-smoothing: antialiased;
 }
 
 abbr,
 acronym {
-    cursor: help;
+	cursor: help;
 }
 
 a {
-    color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--primary);
 }
 
 a,
 button {
-    @include transition();
+	@include transition();
 }
 
 button {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 blockquote {
-    margin: 0;
-    @extend .h-stack;
+	margin: 0;
+	@extend .h-stack;
 }
 
 button {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 cite {
-    display: block;
+	display: block;
 }
 
 code {
-    background-color: var(--wp--preset--color--gray-xlight);
-    display: inline-block;
-    padding: 0.0625em 0.25em;
+	background-color: var(--wp--preset--color--gray-xlight);
+	display: inline-block;
+	padding: 0.0625em 0.25em;
 }
 
 dd + dt {
-    margin-top: var(--unit);
+	margin-top: var(--unit);
 }
 
 dt {
-    font-weight: 700;
+	font-weight: 700;
 }
 
 figure,
 img {
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
 }
 
 figure {
-    margin: 0;
+	margin: 0;
 
-    > a {
-        border-bottom: none;
-    }
+	> a {
+		border-bottom: none;
+	}
 }
 
 figcaption {
-    font-size: var(--wp--preset--font-size--small);
-    text-align: center;
+	text-align: center;
+	font-size: var(--step---1); // not supported in theme.json
 }
 
 hr {
-    border-style: solid;
-    border-width: 0 0 1px;
-    border-color: var(--wp-block-separator-color);
+	border-style: solid;
+	border-width: 0 0 1px;
+	border-color: var(--wp-block-separator-color);
 }
 
 li {
-    @extend .h-stack;
+	@extend .h-stack;
 }
 
 ol {
-    padding-left: 0;
-    list-style: none;
-    @extend .h-stack--small;
-    counter-reset: item;
+	padding-left: 0;
+	list-style: none;
+	@extend .h-stack--small;
+	counter-reset: item;
 
-    li:before {
-        margin-right: var(--unit-small);
-        content: counters(item, '.') '. ';
-        counter-increment: item;
-    }
+	li:before {
+		margin-right: var(--unit-small);
+		content: counters(item, '.') '. ';
+		counter-increment: item;
+	}
 
-    ol {
-        margin-top: var(--unit-small);
-        padding-left: 1.2em;
-    }
+	ol {
+		margin-top: var(--unit-small);
+		padding-left: 1.2em;
+	}
 }
 
 ul {
-    padding-left: 1.2em;
-    list-style: revert;
-    @extend .h-stack--small;
+	padding-left: 1.2em;
+	list-style: revert;
+	@extend .h-stack--small;
 
-    ul {
-        margin-top: var(--unit);
-    }
+	ul {
+		margin-top: var(--unit);
+	}
 }
 
 nav {
-    li,
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
+	li,
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
 
-    a {
-        text-decoration: none;
-    }
+	a {
+		text-decoration: none;
+	}
 }
 
 p {
-    &:empty {
-        display: none;
-    }
+	&:empty {
+		display: none;
+	}
 
-    &.has-background {
-        padding: var(--unit);
-    }
+	&.has-background {
+		padding: var(--unit);
+	}
 }
 
 q {
-    font-style: italic;
+	font-style: italic;
 }
 
 sub,
 sup {
-    font-size: var(--wp--preset--font-size--tiny);
-    -webkit-font-smoothing: subpixel-antialiased;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
+	font-size: var(--step---2);
+	-webkit-font-smoothing: subpixel-antialiased;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
 }
 
 sup {
-    top: -0.5em;
+	top: -0.5em;
 }
 
 sub {
-    bottom: -0.25em;
+	bottom: -0.25em;
 }
 
 input,
 li,
 p,
 tr {
-    font-size: 1em;
+	font-size: 1em;
 }
 
 h1,
@@ -190,115 +181,29 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--font-family-heading);
-    line-height: var(--wp--custom--line-height--heading);
-    margin: 0;
-    word-break: break-word;
+	margin: 0;
+	word-break: break-word;
 
-    a,
-    a:active,
-    a:hover {
-        text-decoration: none;
-        color: currentColor;
-    }
-}
-
-h1 {
-    font-size: var(--font-size--huge);
-}
-
-h2 {
-    font-size: var(--font-size--xlarge);
-}
-
-h3 {
-    font-size: var(--font-size--large);
-}
-
-h4 {
-    font-size: var(--font-size--medium);
-}
-
-h5 {
-    font-size: var(--font-size--small);
-}
-
-h6 {
-    font-size: var(--font-size--tiny);
+	a,
+	a:active,
+	a:hover {
+		text-decoration: none;
+		color: currentColor;
+	}
 }
 
 @include context-edit {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: var(--font-family-heading);
-
-        a,
-        a:active,
-        a:hover {
-            color: currentColor !important;
-            border: none !important;
-        }
-    }
-}
-
-/* Text meant only for screen readers. */
-.screen-reader-text {
-    border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-    word-wrap: normal !important;
-
-    &:focus {
-        clip: auto !important;
-        clip-path: none;
-        color: var(--wp--preset--color-black);
-        display: block;
-        font-size: 1em;
-        height: auto;
-        left: 5px;
-        line-height: normal;
-        padding: 15px 23px 14px;
-        text-decoration: none;
-        top: 5px;
-        width: auto;
-        z-index: 100000;
-        /* Above WP toolbar. */
-    }
-}
-
-@include context-view {
-    a,
-    button {
-        color: var(--sht--color--link);
-
-        &:active,
-        &:hover {
-            color: var(--sht--color--link-hover);
-        }
-    }
-}
-
-@include context-edit {
-    a {
-        color: var(--sht--color--link);
-    }
-
-    .block-editor-rich-text__editable a {
-        color: var(--sht--color--link) !important;
-
-        &:active,
-        &:hover {
-            color: var(--sht--color--link-hover) !important;
-        }
-    }
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		a,
+		a:active,
+		a:hover {
+			color: currentColor !important;
+			border: none !important;
+		}
+	}
 }

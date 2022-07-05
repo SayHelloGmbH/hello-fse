@@ -57,7 +57,43 @@
 					"slug": "system-fonts"
 				}
 			],
-			"fontSizes": [],
+			"fontSizes": [
+				{
+					"slug": "xsmall",
+					"size": "1rem",
+					"name": "Extra small"
+				},
+				{
+					"slug": "small",
+					"size": "1rem",
+					"name": "Small"
+				},
+				{
+					"slug": "medium",
+					"size": "1.125rem",
+					"name": "Medium"
+				},
+				{
+					"slug": "large",
+					"size": "1.25rem",
+					"name": "Large"
+				},
+				{
+					"slug": "xlarge",
+					"size": "1.5rem",
+					"name": "Extra large"
+				},
+				{
+					"slug": "xxlarge",
+					"size": "1.875rem",
+					"name": "Extra-extra large"
+				},
+				{
+					"slug": "xxxlarge",
+					"size": "2.25rem",
+					"name": "Huge"
+				}
+			],
 			"fontStyle": false,
 			"fontWeight": false,
 			"lineHeight": false,
@@ -70,9 +106,46 @@
 			"background": "var(--wp--preset--color--white)",
 			"text": "var(--wp--preset--color--black)"
 		},
+		"elements": {
+			"h1": {
+				"typography": {
+					"fontSize": "var(--step--5)"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontSize": "var(--step--4)"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontSize": "var(--step--3)"
+				}
+			},
+			"h4": {
+				"typography": {
+					"fontSize": "var(--step--2)"
+				}
+			},
+			"h5": {
+				"typography": {
+					"fontSize": "var(--step--1)"
+				}
+			},
+			"h6": {
+				"typography": {
+					"fontSize": "var(--step--0)"
+				}
+			},
+			"figcaption": {
+				"typography": {
+					"fontSize": "var(--step---1)"
+				}
+			}
+		},
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--system-fonts)",
-			"fontSize": "var(--step-0)",
+			"fontSize": "var(--step--0)",
 			"lineHeight": "1.5"
 		}
 	},
