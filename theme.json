@@ -70,9 +70,6 @@
 			"background": "var(--wp--preset--color--white)",
 			"text": "var(--wp--preset--color--black)"
 		},
-		"spacing": {
-			"blockGap": "var(--wp--custom--unit)"
-		},
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--system-fonts)",
 			"fontSize": "var(--step-0)",
