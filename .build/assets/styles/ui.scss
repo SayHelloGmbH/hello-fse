@@ -1,0 +1,25 @@
+/*! Created by Say Hello GmbH (Switzerland), hello@sayhello.ch */
+
+/*
+
+This stylesheet was generated using Sass (http://sass-lang.com).
+Original files can be found inside the /.build/assets/styles/ folder inside the main folder of this project.
+
+The structure follows the principles of ITCSS (http://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528)
+
+*/
+
+@charset 'UTF-8';
+@use 'sass:math';
+$context: 'view';
+
+@import '../../../assets/settings.json';
+
+@import '________settings/__all.settings';
+@import '_______tools/__all.tools';
+@import '______generic/__all.generic';
+@import '_____elements/__all.elements';
+@import '____objects/__all.objects';
+@import '___components/__all.components';
+@import '__blocks/__all.blocks';
+@import '_overrides/__all.overrides';

@@ -1,0 +1,58 @@
+{
+	"name": "hello-fse",
+	"description": "This is a WordPress Theme by [say hello](https://sayhello.ch).",
+	"main": "gulpfile.babel.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/SayHelloGmbH/hello-fse.git"
+	},
+	"keywords": [
+		"sayhello",
+		"wordpress",
+		"wordpress theme"
+	],
+	"bugs": {
+		"url": "https://github.com/SayHelloGmbH/hello-fse/issues"
+	},
+	"homepage": "https://github.com/SayHelloGmbH/hello-fse#readme",
+	"dependencies": {
+		"@babel/preset-env": "^7.18.6",
+		"@babel/preset-react": "^7.18.6",
+		"@babel/register": "^7.18.6",
+		"gulp-sass-import-json": "github:SayHelloGmbH/gulp-sass-import-json",
+		"@wordpress/dependency-extraction-webpack-plugin": "^3.6.0",
+		"@wordpress/icons": "^9.3.0",
+		"babel-loader": "^8.2.5",
+		"css-loader": "^6.7.1",
+		"fs": "^0.0.1-security",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^8.0.0",
+		"gulp-clean-css": "^4.3.0",
+		"gulp-editor-styles": "^1.0.1",
+		"gulp-filter": "^7.0.0",
+		"gulp-rename": "^2.0.0",
+		"gulp-sass": "^5.1.0",
+		"gulp-sourcemaps": "^3.0.0",
+		"gulp-svgmin": "^4.1.0",
+		"gulp-uglify": "^3.0.2",
+		"sass": "^1.53.0",
+		"sass-loader": "^13.0.2",
+		"style-loader": "^3.3.1",
+		"webpack": "^5.73.0",
+		"webpack-stream": "^7.0.0"
+	},
+	"author": "Say Hello GmbH - https://sayhello.ch",
+	"license": "GPL-3.0-or-later",
+	"scripts": {
+		"start": "gulp"
+	},
+	"babel": {
+		"presets": [
+			"@babel/preset-env",
+			"@babel/preset-react"
+		]
+	},
+	"browserslist": [
+		"> 1%"
+	]
+}

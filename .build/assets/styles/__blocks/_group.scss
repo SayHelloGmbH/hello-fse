@@ -1,0 +1,21 @@
+.wp-block-group {
+    @extend .h-stack;
+
+    &.has-background {
+        padding: var(--unit);
+    }
+
+    &__inner-container {
+        @extend .h-stack;
+        > * {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+@include context-edit {
+    .wp-block[data-type='core/group'][data-align='full'] {
+        max-width: 100%;
+    }
+}

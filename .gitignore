@@ -1,0 +1,8 @@
+node_modules
+.sass-cache
+.DS_Store
+.env
+*.map
+*.pot~
+*.po~
+error_log

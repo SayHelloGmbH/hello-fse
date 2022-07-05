@@ -1,0 +1,44 @@
+/*! Created by Say Hello GmbH (Switzerland), hello@sayhello.ch */
+
+/*
+
+This stylesheet was generated using Sass (http://sass-lang.com).
+Original files can be found inside the /.build/assets/styles/ folder inside the main folder of this project.
+
+The structure follows the principles of ITCSS (http://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528)
+
+*/
+
+@charset 'UTF-8';
+@use 'sass:math';
+$context: 'admin';
+
+@import '../../../assets/settings.json';
+
+@import '________settings/__all.settings';
+@import '_______tools/mixins/context';
+
+@include context-admin {
+	.editor-post-title__block .editor-post-title__input {
+		font-family: var(--font-heading);
+	}
+
+	body.post-type-block_area,
+	body.post-type-page {
+		.editor-post-title__block {
+			opacity: 0.5;
+
+			&::after {
+				content: 'Wird nicht als Inhalt ausgegeben';
+				position: absolute;
+				top: 50%;
+				left: -10rem;
+				max-width: 9rem;
+				font-family: sans-serif;
+				text-transform: uppercase;
+				font-size: small;
+				transform: translateY(-50%);
+			}
+		}
+	}
+}

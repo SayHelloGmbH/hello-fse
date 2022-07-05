@@ -1,0 +1,14 @@
+.wp-block-table {
+    &.alignleft,
+    &.alignright {
+        @include breakpoint(tablet) {
+            max-width: 75%;
+        }
+    }
+
+    td,
+    th {
+        padding: 0.5em;
+        border: 1px solid var(--wp--preset--color--gray);
+    }
+}

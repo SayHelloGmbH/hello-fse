@@ -1,0 +1,46 @@
+body {
+    --body-color: var(--wp--preset--color--black);
+    --body-background-color: var(--wp--preset--color--white);
+
+    // Current custom definition via theme.json not working
+    // https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/#what-is-blockgap-and-how-can-i-use-it
+    --wp--style--block-gap: var(--unit);
+
+    color: var(--body-color);
+    background-color: var(--body-background-color);
+}
+
+html {
+    &.is--menuopen {
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        height: calc(100 * var(--vh));
+
+        &.admin-bar {
+            margin-top: 0 !important;
+
+            body {
+                margin-top: var(--c-adminbar-height);
+            }
+        }
+
+        @include breakpoint(desktop) {
+            overflow-y: auto;
+            position: static;
+            height: auto;
+        }
+    }
+}
+
+@include context-view {
+    [id] {
+        scroll-snap-margin-top: var(--unit); // Safari
+        scroll-margin-top: var(--unit);
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+}

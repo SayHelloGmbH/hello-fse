@@ -1,0 +1,12 @@
+.c-article {
+    @extend .h-stack--medium;
+
+    &__date {
+        display: block;
+        font-size: var(--wp--preset--font-size--small);
+    }
+
+    &__header {
+        @extend .h-stack;
+    }
+}
