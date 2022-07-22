@@ -8,7 +8,6 @@
 
 	&__header {
 		@extend .h-stack;
-		padding-left: var(--wp--custom--spacing-outer-gutter);
-		padding-right: var(--wp--custom--spacing-outer-gutter);
+		@extend %h-guttered;
 	}
 }
