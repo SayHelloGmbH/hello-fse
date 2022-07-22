@@ -31,11 +31,6 @@ input {
 		opacity: 0.75;
 	}
 
-	&[type='button'],
-	&[type='submit'] {
-		@extend .o-button;
-	}
-
 	&[type='date'],
 	&[type='datetime-local'],
 	&[type='datetime'],
