@@ -23,6 +23,7 @@ class Media
 
 		add_action('after_setup_theme', [$this, 'addImageSizes']);
 		add_filter('image_size_names_choose', [$this, 'selectableImageSizes']);
+		add_filter('post_thumbnail_size', [$this, 'fixPostThumbnailSize']);
 	}
 
 	/**
@@ -56,5 +57,22 @@ class Media
 		}
 
 		return $sizes;
+	}
+
+	/**
+	 * WordPress Core returns the wrong image size when using “post-thumbnail"
+	 * as a keyword. This is a temporary workaround until the fix detailed in
+	 * https://core.trac.wordpress.org/ticket/17262 lands.
+	 *
+	 * @param string $size
+	 * @return string
+	 */
+	public function fixPostThumbnailSize(string $size)
+	{
+		if ($size === 'post-thumbnail') {
+			return 'thumbnail';
+		}
+
+		return $size;
 	}
 }
