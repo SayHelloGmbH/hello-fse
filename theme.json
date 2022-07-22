@@ -138,6 +138,11 @@
 				"typography": {
 					"fontSize": "var(--step--0)"
 				}
+			},
+			"link": {
+				"color": {
+					"text": "var(--wp--preset--color--primary)"
+				}
 			}
 		},
 		"typography": {
