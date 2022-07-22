@@ -6,9 +6,9 @@ body {
 	@each $colour, $colourSet in $theme_colors {
 		@each $variant, $value in $colourSet {
 			@if $variant == 'base' {
-				--sht--color--#{$colour}: #{$value};
+				--sht--preset--color--#{$colour}: #{$value};
 			} @else {
-				--sht--color--#{$colour}-#{$variant}: #{$value};
+				--sht--preset--color--#{$colour}-#{$variant}: #{$value};
 			}
 		}
 	}

@@ -270,12 +270,12 @@ textarea:focus {
 }
 
 label.error {
-  color: var(--sht--color--danger);
+  color: var(--sht--preset--color--danger);
 }
 
 .input.error {
-  border-color: var(--sht--color--danger-border);
-  outline-color: var(--sht--color--danger-border);
+  border-color: var(--sht--preset--color--danger-border);
+  outline-color: var(--sht--preset--color--danger-border);
 }
 
 /**
@@ -1319,18 +1319,18 @@ body {
  * theme.json. These are defined in assets/settings.json.
  */
 body {
-  --sht--color--success: #489324;
-  --sht--color--success-background: #dff0d8;
-  --sht--color--success-border: #34cf7a;
-  --sht--color--info: #333333;
-  --sht--color--info-background: #eaeaea;
-  --sht--color--info-border: #989898;
-  --sht--color--warning: #E2912A;
-  --sht--color--warning-background: #EFD7B9;
-  --sht--color--warning-border: #F3DF5D;
-  --sht--color--danger: #FF0000;
-  --sht--color--danger-background: #FFE9E9;
-  --sht--color--danger-border: #A01E32;
+  --sht--preset--color--success: #489324;
+  --sht--preset--color--success-background: #dff0d8;
+  --sht--preset--color--success-border: #34cf7a;
+  --sht--preset--color--info: #333333;
+  --sht--preset--color--info-background: #eaeaea;
+  --sht--preset--color--info-border: #989898;
+  --sht--preset--color--warning: #E2912A;
+  --sht--preset--color--warning-background: #EFD7B9;
+  --sht--preset--color--warning-border: #F3DF5D;
+  --sht--preset--color--danger: #FF0000;
+  --sht--preset--color--danger-background: #FFE9E9;
+  --sht--preset--color--danger-border: #A01E32;
 }
 
 body.c-body--themedev::after {

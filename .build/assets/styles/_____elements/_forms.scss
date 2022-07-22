@@ -148,10 +148,10 @@ textarea {
 }
 
 label.error {
-	color: var(--sht--color--danger);
+	color: var(--sht--preset--color--danger);
 }
 
 .input.error {
-	border-color: var(--sht--color--danger-border);
-	outline-color: var(--sht--color--danger-border);
+	border-color: var(--sht--preset--color--danger-border);
+	outline-color: var(--sht--preset--color--danger-border);
 }
