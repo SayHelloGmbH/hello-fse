@@ -2,8 +2,6 @@
 
 namespace SayHello\Theme\Package;
 
-use WP_Theme_JSON_Resolver;
-
 /**
  * Everything to do with images, videos etc
  *
@@ -17,11 +15,10 @@ class Media
 	public function run()
 	{
 
-		$tree = WP_Theme_JSON_Resolver::get_merged_data();
-		$data = _wp_array_get($tree->get_settings(), array('layout'));
+		$theme_json = json_decode(file_get_contents(get_theme_file_path('theme.json')), true);
 
-		if (!empty($data['wideSize'] ?? [])) {
-			$this->wide_size = (int) $data['wideSize'];
+		if ($theme_json['settings']['layout']['wideSize'] ?? false) {
+			$this->wide_size = (int) $theme_json['settings']['layout']['wideSize'];
 		}
 
 		add_action('after_setup_theme', [$this, 'addImageSizes']);
