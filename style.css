@@ -11,25 +11,3 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: sht
 */
-
-/* @link https://utopia.fyi/type/calculator?c=375,15,1.2,1280,20,1.25,0,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
-
-:root {
-	--fluid-min-width: 375;
-	--fluid-max-width: 1280;
-
-	--fluid-screen: 100vw;
-	--fluid-bp: calc((var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) / (var(--fluid-max-width) - var(--fluid-min-width)));
-}
-
-@media screen and (min-width: 1280px) {
-	:root {
-		--fluid-screen: calc(var(--fluid-max-width) * 1px);
-	}
-}
-
-:root {
-	--f-0-min: 14.00;
-	--f-0-max: 16.00;
-	--step-0: calc(((var(--f-0-min) / 16) * 1rem) + (var(--f-0-max) - var(--f-0-min)) * var(--fluid-bp));
-}
