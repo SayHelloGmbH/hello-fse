@@ -12,4 +12,9 @@
 	&__header {
 		padding-bottom: var(--unit--medium);
 	}
+
+	&__titleprefix {
+		font-size: var(--wp--preset--font-size--medium);
+		display: block;
+	}
 }
