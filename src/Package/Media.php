@@ -17,7 +17,7 @@ class Media
 
 		$theme_json = json_decode(file_get_contents(get_theme_file_path('theme.json')), true);
 
-		if ($theme_json['settings']['layout']['wideSize'] ?? false) {
+		if ((int) ($theme_json['settings']['layout']['wideSize'] ?? false)) {
 			$this->wide_size = (int) $theme_json['settings']['layout']['wideSize'];
 		}
 
