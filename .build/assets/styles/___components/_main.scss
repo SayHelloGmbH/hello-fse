@@ -1,3 +1,9 @@
 .c-main {
-    flex: 1;
+	flex: 1;
+
+	&__inner {
+		&--index {
+			@extend %h-guttered;
+		}
+	}
 }
