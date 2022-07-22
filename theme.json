@@ -158,5 +158,6 @@
 			"title": "Footer"
 		}
 	],
-	"version": 2
+	"version": 2,
+	"$schema": "https://schemas.wp.org/wp/6.0/theme.json"
 }
