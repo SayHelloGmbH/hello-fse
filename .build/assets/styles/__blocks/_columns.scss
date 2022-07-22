@@ -1,24 +1,5 @@
-body {
-	--column-row-gap: var(--unit--medium);
-
-	@include breakpoint(tablet) {
-		--column-row-gap: 0;
-	}
-}
-
 .wp-block-column {
 	@extend .h-stack;
-
-	margin-top: 0;
-	margin-bottom: 0;
-
-	& + .wp-block-column {
-		margin-top: var(--column-row-gap);
-	}
-}
-
-.wp-block-columns {
-	margin-bottom: 0;
 }
 
 /*
