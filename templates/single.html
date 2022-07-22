@@ -4,10 +4,36 @@
 <main class="wp-block-group c-main"><!-- wp:group {"tagName":"header","className":"c-article__header","layout":{"inherit":true}} -->
 <header class="wp-block-group c-article__header"><!-- wp:post-featured-image /-->
 
-<!-- wp:post-title /--></header>
+<!-- wp:post-title /-->
+
+<!-- wp:post-date {"className":"c-article__date c-article__date--post"} /--></header>
 <!-- /wp:group -->
 
-<!-- wp:post-content {"layout":{"inherit":true}} /--></main>
+<!-- wp:group {"layout":{"inherit":false}} -->
+<div class="wp-block-group"><!-- wp:post-content {"layout":{"inherit":true}} /-->
+
+<!-- wp:group {"className":"c-article__meta c-article__meta--post","layout":{"inherit":true}} -->
+<div class="wp-block-group c-article__meta c-article__meta--post"><!-- wp:group {"className":"c-article__meta-group c-article__meta-group--tags","layout":{"type":"default"}} -->
+<div class="wp-block-group c-article__meta-group c-article__meta-group--tags"><!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="has-medium-font-size">Kategorien</h2>
+<!-- /wp:heading -->
+
+<!-- wp:post-terms {"term":"category"} /--></div>
 <!-- /wp:group -->
+
+<!-- wp:group {"className":"c-article__meta-group c-article__meta-group--tags","layout":{"type":"default"}} -->
+<div class="wp-block-group c-article__meta-group c-article__meta-group--tags"><!-- wp:heading {"fontSize":"medium"} -->
+<h2 class="has-medium-font-size">Schlagwörter</h2>
+<!-- /wp:heading -->
+
+<!-- wp:post-terms {"term":"post_tag"} /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></main>
+<!-- /wp:group -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
 
 <!-- wp:template-part {"slug":"footer","tagName":"footer","className":"c-footer"} /-->
