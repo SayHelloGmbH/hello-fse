@@ -97,6 +97,7 @@
 			],
 			"fontStyle": false,
 			"fontWeight": false,
+			"letterSpacing": false,
 			"lineHeight": false,
 			"textDecoration": false,
 			"textTransform": false
