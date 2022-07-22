@@ -55,14 +55,13 @@ class Theme
 	{
 		$this->loadClasses(
 			[
-				\SayHello\Theme\Package\Assets::class,
-				\SayHello\Theme\Package\Gutenberg::class,
-				\SayHello\Theme\Package\Language::class,
-				\SayHello\Theme\Package\Media::class,
-				\SayHello\Theme\Package\Navigation::class,
-				\SayHello\Theme\Package\Shyify::class,
+				Package\Assets::class,
+				Package\Gutenberg::class,
+				Package\Language::class,
+				Package\Media::class,
+				Package\Navigation::class,
+				Package\Shyify::class,
 
-				\SayHello\Theme\Block\ShtMenuToggle::class,
 			]
 		);
 
