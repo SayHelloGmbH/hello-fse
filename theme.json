@@ -33,6 +33,21 @@
 					"color": "#FFE8E8",
 					"name": "Quaternary",
 					"slug": "quarternary"
+				},
+				{
+					"color": "#404040",
+					"name": "Dark gray",
+					"slug": "dark-gray"
+				},
+				{
+					"color": "#808080",
+					"name": "Gray",
+					"slug": "gray"
+				},
+				{
+					"color": "#b0b0b0",
+					"name": "Light gray",
+					"slug": "light-gray"
 				}
 			],
 			"text": true
