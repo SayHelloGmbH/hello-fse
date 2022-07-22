@@ -26,10 +26,6 @@ acronym {
 	cursor: help;
 }
 
-a {
-	color: var(--wp--preset--color--primary);
-}
-
 a,
 button {
 	@include transition(opacity);
