@@ -1,12 +1,12 @@
 .alignleft {
 	margin-inline-end: var(
-		--unit
+		--wp--preset--spacing--regular
 	) !important; // important to override unsuppressable inline core rules
 }
 
 .alignright {
 	margin-inline-start: var(
-		--unit
+		--wp--preset--spacing--regular
 	) !important; // important to override unsuppressable inline core rules
 }
 

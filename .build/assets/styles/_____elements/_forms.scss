@@ -1,6 +1,8 @@
 body {
-	--checkbox-size: calc(var(--unit) * 1.5);
-	--checkbox-size-small: var(--unit); // used in other SCSS files, not here
+	--checkbox-size: calc(var(--wp--preset--spacing--regular) * 1.5);
+	--checkbox-size-small: var(
+		--wp--preset--spacing--regular
+	); // used in other SCSS files, not here
 	--field-border: 1px solid var(--wp--preset--color--light-gray);
 	--field-radius: var(--radius);
 	--checkbox-radius: #{rem-calc(2px)};
@@ -47,18 +49,18 @@ input {
 		-webkit-appearance: none; // remove inner shadow
 		border: var(--field-border);
 		border-radius: var(--field-radius);
-		padding: var(--unit--small);
+		padding: var(--wp--preset--spacing--small);
 		display: block;
 		width: 100%;
 
 		&.medium {
 			@include breakpoint(tablet) {
-				width: calc(50% - var(--unit));
+				width: calc(50% - var(--wp--preset--spacing--regular));
 			}
 		}
 
 		&.small {
-			width: calc(25% - var(--unit));
+			width: calc(25% - var(--wp--preset--spacing--regular));
 		}
 
 		&:focus {
@@ -127,18 +129,18 @@ textarea {
 	resize: vertical;
 	border: var(--field-border);
 	border-radius: var(--field-radius);
-	padding: var(--unit--small);
+	padding: var(--wp--preset--spacing--small);
 	display: block;
 	width: 100%;
 
 	&.medium {
 		@include breakpoint(tablet) {
-			width: calc(50% - var(--unit));
+			width: calc(50% - var(--wp--preset--spacing--regular));
 		}
 	}
 
 	&.small {
-		width: calc(25% - var(--unit));
+		width: calc(25% - var(--wp--preset--spacing--regular));
 	}
 
 	&:focus {

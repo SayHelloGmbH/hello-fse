@@ -58,15 +58,51 @@
 			"text": true
 		},
 		"custom": {
-			"spacing-outer-gutter": "var(--unit)",
-			"spacing-unit": "1rem"
+			"spacing-outer-gutter": "var(--wp--preset--spacing--regular)"
 		},
 		"layout": {
 			"contentSize": "600px",
 			"wideSize": "1200px"
 		},
 		"spacing": {
-			"padding": false
+			"padding": true,
+			"spacingSizes": [
+				{
+					"size": "0.25rem",
+					"slug": "xsmall",
+					"name": "XS"
+				},
+				{
+					"size": "0.5rem",
+					"slug": "small",
+					"name": "S"
+				},
+				{
+					"size": "1rem",
+					"slug": "regular",
+					"name": "R"
+				},
+				{
+					"size": "2rem",
+					"slug": "medium",
+					"name": "M"
+				},
+				{
+					"size": "3rem",
+					"slug": "large",
+					"name": "L"
+				},
+				{
+					"size": "4rem",
+					"slug": "xlarge",
+					"name": "XL"
+				},
+				{
+					"size": "5rem",
+					"slug": "xxlarge",
+					"name": "XXL"
+				}
+			]
 		},
 		"typography": {
 			"customFontSize": false,

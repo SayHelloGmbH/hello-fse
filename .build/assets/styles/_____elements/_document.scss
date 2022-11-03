@@ -23,8 +23,8 @@ html {
 
 @include context-view {
 	[id] {
-		scroll-snap-margin-top: var(--unit); // Safari
-		scroll-margin-top: var(--unit);
+		scroll-snap-margin-top: var(--wp--preset--spacing--regular); // Safari
+		scroll-margin-top: var(--wp--preset--spacing--regular);
 	}
 
 	body {

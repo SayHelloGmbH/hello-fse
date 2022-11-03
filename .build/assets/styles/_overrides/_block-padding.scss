@@ -7,22 +7,22 @@
 	}
 
 	&--small {
-		padding-top: var(--unit--small);
-		padding-bottom: var(--unit--small);
+		padding-top: var(--wp--preset--spacing--small);
+		padding-bottom: var(--wp--preset--spacing--small);
 	}
 
 	&--medium {
-		padding-top: var(--unit--medium);
-		padding-bottom: var(--unit--medium);
+		padding-top: var(--wp--preset--spacing--medium);
+		padding-bottom: var(--wp--preset--spacing--medium);
 	}
 
 	&--large {
-		padding-top: var(--unit--large);
-		padding-bottom: var(--unit--large);
+		padding-top: var(--wp--preset--spacing--large);
+		padding-bottom: var(--wp--preset--spacing--large);
 	}
 
 	&--xlarge {
-		padding-top: var(--unit--xlarge);
-		padding-bottom: var(--unit--xlarge);
+		padding-top: var(--wp--preset--spacing--xlarge);
+		padding-bottom: var(--wp--preset--spacing--xlarge);
 	}
 }

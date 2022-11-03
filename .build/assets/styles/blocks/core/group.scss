@@ -4,6 +4,6 @@
 	@extend .h-stack;
 
 	&.has-background {
-		padding: var(--unit--medium);
+		padding: var(--wp--preset--spacing--medium);
 	}
 }

@@ -3,8 +3,8 @@
 	max-width: var(--constraint-narrow);
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: var(--unit);
-	padding-right: var(--unit);
+	padding-left: var(--wp--preset--spacing--regular);
+	padding-right: var(--wp--preset--spacing--regular);
 
 	@include breakpoint(tablet) {
 		padding-left: 0;
@@ -12,7 +12,7 @@
 	}
 
 	&__entry {
-		margin-left: var(--unit--small);
-		margin-right: var(--unit--small);
+		margin-left: var(--wp--preset--spacing--small);
+		margin-right: var(--wp--preset--spacing--small);
 	}
 }

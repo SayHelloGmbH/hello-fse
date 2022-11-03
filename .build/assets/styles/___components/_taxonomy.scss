@@ -1,7 +1,7 @@
 .c-taxonomy {
 	.single & {
-		padding-left: var(--unit);
-		padding-right: var(--unit);
+		padding-left: var(--wp--preset--spacing--regular);
+		padding-right: var(--wp--preset--spacing--regular);
 		@include breakpoint(tablet) {
 			padding-left: 0;
 			padding-right: 0;

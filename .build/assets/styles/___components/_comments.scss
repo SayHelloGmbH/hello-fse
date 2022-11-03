@@ -13,8 +13,8 @@ body {
 	max-width: var(--constraint-narrow);
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: var(--unit);
-	padding-right: var(--unit);
+	padding-left: var(--wp--preset--spacing--regular);
+	padding-right: var(--wp--preset--spacing--regular);
 
 	@include breakpoint(tablet) {
 		padding-left: 0;
@@ -29,13 +29,13 @@ body {
 	.comment,
 	.pingback,
 	.trackback {
-		padding: var(--unit);
+		padding: var(--wp--preset--spacing--regular);
 		border: 1px solid var(--c-comments-border-color);
 		@extend .h-stack;
 
 		&[class*='depth'] {
-			padding-left: var(--unit);
-			padding-right: var(--unit);
+			padding-left: var(--wp--preset--spacing--regular);
+			padding-right: var(--wp--preset--spacing--regular);
 		}
 
 		&.even {
@@ -48,8 +48,8 @@ body {
 
 		// Only if inside an existing comment (so as a specific reply)
 		.comment-respond {
-			padding-top: var(--unit);
-			padding-bottom: var(--unit);
+			padding-top: var(--wp--preset--spacing--regular);
+			padding-bottom: var(--wp--preset--spacing--regular);
 			border-top: 1px solid var(--c-comments-respond-border-color);
 		}
 	}
@@ -92,7 +92,7 @@ body {
 		text-align: right;
 		@include breakpoint(tablet) {
 			flex: 0 0 40%;
-			margin-left: var(--unit);
+			margin-left: var(--wp--preset--spacing--regular);
 		}
 	}
 
@@ -101,7 +101,7 @@ body {
 	}
 
 	.edit-link {
-		margin-left: var(--unit--small);
+		margin-left: var(--wp--preset--spacing--small);
 	}
 
 	.navigation {

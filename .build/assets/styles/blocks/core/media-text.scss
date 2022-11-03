@@ -11,7 +11,8 @@
 	// This block has too much CSS specificity in core
 	.wp-block-media-text {
 		&__content {
-			padding: var(--unit--medium) var(--unit);
+			padding: var(--wp--preset--spacing--medium)
+				var(--wp--preset--spacing--regular);
 		}
 	}
 }

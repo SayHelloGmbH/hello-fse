@@ -1,1 +1,1 @@
-body{--table--border-color:var(--wp--preset--color--gray);--table--padding:var(--unit--xsmall)}.wp-block-table td,.wp-block-table th{padding:var(--table--padding);border:1px solid var(--table--border-color)}
+body{--table--border-color:var(--wp--preset--color--gray);--table--padding:var(--wp--preset--spacing--xsmall)}.wp-block-table td,.wp-block-table th{padding:var(--table--padding);border:1px solid var(--table--border-color)}

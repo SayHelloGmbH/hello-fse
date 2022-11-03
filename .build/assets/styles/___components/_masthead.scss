@@ -1,6 +1,6 @@
 body {
 	--c-masthead-height: #{rem-calc(85px)};
-	--c-masthead-padding-top: var(--unit--medium);
+	--c-masthead-padding-top: var(--wp--preset--spacing--medium);
 	--c-masthead-padding-bottom: var(--c-masthead-padding-top);
 
 	@include breakpoint(laptop) {

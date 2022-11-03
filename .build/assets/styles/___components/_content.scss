@@ -1,8 +1,8 @@
 .c-content {
 	&__content {
 		@extend .h-stack;
-		padding-left: var(--unit);
-		padding-right: var(--unit);
+		padding-left: var(--wp--preset--spacing--regular);
+		padding-right: var(--wp--preset--spacing--regular);
 
 		@include narrow {
 			padding-left: 0;

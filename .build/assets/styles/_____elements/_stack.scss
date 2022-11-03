@@ -3,7 +3,7 @@
  */
 
 .h-stack {
-	--stack-size: var(--unit);
+	--stack-size: var(--wp--preset--spacing--regular);
 
 	> * {
 		margin-top: 0;
@@ -14,33 +14,39 @@
 		}
 	}
 
-	&--small {
+	&--xsmall {
 		> * + * {
-			--stack-size: var(--unit--small);
+			--stack-size: var(--wp--preset--spacing--xsmall);
 		}
 	}
 
-	&--xsmall {
+	&--small {
 		> * + * {
-			--stack-size: var(--unit--xsmall);
+			--stack-size: var(--wp--preset--spacing--small);
 		}
 	}
 
 	&--medium {
 		> * + * {
-			--stack-size: var(--unit--medium);
+			--stack-size: var(--wp--preset--spacing--medium);
 		}
 	}
 
 	&--large {
 		> * + * {
-			--stack-size: var(--unit--large);
+			--stack-size: var(--wp--preset--spacing--large);
 		}
 	}
 
 	&--xlarge {
 		> * + * {
-			--stack-size: var(--unit--xlarge);
+			--stack-size: var(--wp--preset--spacing--xlarge);
+		}
+	}
+
+	&--xxlarge {
+		> * + * {
+			--stack-size: var(--wp--preset--spacing--xxlarge);
 		}
 	}
 }

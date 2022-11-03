@@ -2,7 +2,7 @@
  * https://every-layout.dev/layouts/stack/
  */
 .h-stack, .wp-block-column {
-  --stack-size: var(--unit);
+  --stack-size: var(--wp--preset--spacing--regular);
 }
 .h-stack > *, .wp-block-column > * {
   margin-top: 0;
@@ -11,20 +11,23 @@
 .h-stack > * + *, .wp-block-column > * + * {
   margin-top: var(--stack-size);
 }
-.h-stack--small > * + * {
-  --stack-size: var(--unit--small);
-}
 .h-stack--xsmall > * + * {
-  --stack-size: var(--unit--xsmall);
+  --stack-size: var(--wp--preset--spacing--xsmall);
+}
+.h-stack--small > * + * {
+  --stack-size: var(--wp--preset--spacing--small);
 }
 .h-stack--medium > * + * {
-  --stack-size: var(--unit--medium);
+  --stack-size: var(--wp--preset--spacing--medium);
 }
 .h-stack--large > * + * {
-  --stack-size: var(--unit--large);
+  --stack-size: var(--wp--preset--spacing--large);
 }
 .h-stack--xlarge > * + * {
-  --stack-size: var(--unit--xlarge);
+  --stack-size: var(--wp--preset--spacing--xlarge);
+}
+.h-stack--xxlarge > * + * {
+  --stack-size: var(--wp--preset--spacing--xxlarge);
 }
 
 /*
@@ -34,4 +37,4 @@
  *
  * mark@sayhello.ch 12.11.2021
  */
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIl9fX19fZWxlbWVudHMvX3N0YWNrLnNjc3MiLCJibG9ja3MvY29yZS9jb2x1bW5zLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQTtBQUFBO0FBSUE7RUFDQzs7QUFFQTtFQUNDO0VBQ0E7O0FBRUE7RUFDQzs7QUFLRDtFQUNDOztBQUtEO0VBQ0M7O0FBS0Q7RUFDQzs7QUFLRDtFQUNDOztBQUtEO0VBQ0M7OztBQ3BDSDtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSIsImZpbGUiOiJibG9ja3MvY29yZS9jb2x1bW5zLmNzcyJ9 */
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIl9fX19fZWxlbWVudHMvX3N0YWNrLnNjc3MiLCJibG9ja3MvY29yZS9jb2x1bW5zLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQTtBQUFBO0FBSUE7RUFDQzs7QUFFQTtFQUNDO0VBQ0E7O0FBRUE7RUFDQzs7QUFLRDtFQUNDOztBQUtEO0VBQ0M7O0FBS0Q7RUFDQzs7QUFLRDtFQUNDOztBQUtEO0VBQ0M7O0FBS0Q7RUFDQzs7O0FDMUNIO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBIiwiZmlsZSI6ImJsb2Nrcy9jb3JlL2NvbHVtbnMuY3NzIn0= */

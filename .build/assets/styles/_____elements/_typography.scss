@@ -55,7 +55,7 @@ code {
 }
 
 dd + dt {
-	margin-top: var(--unit);
+	margin-top: var(--wp--preset--spacing--regular);
 }
 
 dt {
@@ -98,13 +98,13 @@ ol {
 	counter-reset: item;
 
 	li:before {
-		margin-right: var(--unit--small);
+		margin-right: var(--wp--preset--spacing--small);
 		content: counters(item, '.') '. ';
 		counter-increment: item;
 	}
 
 	ol {
-		margin-top: var(--unit--small);
+		margin-top: var(--wp--preset--spacing--small);
 		padding-left: 1.2em;
 	}
 }
@@ -115,7 +115,7 @@ ul {
 	@extend .h-stack--small;
 
 	ul {
-		margin-top: var(--unit);
+		margin-top: var(--wp--preset--spacing--regular);
 	}
 }
 
@@ -138,7 +138,7 @@ p {
 	}
 
 	&.has-background {
-		padding: var(--unit);
+		padding: var(--wp--preset--spacing--regular);
 	}
 }
 
