@@ -26,6 +26,7 @@ class Gutenberg
 		add_action('after_setup_theme', [$this, 'themeSupports']);
 		add_action('init', [$this, 'setScriptTranslations']);
 		add_filter('admin_body_class', [$this, 'extendAdminBodyClass']);
+		add_action('after_setup_theme', [$this, 'enqueueBlockStyles']);
 	}
 
 	public function themeSupports()
@@ -51,6 +52,49 @@ class Gutenberg
 
 		if (file_exists(get_template_directory() . '/assets/fonts/woff2.css')) {
 			wp_enqueue_style('sht-gutenberg-font', get_template_directory_uri() . '/assets/fonts/woff2.css', [], filemtime(get_template_directory() . '/assets/fonts/woff2.css'));
+		}
+	}
+
+	public function enqueueBlockStyles()
+	{
+		$root_folder = get_template_directory() . '/assets/styles/blocks';
+		$min = $this->min ? '.min' : '';
+
+		// Get all available block namespaces.
+		$block_namespaces = glob("{$root_folder}/*/");
+		$block_namespaces = array_map(
+			function ($type_path) {
+				return basename($type_path);
+			},
+			$block_namespaces
+		);
+
+		foreach ($block_namespaces as $block_namespace) {
+
+			// Get all available block styles of the given block namespace.
+			$block_styles = glob("{$root_folder}/{$block_namespace}/*{$min}.css");
+			$block_styles = array_map(
+				function ($styles_path) use ($min) {
+					return basename($styles_path, "{$min}.css");
+				},
+				$block_styles
+			);
+
+			foreach ($block_styles as $block_style) {
+				if (empty($min) && strpos($block_style, '.min')) {
+					continue;
+				}
+				wp_enqueue_block_style(
+					$block_namespace . '/' . str_replace('.min', '', $block_style),
+					array(
+						'handle' => "{$block_namespace}-{$block_style}-styles",
+						'src'    => get_theme_file_uri("assets/styles/blocks/{$block_namespace}/{$block_style}{$min}.css"),
+						// Add "path" to allow inlining of block styles when possible.
+						'path'   => get_theme_file_path("assets/styles/blocks/{$block_namespace}/{$block_style}{$min}.css"),
+						'ver' => filemtime(get_theme_file_path("assets/styles/blocks/{$block_namespace}/{$block_style}{$min}.css"))
+					),
+				);
+			}
 		}
 	}
 
