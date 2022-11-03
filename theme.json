@@ -184,32 +184,32 @@
 		"elements": {
 			"h1": {
 				"typography": {
-					"fontSize": "var(--step--5)"
+					"fontSize": "var(--wp--preset--font-size--huge)"
 				}
 			},
 			"h2": {
 				"typography": {
-					"fontSize": "var(--step--4)"
+					"fontSize": "var(--wp--preset--font-size--xlarge)"
 				}
 			},
 			"h3": {
 				"typography": {
-					"fontSize": "var(--step--3)"
+					"fontSize": "var(--wp--preset--font-size--large)"
 				}
 			},
 			"h4": {
 				"typography": {
-					"fontSize": "var(--step--2)"
+					"fontSize": "var(--wp--preset--font-size--medium)"
 				}
 			},
 			"h5": {
 				"typography": {
-					"fontSize": "var(--step--1)"
+					"fontSize": "var(--wp--preset--font-size--regular)"
 				}
 			},
 			"h6": {
 				"typography": {
-					"fontSize": "var(--step--0)"
+					"fontSize": "var(--wp--preset--font-size--small)"
 				}
 			},
 			"link": {
@@ -220,7 +220,7 @@
 		},
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--system-fonts)",
-			"fontSize": "var(--step--0)",
+			"fontSize": "var(--wp--preset--font-size--regular)",
 			"lineHeight": "1.5"
 		}
 	},
