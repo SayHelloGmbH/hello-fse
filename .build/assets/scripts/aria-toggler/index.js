@@ -42,14 +42,16 @@ const controllers = document.querySelectorAll(
 );
 
 if (!!controllers) {
-	var clickHandler = function () {
+	var clickHandler = (event) => {
+		const controller = event.currentTarget;
+
 		let target = document.querySelector(
-			'#' + this.getAttribute('aria-controls')
+			'#' + controller.getAttribute('aria-controls')
 		);
 
 		if (!target) {
 			console.error(
-				`Target #${this.getAttribute('aria-controls')} not found`
+				`Target #${controller.getAttribute('aria-controls')} not found`
 			);
 			return;
 		}
@@ -69,14 +71,16 @@ if (!!controllers) {
 			}
 		}
 
-		if (!!this.dataset.close) {
+		if (!!controller.dataset.close) {
 			target.setAttribute('aria-hidden', 'true');
-		} else if (!!this.dataset.open) {
+		} else if (!!controller.dataset.open) {
 			target.setAttribute('aria-hidden', 'false');
 		} else {
 			target.setAttribute(
 				'aria-hidden',
-				this.getAttribute('aria-expanded') == 'false' ? 'false' : 'true'
+				controller.getAttribute('aria-expanded') == 'false'
+					? 'false'
+					: 'true'
 			);
 		}
 
@@ -136,12 +140,19 @@ if (!!controllers) {
 			});
 		}
 
-		if (!!this.getAttribute('data-blurme')) {
-			this.blur();
+		if (!!controller.getAttribute('data-blurme')) {
+			controller.blur();
 		}
 	};
 
 	controllers.forEach((controller) => {
+		if (
+			controller.getAttribute('id') ===
+			controller.getAttribute('aria-controls')
+		) {
+			controller.removeAttribute('id');
+		}
+
 		controller.addEventListener('click', clickHandler);
 	});
 
