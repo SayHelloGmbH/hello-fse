@@ -18,10 +18,6 @@ $context: 'admin';
 @import '_______tools/mixins/context';
 
 @include context-admin {
-	.editor-post-title__block .editor-post-title__input {
-		font-family: var(--font-heading);
-	}
-
 	body.post-type-block_area,
 	body.post-type-page {
 		.editor-post-title__block {

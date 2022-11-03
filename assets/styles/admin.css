@@ -7,10 +7,6 @@ Original files can be found inside the /.build/assets/styles/ folder inside the 
 The structure follows the principles of ITCSS (http://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528)
 
 */
-.editor-post-title__block .editor-post-title__input {
-  font-family: var(--font-heading);
-}
-
 body.post-type-block_area .editor-post-title__block,
 body.post-type-page .editor-post-title__block {
   opacity: 0.5;
@@ -27,4 +23,4 @@ body.post-type-page .editor-post-title__block::after {
   font-size: small;
   transform: translateY(-50%);
 }
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFkbWluLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFFQTs7QUFBQTtBQUFBOztBQUFBOztBQUFBO0FBMEJDO0VBQ0M7OztBQUtBO0FBQUE7RUFDQzs7QUFFQTtBQUFBO0VBQ0M7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBIiwiZmlsZSI6ImFkbWluLmNzcyJ9 */
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFkbWluLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFFQTs7QUFBQTtBQUFBOztBQUFBOztBQUFBO0FBNEJFO0FBQUE7RUFDQzs7QUFFQTtBQUFBO0VBQ0M7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBIiwiZmlsZSI6ImFkbWluLmNzcyJ9 */
