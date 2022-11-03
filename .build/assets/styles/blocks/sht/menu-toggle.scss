@@ -1,3 +1,11 @@
+@charset 'UTF-8';
+@use 'sass:math';
+
+@import '../../../../../assets/settings.json';
+@import '../../_______tools/mixins/_breakpoints.scss';
+@import '../../_______tools/mixins/_transition.scss';
+@import '../../_______tools/mixins/_typography.scss';
+
 body {
 	--menutoggle-color: currentColor;
 	--menutoggle-color-open: currentColor;
@@ -72,10 +80,10 @@ body {
 	}
 }
 
-@include context-view {
-	.wp-block-sht-menu-toggle {
-		@include breakpoint(desktop) {
-			display: none;
-		}
+// @include context-view {
+.wp-block-sht-menu-toggle {
+	@include breakpoint(desktop) {
+		display: none;
 	}
 }
+// }
