@@ -1,0 +1,37 @@
+/*
+ * https://every-layout.dev/layouts/stack/
+ */
+.h-stack, .wp-block-column {
+  --stack-size: var(--unit);
+}
+.h-stack > *, .wp-block-column > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.h-stack > * + *, .wp-block-column > * + * {
+  margin-top: var(--stack-size);
+}
+.h-stack--small > * + * {
+  --stack-size: var(--unit--small);
+}
+.h-stack--xsmall > * + * {
+  --stack-size: var(--unit--xsmall);
+}
+.h-stack--medium > * + * {
+  --stack-size: var(--unit--medium);
+}
+.h-stack--large > * + * {
+  --stack-size: var(--unit--large);
+}
+.h-stack--xlarge > * + * {
+  --stack-size: var(--unit--xlarge);
+}
+
+/*
+ * By default, WordPress Core converts column layouts to 2
+ * between 600px and 781px. This example code shows how to
+ * override that, e.g. for columns set to 66.66% and 33.33%.
+ *
+ * mark@sayhello.ch 12.11.2021
+ */
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIl9fX19fZWxlbWVudHMvX3N0YWNrLnNjc3MiLCJibG9ja3MvY29yZS9jb2x1bW5zLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQTtBQUFBO0FBSUE7RUFDQzs7QUFFQTtFQUNDO0VBQ0E7O0FBRUE7RUFDQzs7QUFLRDtFQUNDOztBQUtEO0VBQ0M7O0FBS0Q7RUFDQzs7QUFLRDtFQUNDOztBQUtEO0VBQ0M7OztBQ3BDSDtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSIsImZpbGUiOiJibG9ja3MvY29yZS9jb2x1bW5zLmNzcyJ9 */

@@ -1,0 +1,7 @@
+@import '../../_____elements/_stack.scss';
+@import '../../_____elements/_guttered.scss';
+
+.wp-block-post-content {
+	@extend .h-stack;
+	@extend %h-guttered;
+}

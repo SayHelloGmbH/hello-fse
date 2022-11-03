@@ -1,4 +1,6 @@
-.wp-block-image {
+@import '../../_____elements/_stack.scss';
+
+.wp-block-video {
 	@extend .h-stack--small;
 
 	figcaption {

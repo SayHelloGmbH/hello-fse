@@ -1,0 +1,29 @@
+/*
+ * https://every-layout.dev/layouts/stack/
+ */
+.h-stack, .wp-block-post {
+  --stack-size: var(--unit);
+}
+.h-stack > *, .wp-block-post > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.h-stack > * + *, .wp-block-post > * + * {
+  margin-top: var(--stack-size);
+}
+.h-stack--small > * + * {
+  --stack-size: var(--unit--small);
+}
+.h-stack--xsmall > * + * {
+  --stack-size: var(--unit--xsmall);
+}
+.h-stack--medium > * + * {
+  --stack-size: var(--unit--medium);
+}
+.h-stack--large > * + * {
+  --stack-size: var(--unit--large);
+}
+.h-stack--xlarge > * + * {
+  --stack-size: var(--unit--xlarge);
+}
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIl9fX19fZWxlbWVudHMvX3N0YWNrLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQTtBQUFBO0FBSUE7RUFDQzs7QUFFQTtFQUNDO0VBQ0E7O0FBRUE7RUFDQzs7QUFLRDtFQUNDOztBQUtEO0VBQ0M7O0FBS0Q7RUFDQzs7QUFLRDtFQUNDOztBQUtEO0VBQ0MiLCJmaWxlIjoiYmxvY2tzL2NvcmUvcG9zdC5jc3MifQ== */

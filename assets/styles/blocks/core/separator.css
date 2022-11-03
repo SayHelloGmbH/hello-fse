@@ -1,0 +1,15 @@
+body {
+  --wp-block-separator-color: var(--wp--preset--color--black);
+  --wp-block-separator-height: 1px;
+  --wp-block-separator-width: 300px;
+}
+
+.wp-block-separator {
+  color: var(--wp-block-separator-color);
+  border-width: 0 0 var(--wp-block-separator-height);
+  border-color: var(--wp-block-separator-color);
+}
+.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+  max-width: var(--wp-block-separator-width);
+}
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJsb2Nrcy9jb3JlL3NlcGFyYXRvci5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0M7RUFDQTtFQUNBOzs7QUFHRDtFQUNDO0VBQ0E7RUFDQTs7QUFFQTtFQUNDIiwiZmlsZSI6ImJsb2Nrcy9jb3JlL3NlcGFyYXRvci5jc3MifQ== */

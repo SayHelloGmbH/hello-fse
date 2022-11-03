@@ -1,0 +1,7 @@
+h1 + .wp-block-media-text, h2 + .wp-block-media-text, h3 + .wp-block-media-text, h4 + .wp-block-media-text, h5 + .wp-block-media-text, h6 + .wp-block-media-text {
+  margin-top: var(--c-block-margin-top-medium);
+}
+.wp-block-media-text .wp-block-media-text__content {
+  padding: var(--unit--medium) var(--unit);
+}
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJsb2Nrcy9jb3JlL21lZGlhLXRleHQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQztFQU1DOztBQUtBO0VBQ0MiLCJmaWxlIjoiYmxvY2tzL2NvcmUvbWVkaWEtdGV4dC5jc3MifQ== */

@@ -1,3 +1,5 @@
+@import '../../_____elements/_stack.scss';
+
 .wp-block-group {
 	@extend .h-stack;
 
@@ -14,8 +16,8 @@
 	}
 }
 
-@include context-edit {
-	.wp-block[data-type='core/group'][data-align='full'] {
-		max-width: 100%;
-	}
-}
+// @include context-edit {
+// 	.wp-block[data-type='core/group'][data-align='full'] {
+// 		max-width: 100%;
+// 	}
+// }

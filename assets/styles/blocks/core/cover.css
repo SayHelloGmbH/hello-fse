@@ -1,0 +1,39 @@
+/*
+ * https://every-layout.dev/layouts/stack/
+ */
+.h-stack, .wp-block-cover__inner-container {
+  --stack-size: var(--unit);
+}
+.h-stack > *, .wp-block-cover__inner-container > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.h-stack > * + *, .wp-block-cover__inner-container > * + * {
+  margin-top: var(--stack-size);
+}
+.h-stack--small > * + * {
+  --stack-size: var(--unit--small);
+}
+.h-stack--xsmall > * + * {
+  --stack-size: var(--unit--xsmall);
+}
+.h-stack--medium > * + * {
+  --stack-size: var(--unit--medium);
+}
+.h-stack--large > * + * {
+  --stack-size: var(--unit--large);
+}
+.h-stack--xlarge > * + * {
+  --stack-size: var(--unit--xlarge);
+}
+
+.wp-block-cover.has-background-dim {
+  color: var(--wp--preset--color--white);
+}
+.wp-block-cover__inner-container {
+  padding-top: var(--unit);
+  padding-bottom: var(--unit);
+  max-width: var(--constraint-narrow);
+  color: inherit !important;
+}
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIl9fX19fZWxlbWVudHMvX3N0YWNrLnNjc3MiLCJibG9ja3MvY29yZS9jb3Zlci5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQTtBQUlBO0VBQ0M7O0FBRUE7RUFDQztFQUNBOztBQUVBO0VBQ0M7O0FBS0Q7RUFDQzs7QUFLRDtFQUNDOztBQUtEO0VBQ0M7O0FBS0Q7RUFDQzs7QUFLRDtFQUNDOzs7QUN2Q0Y7RUFDQzs7QUFHRDtFQUVDO0VBQ0E7RUFDQTtFQUNBIiwiZmlsZSI6ImJsb2Nrcy9jb3JlL2NvdmVyLmNzcyJ9 */
