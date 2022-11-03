@@ -1,15 +1,4 @@
 body {
-	/* @link https://utopia.fyi/type/calculator?c=375,16,1.2,1280,18,1.2,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
-
-	--step---2: clamp(0.69rem, calc(0.66rem + 0.15vw), 0.78rem);
-	--step---1: clamp(0.83rem, calc(0.79rem + 0.18vw), 0.94rem);
-	--step--0: clamp(1rem, calc(0.95rem + 0.22vw), 1.13rem);
-	--step--1: clamp(1.2rem, calc(1.14rem + 0.27vw), 1.35rem);
-	--step--2: clamp(1.44rem, calc(1.37rem + 0.32vw), 1.62rem);
-	--step--3: clamp(1.73rem, calc(1.64rem + 0.38vw), 1.94rem);
-	--step--4: clamp(2.07rem, calc(1.97rem + 0.46vw), 2.33rem);
-	--step--5: clamp(2.49rem, calc(2.36rem + 0.55vw), 2.8rem);
-
 	--font-weight-normal: 400;
 	--font-weight-bold: 700;
 
@@ -148,7 +137,7 @@ q {
 
 sub,
 sup {
-	font-size: var(--step---2);
+	font-size: var(--wp--preset--font-size--small);
 	-webkit-font-smoothing: subpixel-antialiased;
 	line-height: 0;
 	position: relative;

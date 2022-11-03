@@ -107,6 +107,7 @@
 		"typography": {
 			"customFontSize": false,
 			"dropCap": false,
+			"fluid": true,
 			"fontFamilies": [
 				{
 					"fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
@@ -116,39 +117,55 @@
 			],
 			"fontSizes": [
 				{
-					"name": "Extra small",
-					"size": ".75rem",
-					"slug": "xsmall"
+					"name": "Small",
+					"size": "14px",
+					"slug": "small",
+					"fluid": false
 				},
 				{
-					"name": "Small",
-					"size": "0.875rem",
-					"slug": "small"
+					"name": "Regular",
+					"size": "16px",
+					"slug": "regular",
+					"fluid": {
+						"min": "0.9375rem",
+						"max": "1rem"
+					}
 				},
 				{
 					"name": "Medium",
-					"size": "1.125rem",
-					"slug": "medium"
+					"size": "18px",
+					"slug": "medium",
+					"fluid": {
+						"min": "1rem",
+						"max": "1.125rem"
+					}
 				},
 				{
 					"name": "Large",
-					"size": "1.25rem",
-					"slug": "large"
+					"size": "24px",
+					"slug": "large",
+					"fluid": {
+						"min": "1.125rem",
+						"max": "1.5rem"
+					}
 				},
 				{
 					"name": "Extra large",
-					"size": "1.5rem",
-					"slug": "xlarge"
-				},
-				{
-					"name": "Extra-extra large",
-					"size": "1.875rem",
-					"slug": "xxlarge"
+					"size": "32px",
+					"slug": "xlarge",
+					"fluid": {
+						"min": "1.5rem",
+						"max": "2rem"
+					}
 				},
 				{
 					"name": "Huge",
-					"size": "2.25rem",
-					"slug": "xxxlarge"
+					"size": "36px",
+					"slug": "xxxlarge",
+					"fluid": {
+						"min": "2rem",
+						"max": "2.25rem"
+					}
 				}
 			],
 			"fontStyle": false,
