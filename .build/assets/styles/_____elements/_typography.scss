@@ -78,8 +78,7 @@ figure {
 }
 
 figcaption {
-	text-align: center;
-	font-size: var(--step---1); // not supported in theme.json
+	@extend %figcaption;
 }
 
 hr {

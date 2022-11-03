@@ -4,20 +4,6 @@
 	@extend .h-stack;
 
 	&.has-background {
-		padding: var(--unit);
-	}
-
-	&__inner-container {
-		@extend .h-stack;
-		> * {
-			margin-left: auto;
-			margin-right: auto;
-		}
+		padding: var(--unit--medium);
 	}
 }
-
-// @include context-edit {
-// 	.wp-block[data-type='core/group'][data-align='full'] {
-// 		max-width: 100%;
-// 	}
-// }

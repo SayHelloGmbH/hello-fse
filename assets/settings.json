@@ -3,18 +3,15 @@
 		"zero": 0,
 		"phone": 320,
 		"wordpress_small": 600,
-		"narrow": 600,
 		"phone_wide": 667,
 		"tablet": 768,
 		"wordpress_medium": 783,
 		"medium": 960,
 		"tablet_landscape": 1024,
-		"wide": 1200,
 		"laptop": 1280,
 		"desktop": 1440,
 		"desktop_large": 1600,
-		"desktop_xlarge": 1920,
-		"full": "100%"
+		"desktop_xlarge": 1920
 	},
 	"theme_colors": {
 		"success": {

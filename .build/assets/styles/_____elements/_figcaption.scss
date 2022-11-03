@@ -1,0 +1,6 @@
+%figcaption {
+	text-align: center;
+	font-size: var(--step---1); // not supported in theme.json
+	margin-top: var(--stack-size); // override core
+	margin-bottom: 0; // override core
+}

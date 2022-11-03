@@ -1,15 +1,7 @@
 @import '../../_____elements/_stack.scss';
 
 .wp-block-cover {
-	&.has-background-dim {
-		color: var(--wp--preset--color--white);
-	}
-
 	&__inner-container {
 		@extend .h-stack;
-		padding-top: var(--unit);
-		padding-bottom: var(--unit);
-		max-width: var(--constraint-narrow);
-		color: inherit !important;
 	}
 }

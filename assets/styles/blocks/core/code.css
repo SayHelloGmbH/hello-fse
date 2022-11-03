@@ -5,10 +5,12 @@ body {
 .wp-block-code {
   border: 1px solid var(--wp-block-code-border-color);
 }
+.wp-block-code:not(.has-background) {
+  background-color: var(--wp--preset--color--xlight-gray);
+}
 .wp-block-code code {
-  vertical-align: middle;
   max-width: 100%;
   padding: var(--unit);
   overflow-x: auto;
 }
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJsb2Nrcy9jb3JlL2NvZGUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNDOzs7QUFHRDtFQUNDOztBQUNBO0VBQ0M7RUFDQTtFQUNBO0VBQ0EiLCJmaWxlIjoiYmxvY2tzL2NvcmUvY29kZS5jc3MifQ== */
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImJsb2Nrcy9jb3JlL2NvZGUuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNDOzs7QUFHRDtFQUNDOztBQUVBO0VBQ0M7O0FBR0Q7RUFDQztFQUNBO0VBQ0EiLCJmaWxlIjoiYmxvY2tzL2NvcmUvY29kZS5jc3MifQ== */

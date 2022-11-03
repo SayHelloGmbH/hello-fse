@@ -4,8 +4,12 @@ body {
 
 .wp-block-code {
 	border: 1px solid var(--wp-block-code-border-color);
+
+	&:not(.has-background) {
+		background-color: var(--wp--preset--color--xlight-gray);
+	}
+
 	code {
-		vertical-align: middle;
 		max-width: 100%;
 		padding: var(--unit);
 		overflow-x: auto;

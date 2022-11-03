@@ -2,9 +2,4 @@
 
 .wp-block-image {
 	@extend .h-stack--small;
-
-	figcaption {
-		margin-top: var(--stack-size); // override core
-		margin-bottom: 0; // override core
-	}
 }
