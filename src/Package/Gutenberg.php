@@ -42,6 +42,27 @@ class Gutenberg
 		if (file_exists(get_template_directory() . '/assets/gutenberg/blocks' . ($this->min ? '.min' : '') . '.js')) {
 			$script_asset_path = get_template_directory() . '/assets/gutenberg/blocks.asset.php';
 			$script_asset = file_exists($script_asset_path) ? require($script_asset_path) : ['dependencies' => [], 'version' => sht_theme()->version];
+			
+			/**
+			 * Workaround to get domReady working properly
+			 * https://github.com/WordPress/gutenberg/issues/27607
+			 */
+			if (is_object(get_current_screen())) {
+
+				$forced_dependencies = [];
+
+				if (
+					get_current_screen()->id == 'site-editor'
+				) {
+					$forced_dependencies[] = 'wp-edit-site';
+				} elseif (get_current_screen()->id == 'widgets') {
+					$forced_dependencies[] = 'wp-edit-widgets';
+				} else {
+					$forced_dependencies[] = 'wp-edit-post';
+				}
+				$script_asset['dependencies'] = array_merge($script_asset['dependencies'], $forced_dependencies);
+			}
+
 			wp_enqueue_script(
 				'sht-gutenberg-script',
 				get_template_directory_uri() . '/assets/gutenberg/blocks' . ($this->min ? '.min' : '') . '.js',
