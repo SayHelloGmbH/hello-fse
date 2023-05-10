@@ -10,10 +10,17 @@
 	"textdomain": "sht",
 	"supports": {
 		"align": ["wide", "full"],
-		"multiple": false
+		"multiple": false,
+		"color": { "text": true, "background": false, "link": false }
 	},
 	"attributes": {
+		"blockId": {
+			"type": "string"
+		},
 		"target": {
+			"type": "string"
+		},
+		"textColor": {
 			"type": "string"
 		}
 	},

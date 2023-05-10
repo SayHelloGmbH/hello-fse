@@ -3,6 +3,7 @@ body {
   --menutoggle-color-open: currentColor;
   --menutoggle-width: 1.5rem;
   --menutoggle-height: 1.5rem;
+  --menutoggle-width--open: 1.75rem;
   --menutoggle-line-gap: 0.25rem;
 }
 
@@ -32,11 +33,6 @@ body {
   background-color: currentColor;
   transition: all 300ms ease;
 }
-@media screen and (prefers-reduced-motion: reduce) {
-  .wp-block-sht-menu-toggle__line {
-    transition: none;
-  }
-}
 .wp-block-sht-menu-toggle__line:nth-child(1) {
   transform-origin: top left;
 }
@@ -48,12 +44,12 @@ body {
 }
 .wp-block-sht-menu-toggle[aria-expanded=true] .wp-block-sht-menu-toggle__line:nth-child(1) {
   transform: rotate(45deg);
-  width: 28px;
+  width: var(--menutoggle-width--open);
 }
 .wp-block-sht-menu-toggle[aria-expanded=true] .wp-block-sht-menu-toggle__line:nth-child(2) {
   opacity: 0;
 }
 .wp-block-sht-menu-toggle[aria-expanded=true] .wp-block-sht-menu-toggle__line:nth-child(3) {
   transform: rotate(-45deg);
-  width: 28px;
+  width: var(--menutoggle-width--open);
 }

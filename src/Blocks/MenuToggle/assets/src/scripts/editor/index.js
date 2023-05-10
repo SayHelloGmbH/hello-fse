@@ -1,35 +1,47 @@
-import { registerBlockType } from '@wordpress/blocks';
+import { getBlockDefaultClassName, registerBlockType } from '@wordpress/blocks';
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
-import { PanelBody, TextControl } from '@wordpress/components';
-//import { sanitize } from '@wordpress/dom';
+import { PanelBody, PanelRow, TextControl } from '@wordpress/components';
 import { menu as icon } from '@wordpress/icons';
-
-//import { decodeEntities } from '@wordpress/html-entities';
-
 import { cleanForSlug } from '@wordpress/url';
+import { __ } from '@wordpress/i18n';
 
 import block_json from '../../../../block.json';
 const { name: block_name } = block_json;
+const classNameBase = getBlockDefaultClassName(block_name);
 
 registerBlockType(block_name, {
 	icon,
 	edit: (props) => {
-		const { attributes, setAttributes } = props;
-		const { target } = attributes;
-		const blockProps = useBlockProps();
+		const { attributes, setAttributes, clientId } = props;
+		const { target, textColor } = attributes;
+
+		setAttributes({ blockId: clientId });
 
 		const handleTargetChange = (target) => {
 			setAttributes({ target: cleanForSlug(target) });
 		};
 
+		const lineColor = textColor !== '' ? ` has-text-color has-${textColor}-color` : '';
+
+		const blockProps = useBlockProps({
+			className: lineColor,
+		});
+
 		return (
-			<div {...blockProps}>
+			<>
 				<InspectorControls>
 					<PanelBody title="Link Settings">
-						<TextControl label="Target" value={target} onChange={handleTargetChange} />
+						<PanelRow>
+							<TextControl label={__('Target', 'sha')} help={__('Add the ID of the target container.', 'sha')} value={target} onChange={handleTargetChange} />
+						</PanelRow>
 					</PanelBody>
 				</InspectorControls>
-			</div>
+				<div {...blockProps}>
+					<span className={`${classNameBase}__line ${classNameBase}__line-1`} />
+					<span className={`${classNameBase}__line ${classNameBase}__line-2`} />
+					<span className={`${classNameBase}__line ${classNameBase}__line-3`} />
+				</div>
+			</>
 		);
 	},
 });
