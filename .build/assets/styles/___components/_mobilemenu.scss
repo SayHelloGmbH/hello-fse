@@ -1,26 +1,35 @@
 @include context-view {
 	.c-mobilemenu {
-		display: none;
+		display: block;
+		pointer-events: none;
 		box-sizing: border-box;
 		position: fixed;
 		top: var(--masthead--height);
-		bottom: 0;
 		left: 0;
 		// Don't use "right" here: it creates a scroll overflow
 		width: 100%;
-		transform: translateX(100vw);
+		height: calc(100 * var(--svh));
+		transform: translateX(100%);
 		opacity: 0;
 		z-index: 2;
-		transition: opacity 300ms ease;
 		height: calc(var(--vh) * 100);
 		overflow: auto;
+		transition: transform 600ms ease, opacity 800ms ease;
 
-		@include breakpoint(laptop) {
-			display: none;
+		@media screen and (prefers-reduced-motion: reduce) {
+			transition: none;
 		}
 
+		body.admin-bar & {
+			top: calc(var(--masthead--height) + var(--wp-admin--admin-bar--height));
+		}
+
+		// @include breakpoint(laptop) {
+		// 	display: none;
+		// }
+
 		&[aria-hidden='false'] {
-			display: block;
+			pointer-events: auto;
 			transform: translateX(0);
 			opacity: 1;
 		}
