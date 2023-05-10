@@ -6,3 +6,4 @@ node_modules
 *.pot~
 *.po~
 error_log
+package-lock.json
