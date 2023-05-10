@@ -1,4 +1,10 @@
 {
+	"customTemplates": [
+		{
+			"name": "search",
+			"title": "Search"
+		}
+	],
 	"settings": {
 		"appearanceTools": false,
 		"border": {

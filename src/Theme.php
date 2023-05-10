@@ -55,6 +55,7 @@ class Theme
 	{
 		$this->loadClasses(
 			[
+				Package\Archives::class,
 				Package\Assets::class,
 				Package\Gutenberg::class,
 				Package\Language::class,
