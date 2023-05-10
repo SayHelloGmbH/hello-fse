@@ -55,6 +55,9 @@ class Theme
 	{
 		$this->loadClasses(
 			[
+				Blocks\ArchiveTitleSearch\Block::class,
+				Blocks\MenuToggle\Block::class,
+
 				Package\Archives::class,
 				Package\Assets::class,
 				Package\Gutenberg::class,

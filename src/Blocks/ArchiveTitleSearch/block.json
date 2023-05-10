@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "sht/archive-title-search",
+	"title": "Archive title (search)",
+	"description": "Adds support for heading block which Core currently omits. Provided by the Say Hello Theme.",
+	"category": "site",
+	"icon": "title",
+	"keywords": ["title"],
+	"textdomain": "sht",
+	"supports": {
+		"align": ["wide", "full"],
+		"multiple": false
+	},
+	"attributes": {
+		"textAlign": {
+			"type": "string"
+		}
+	},
+	"editorScript": "file:./assets/dist/scripts/editor.js",
+	"render": "file:./render.php"
+}
