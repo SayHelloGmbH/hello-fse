@@ -1,6 +1,5 @@
 import { src, dest } from 'gulp';
 import glob from 'glob';
-import uglify from 'gulp-uglify';
 import rename from 'gulp-rename';
 import path from 'path';
 import gulpWebpack from 'webpack-stream';
@@ -80,9 +79,7 @@ export const task = (config) => {
 						target_basename = basename_parts[1],
 						target_basefolder = basename_parts[0],
 						path_new = {
-							dirname:
-								config.blockScriptsDist +
-								`${target_basefolder}/assets/dist/scripts/`,
+							dirname: `${config.blockScriptsDist}${target_basefolder}/assets/dist/scripts/`,
 							basename: target_basename,
 							extname: path.extname,
 						};

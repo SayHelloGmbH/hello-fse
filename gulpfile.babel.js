@@ -36,17 +36,14 @@ export const svg = () => taskSvg(config);
 export const watch = () => {
 	const settings = { usePolling: true, interval: 100 };
 
-	gulp.watch(config.assetsBuild + 'styles/**/*.scss', settings, gulp.series(styles));
-
-	gulp.watch(config.assetsBuild + 'scripts/**/*.{scss,css,js}', settings, gulp.series(scripts));
-
-	gulp.watch(config.assetsBuild + 'gutenberg/**/*.{scss,css,js,jsx}', settings, gulp.series(gutenberg));
-
-	gulp.watch(config.assetsDir + 'settings.json', settings, gulp.series(gutenberg, scripts, styles));
-
-	gulp.watch(config.themeDir + 'theme.json', settings, gulp.series(gutenberg, scripts, styles));
-
-	gulp.watch([config.assetsDir + '**/*.svg', '!' + config.assetsDir + '**/*.min.svg'], settings, gulp.series(svg));
+	gulp.watch(config.blockStylesSrc, settings, gulp.series(block_styles));
+	gulp.watch(`${config.blockScriptsSrc}/**/*.{scss,js}`, settings, gulp.series(block_scripts));
+	gulp.watch(`${config.assetsBuild}styles/**/*.scss`, settings, gulp.series(styles));
+	gulp.watch(`${config.assetsBuild}scripts/**/*.{scss,css,js}`, settings, gulp.series(scripts));
+	gulp.watch(`${config.assetsBuild}gutenberg/**/*.{scss,css,js,jsx}`, settings, gulp.series(gutenberg));
+	gulp.watch(`${config.assetsDir}settings.json`, settings, gulp.series(gutenberg, scripts, styles));
+	gulp.watch(`${config.themeDir}theme.json`, settings, gulp.series(gutenberg, scripts, styles));
+	gulp.watch([`${config.assetsDir}**/*.svg`, `!${config.assetsDir}**/*.min.svg`], settings, gulp.series(svg));
 };
 
 export const taskDefault = gulp.series(watch);
