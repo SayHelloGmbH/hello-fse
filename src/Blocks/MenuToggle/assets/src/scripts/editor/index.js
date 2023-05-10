@@ -12,10 +12,8 @@ const classNameBase = getBlockDefaultClassName(block_name);
 registerBlockType(block_name, {
 	icon,
 	edit: (props) => {
-		const { attributes, setAttributes, clientId } = props;
+		const { attributes, setAttributes } = props;
 		const { target, textColor } = attributes;
-
-		setAttributes({ blockId: clientId });
 
 		const handleTargetChange = (target) => {
 			setAttributes({ target: cleanForSlug(target) });

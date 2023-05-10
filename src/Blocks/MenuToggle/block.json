@@ -14,9 +14,6 @@
 		"color": { "text": true, "background": false, "link": false }
 	},
 	"attributes": {
-		"blockId": {
-			"type": "string"
-		},
 		"target": {
 			"type": "string"
 		},
