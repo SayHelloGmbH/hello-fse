@@ -24,10 +24,6 @@
 			top: calc(var(--masthead--height) + var(--wp-admin--admin-bar--height));
 		}
 
-		// @include breakpoint(laptop) {
-		// 	display: none;
-		// }
-
 		&[aria-hidden='false'] {
 			pointer-events: auto;
 			transform: translateX(0);
