@@ -18,6 +18,11 @@ class Gutenberg
 		$this->min = !sht_theme()->debug;
 	}
 
+	/**
+	 * Main initialisation code which adds hook methods
+	 *
+	 * @return void
+	 */
 	public function run()
 	{
 		if (!function_exists('register_block_type')) {
@@ -33,6 +38,11 @@ class Gutenberg
 		add_action('after_setup_theme', [$this, 'enqueueBlockStyles']);
 	}
 
+	/**
+	 * Add and remove theme supports definitions.
+	 *
+	 * @return void
+	 */
 	public function themeSupports()
 	{
 		// Since WordPress 5.5: disallow block patterns delivered by Core
@@ -41,6 +51,11 @@ class Gutenberg
 		add_editor_style('assets/styles/admin-editor.min.css');
 	}
 
+	/**
+	 * Enqueues the main CSS and JS files for the Block Editor views
+	 *
+	 * @return void
+	 */
 	public function enqueueBlockAssets()
 	{
 		if (file_exists(get_template_directory() . '/assets/gutenberg/blocks' . ($this->min ? '.min' : '') . '.js')) {
@@ -80,6 +95,11 @@ class Gutenberg
 		}
 	}
 
+	/**
+	 * This enqueues individual CSS files for each block.
+	 *
+	 * @return void
+	 */
 	public function enqueueBlockStyles()
 	{
 		$root_folder = get_template_directory() . '/assets/styles/blocks';
