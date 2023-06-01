@@ -27,12 +27,8 @@
 	body & {
 		width: unset;
 		max-width: none !important;
-		margin-left: calc(
-			-1 * var(--wp--custom--spacing-outer-gutter)
-		) !important;
-		margin-right: calc(
-			-1 * var(--wp--custom--spacing-outer-gutter)
-		) !important;
+		margin-left: calc(-1 * var(--wp--custom--spacing-outer-gutter)) !important;
+		margin-right: calc(-1 * var(--wp--custom--spacing-outer-gutter)) !important;
 	}
 }
 
