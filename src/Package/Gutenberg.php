@@ -31,7 +31,7 @@ class Gutenberg
 		add_action('enqueue_block_editor_assets', [$this, 'enqueueBlockAssets']);
 		add_filter('block_categories_all', [$this, 'blockCategories']);
 		add_filter('block_editor_settings_all', [$this, 'editorSettings']);
-		add_filter('allowed_block_types_all', [$this, 'allowedBlockTypes']);
+		add_filter('allowed_block_types_all', [$this, 'allowedBlockTypes'], 10, 2);
 		add_action('after_setup_theme', [$this, 'themeSupports']);
 		add_action('init', [$this, 'setScriptTranslations']);
 		add_filter('admin_body_class', [$this, 'extendAdminBodyClass']);
@@ -175,26 +175,30 @@ class Gutenberg
 	 * @param array|boolean $blocks
 	 * @return array
 	 */
-	public function allowedBlockTypes($blocks)
+	public function allowedBlockTypes($allowed_blocks, $context)
 	{
 
-		if (!is_array($blocks)) {
-			$blocks = [];
+		// Allow everything in the site editor
+		if ($context->name === 'core/edit-site') {
+			return $allowed_blocks;
 		}
 
-		// Always allow any blocks provided by Say Hello
+		// Default value is a boolean. Make sure we have an array.
+		if (!is_array($allowed_blocks)) {
+			$allowed_blocks = [];
+		}
+
 		$all_blocks = WP_Block_Type_Registry::get_instance()->get_all_registered();
 
-		foreach (array_keys($all_blocks) as $block_key) {
-			if (strpos($block_key, 'sht/') !== false) {
-				$blocks[] = $block_key;
-			}
-		}
+		// Always allow any blocks provided by Say Hello
+		$allowed_blocks = array_filter($all_blocks, function ($block) {
+			return strpos($block->name, 'sht/') !== false;
+		});
 
 		// Add in the allowed core blocks for this project
-		$blocks = array_merge($blocks, ['core/paragraph', 'core/heading', 'core/image', 'core/list', 'core/list-item']);
+		$allowed_blocks = array_merge($allowed_blocks, ['core/group', 'core/column', 'core/columns', 'core/paragraph', 'core/heading', 'core/image', 'core/list', 'core/list-item']);
 
-		return array_unique($blocks);
+		return array_unique($allowed_blocks);
 	}
 
 	public function blockCategories($categories)
