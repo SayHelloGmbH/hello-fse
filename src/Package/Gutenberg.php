@@ -25,6 +25,7 @@ class Gutenberg
 		}
 		add_action('enqueue_block_editor_assets', [$this, 'enqueueBlockAssets']);
 		add_filter('block_categories_all', [$this, 'blockCategories']);
+		add_filter('block_editor_settings_all', [$this, 'editorSettings']);
 		add_filter('allowed_block_types_all', [$this, 'allowedBlockTypes']);
 		add_action('after_setup_theme', [$this, 'themeSupports']);
 		add_action('init', [$this, 'setScriptTranslations']);
@@ -134,6 +135,18 @@ class Gutenberg
 	public function setScriptTranslations()
 	{
 		wp_set_script_translations('sht-gutenberg-script', 'sht', get_template_directory() . '/languages');
+	}
+
+	/**
+	 * Modify some of the Block Editor settings
+	 *
+	 * @param array $settings
+	 * @return array
+	 */
+	public function editorSettings($settings)
+	{
+		$settings['enableOpenverseMediaCategory'] = false;
+		return $settings;
 	}
 
 	/**
