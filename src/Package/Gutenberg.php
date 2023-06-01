@@ -188,12 +188,13 @@ class Gutenberg
 			$allowed_blocks = [];
 		}
 
-		$all_blocks = WP_Block_Type_Registry::get_instance()->get_all_registered();
-
 		// Always allow any blocks provided by Say Hello
-		$allowed_blocks = array_filter($all_blocks, function ($block) {
-			return strpos($block->name, 'sht/') !== false;
-		});
+		$allowed_blocks = array_filter(
+			WP_Block_Type_Registry::get_instance()->get_all_registered(),
+			function ($block) {
+				return strpos($block->name, 'sht/') !== false;
+			}
+		);
 
 		// Add in the allowed core blocks for this project
 		$allowed_blocks = array_merge($allowed_blocks, ['core/group', 'core/column', 'core/columns', 'core/paragraph', 'core/heading', 'core/image', 'core/list', 'core/list-item']);
