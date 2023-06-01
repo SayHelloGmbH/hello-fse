@@ -9,8 +9,11 @@ const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extract
 export const task = (config) => {
 	return new Promise((resolve) => {
 		const taskPath = `${config.blockScriptsSrc}/**/*.js`,
-			files = glob.sync(taskPath),
 			entries = {};
+
+		glob.sync(taskPath).forEach((file) => {
+			entries[file] = true;
+		});
 
 		files.forEach((file) => {
 			if (!path.basename(file).match(/^_/)) {
