@@ -197,7 +197,7 @@ class Gutenberg
 		);
 
 		// Add in the allowed core blocks for this project
-		$allowed_blocks = array_merge($allowed_blocks, ['core/group', 'core/column', 'core/columns', 'core/paragraph', 'core/heading', 'core/image', 'core/list', 'core/list-item']);
+		$allowed_blocks = array_merge(array_keys($allowed_blocks), ['core/group', 'core/column', 'core/columns', 'core/paragraph', 'core/heading', 'core/image', 'core/list', 'core/list-item']);
 
 		return array_unique($allowed_blocks);
 	}
