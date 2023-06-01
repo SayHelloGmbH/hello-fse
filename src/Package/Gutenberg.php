@@ -2,6 +2,8 @@
 
 namespace SayHello\Theme\Package;
 
+use WP_Block_Type_Registry;
+
 /**
  * Adjustments for the Gutenberg Editor
  *
@@ -23,6 +25,7 @@ class Gutenberg
 		}
 		add_action('enqueue_block_editor_assets', [$this, 'enqueueBlockAssets']);
 		add_filter('block_categories_all', [$this, 'blockCategories']);
+		add_filter('allowed_block_types_all', [$this, 'allowedBlockTypes']);
 		add_action('after_setup_theme', [$this, 'themeSupports']);
 		add_action('init', [$this, 'setScriptTranslations']);
 		add_filter('admin_body_class', [$this, 'extendAdminBodyClass']);
@@ -42,7 +45,7 @@ class Gutenberg
 		if (file_exists(get_template_directory() . '/assets/gutenberg/blocks' . ($this->min ? '.min' : '') . '.js')) {
 			$script_asset_path = get_template_directory() . '/assets/gutenberg/blocks.asset.php';
 			$script_asset = file_exists($script_asset_path) ? require($script_asset_path) : ['dependencies' => [], 'version' => sht_theme()->version];
-			
+
 			/**
 			 * Workaround to get domReady working properly
 			 * https://github.com/WordPress/gutenberg/issues/27607
@@ -131,6 +134,34 @@ class Gutenberg
 	public function setScriptTranslations()
 	{
 		wp_set_script_translations('sht-gutenberg-script', 'sht', get_template_directory() . '/languages');
+	}
+
+	/**
+	 * Only add these blocks to the block inserter.
+	 *
+	 * @param array|boolean $blocks
+	 * @return array
+	 */
+	public function allowedBlockTypes($blocks)
+	{
+
+		if (!is_array($blocks)) {
+			$blocks = [];
+		}
+
+		// Always allow any blocks provided by Say Hello
+		$all_blocks = WP_Block_Type_Registry::get_instance()->get_all_registered();
+
+		foreach (array_keys($all_blocks) as $block_key) {
+			if (strpos($block_key, 'sht/') !== false) {
+				$blocks[] = $block_key;
+			}
+		}
+
+		// Add in the allowed core blocks for this project
+		$blocks = array_merge($blocks, ['core/paragraph', 'core/heading', 'core/image', 'core/list', 'core/list-item']);
+
+		return array_unique($blocks);
 	}
 
 	public function blockCategories($categories)
