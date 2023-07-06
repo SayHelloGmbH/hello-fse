@@ -240,6 +240,11 @@
 			"area": "footer",
 			"name": "footer",
 			"title": "Footer"
+		},
+		{
+			"area": "uncategorized",
+			"name": "mobilemenu",
+			"title": "Mobile Navigation"
 		}
 	],
 	"version": 2
