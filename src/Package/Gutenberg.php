@@ -28,7 +28,7 @@ class Gutenberg
 		if (!function_exists('register_block_type')) {
 			return;
 		}
-		add_action('enqueue_block_editor_assets', [$this, 'enqueueBlockAssets']);
+		add_action('enqueue_block_assets', [$this, 'enqueueBlockAssets']);
 		add_filter('block_categories_all', [$this, 'blockCategories']);
 		add_filter('block_editor_settings_all', [$this, 'editorSettings']);
 		add_filter('allowed_block_types_all', [$this, 'allowedBlockTypes'], 10, 2);
