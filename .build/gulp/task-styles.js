@@ -6,9 +6,12 @@ import sassImportJson from '@sayhellogmbh/gulp-sass-import-json';
 import autoprefixer from 'gulp-autoprefixer';
 import rename from 'gulp-rename';
 import sourcemaps from 'gulp-sourcemaps';
+import editorStyles from 'gulp-editor-styles';
 const sass = require('gulp-sass')(require('sass'));
 
 export const task = (config) => {
+    const blockFilter = filter(`${config.assetsBuild}styles/admin-editor.css`, { restore: true });
+
 	return (
 		src(config.assetsBuild + 'styles/**/*.scss')
 			.pipe(sassImportJson({ cache: false, isScss: true }))
@@ -21,6 +24,9 @@ export const task = (config) => {
 			.pipe(sourcemaps.write({ includeContent: false }))
 			.pipe(sourcemaps.init({ loadMaps: true }))
 			.pipe(autoprefixer())
+            .pipe(blockFilter)
+            .pipe(editorStyles())
+            .pipe(blockFilter.restore)
 			.pipe(dest(config.assetsDir + 'styles/'))
 			.pipe(sourcemaps.write('.'))
 			.on('error', config.errorLog)
