@@ -58,6 +58,11 @@ class Gutenberg
 	 */
 	public function enqueueBlockAssets()
 	{
+
+		if (!is_admin()) {
+			return;
+		}
+
 		if (file_exists(get_template_directory() . '/assets/gutenberg/blocks' . ($this->min ? '.min' : '') . '.js')) {
 			$script_asset_path = get_template_directory() . '/assets/gutenberg/blocks.asset.php';
 			$script_asset = file_exists($script_asset_path) ? require($script_asset_path) : ['dependencies' => [], 'version' => sht_theme()->version];
@@ -192,7 +197,7 @@ class Gutenberg
 		$allowed_blocks = array_filter(
 			WP_Block_Type_Registry::get_instance()->get_all_registered(),
 			function ($block) {
-				return strpos($block->name, 'sht/') !== false;
+				return strpos($block->name, 'sht/') !== false || strpos($block->name, 'shp/') !== false;
 			}
 		);
 
