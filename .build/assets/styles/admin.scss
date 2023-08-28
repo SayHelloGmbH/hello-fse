@@ -18,6 +18,7 @@ $context: 'admin';
 @import '_______tools/mixins/context';
 
 @include context-admin {
+
 	body.post-type-block_area,
 	body.post-type-page {
 		.editor-post-title__block {

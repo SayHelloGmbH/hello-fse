@@ -34,10 +34,10 @@ class Media
 	 */
 	public function addImageSizes()
 	{
-		add_image_size('gutenberg_full', 2560, 9999);
+		add_image_size('block_editor_full', 2560, 9999);
 
 		if ((int) $this->wide_size) {
-			add_image_size('gutenberg_wide', $this->wide_size, 9999);
+			add_image_size('block_editor_wide', $this->wide_size, 9999);
 		}
 	}
 
@@ -50,10 +50,10 @@ class Media
 	 */
 	public function selectableImageSizes($sizes)
 	{
-		$sizes['gutenberg_full'] = _x('Gestamte breite', 'Custom selectable image size', 'sht');
+		$sizes['block_editor_full'] = _x('Gesamte breite', 'Custom selectable image size', 'sha');
 
 		if ((int) $this->wide_size) {
-			$sizes['gutenberg_wide'] = _x('Weite Breite', 'Custom selectable image size', 'sht');
+			$sizes['block_editor_wide'] = _x('Weite Breite', 'Custom selectable image size', 'sha');
 		}
 
 		return $sizes;

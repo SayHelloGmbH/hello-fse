@@ -11,7 +11,7 @@ const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extract
 export const task = (config) => {
 	return (
 		gulp
-			.src([`${config.assetsBuild}gutenberg/blocks.js`])
+			.src([`${config.assetsBuild}block-editor/blocks.js`])
 			.pipe(
 				gulpWebpack(
 					{
@@ -80,7 +80,7 @@ export const task = (config) => {
 				)
 			)
 			.on('error', config.errorLog)
-			.pipe(gulp.dest(config.assetsDir + 'gutenberg/'))
+			.pipe(gulp.dest(config.assetsDir + 'block-editor/'))
 
 			// Minify
 			.pipe(filter(['**/*.js']))
@@ -91,6 +91,6 @@ export const task = (config) => {
 				})
 			)
 			.on('error', config.errorLog)
-			.pipe(gulp.dest(config.assetsDir + 'gutenberg/'))
+			.pipe(gulp.dest(config.assetsDir + 'block-editor/'))
 	);
 };
