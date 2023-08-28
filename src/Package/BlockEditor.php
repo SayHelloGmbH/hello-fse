@@ -70,13 +70,13 @@ class BlockEditor
 			filemtime(get_template_directory() . '/assets/styles/admin-editor' . ($this->min ? '.min' : '') . '.css')
 		);
 
-		if (file_exists(get_template_directory() . '/assets/gutenberg/blocks' . ($this->min ? '.min' : '') . '.js')) {
-			$script_asset_path = get_template_directory() . '/assets/gutenberg/blocks.asset.php';
+		if (file_exists(get_template_directory() . '/assets/block-editor/blocks' . ($this->min ? '.min' : '') . '.js')) {
+			$script_asset_path = get_template_directory() . '/assets/block-editor/blocks.asset.php';
 			$script_asset = file_exists($script_asset_path) ? require($script_asset_path) : ['dependencies' => [], 'version' => sht_theme()->version];
 
 			wp_enqueue_script(
-				'sht-gutenberg-script',
-				get_template_directory_uri() . '/assets/gutenberg/blocks' . ($this->min ? '.min' : '') . '.js',
+				'sht-block-editor-script',
+				get_template_directory_uri() . '/assets/block-editor/blocks' . ($this->min ? '.min' : '') . '.js',
 				$script_asset['dependencies'],
 				$script_asset['version']
 			);
@@ -146,7 +146,7 @@ class BlockEditor
 	 */
 	public function setScriptTranslations()
 	{
-		wp_set_script_translations('sht-gutenberg-script', 'sht', get_template_directory() . '/languages');
+		wp_set_script_translations('sht-block-editor-script', 'sht', get_template_directory() . '/languages');
 	}
 
 	/**
