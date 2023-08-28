@@ -22,10 +22,11 @@ window.addEventListener('load', () => {
 	let body_classes = document.querySelector('body').classList;
 	if (body_classes.contains('wp-admin') && body_classes.contains('block-editor-page')) {
 		const matches = document
-				.querySelector('body')
-				.getAttribute('class')
-				.match(/post-type-([a-z_]+)--([a-z_]+)/),
-			domElement = document.querySelector('.block-editor-block-list__layout');
+			.querySelector('body')
+			.getAttribute('class')
+			.match(/post-type-([a-zA-Z_]+)--([a-zA-Z_]+)/);
+
+		const domElement = document.querySelector('.block-editor-block-list__layout');
 
 		if (matches && !!domElement) {
 			const post_type = matches[1];
