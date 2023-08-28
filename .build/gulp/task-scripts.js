@@ -4,6 +4,7 @@ import gulpWebpack from 'webpack-stream';
 import rename from 'gulp-rename';
 import uglify from 'gulp-uglify';
 import fs from 'fs';
+import DependencyExtractionWebpackPlugin from '@wordpress/dependency-extraction-webpack-plugin';
 
 const getDirectories = (path) => fs.readdirSync(path).filter((file) => fs.statSync(path + '/' + file).isDirectory());
 
@@ -19,44 +20,56 @@ export const task = (config) => {
 			}
 		});
 
+		const webpackConfig = {
+			entry,
+			mode: 'production',
+			module: {
+				rules: [
+					{
+						test: /\.js$/,
+						exclude: /node_modules/,
+						loader: 'babel-loader',
+					},
+					{
+						test: /\.s?css$/i,
+						use: ['style-loader', 'css-loader', 'sass-loader'],
+					},
+				],
+			},
+			output: {
+				filename: '[name].js',
+			},
+			externals: {
+				jquery: 'jQuery',
+			},
+			optimization: {
+				minimize: false,
+			},
+			plugins: [new DependencyExtractionWebpackPlugin()],
+		};
+
+		// Generate non-minified scripts
+		gulp.src([`${config.assetsBuild}scripts/*`])
+			.pipe(gulpWebpack(webpackConfig))
+			.on('error', config.errorLog)
+			.pipe(gulp.dest(config.assetsDir + 'scripts/'));
+
+		// Generate minified scripts
 		gulp.src([`${config.assetsBuild}scripts/*`])
 			.pipe(
 				gulpWebpack({
-					entry,
-					mode: 'production',
-					module: {
-						rules: [
-							{
-								test: /\.js$/,
-								exclude: /node_modules/,
-								loader: 'babel-loader',
-							},
-							{
-								test: /\.s?css$/i,
-								use: ['style-loader', 'css-loader', 'sass-loader'],
-							},
-						],
-					},
+					...webpackConfig,
 					output: {
-						filename: '[name].js',
+						filename: '[name].min.js', // Output minified file
 					},
-					externals: {
-						jquery: 'jQuery',
+					optimization: {
+						minimize: true, // Minify only the .min.js file
 					},
-				})
-			)
-			.on('error', config.errorLog)
-			.pipe(gulp.dest(config.assetsDir + 'scripts/'))
-
-			// Minify
-			.pipe(uglify())
-			.pipe(
-				rename({
-					suffix: '.min',
 				})
 			)
 			.on('error', config.errorLog)
 			.pipe(gulp.dest(config.assetsDir + 'scripts/'));
+
 		resolve();
 	});
 };

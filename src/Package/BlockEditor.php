@@ -70,13 +70,20 @@ class BlockEditor
 			filemtime(get_template_directory() . '/assets/styles/admin-editor' . ($this->min ? '.min' : '') . '.css')
 		);
 
-		if (file_exists(get_template_directory() . '/assets/block-editor/blocks' . ($this->min ? '.min' : '') . '.js')) {
-			$script_asset_path = get_template_directory() . '/assets/block-editor/blocks.asset.php';
+		/**
+		 * Load block editor scripts, in which shared functionality
+		 * for the Block Editor and the Site Editor is defined.
+		 *
+		 * Individual Block scripts and CSS files are loaded through
+		 * their own, individual Block Package files.
+		 */
+		if (file_exists(get_template_directory() . '/assets/scripts/block-editor' . ($this->min ? '.min' : '') . '.js')) {
+			$script_asset_path = get_template_directory() . '/assets/scripts/block-editor.asset.php';
 			$script_asset = file_exists($script_asset_path) ? require($script_asset_path) : ['dependencies' => [], 'version' => sht_theme()->version];
 
 			wp_enqueue_script(
 				'sht-block-editor-script',
-				get_template_directory_uri() . '/assets/block-editor/blocks' . ($this->min ? '.min' : '') . '.js',
+				get_template_directory_uri() . '/assets/scripts/block-editor' . ($this->min ? '.min' : '') . '.js',
 				$script_asset['dependencies'],
 				$script_asset['version']
 			);
@@ -85,6 +92,14 @@ class BlockEditor
 
 	/**
 	 * This enqueues individual CSS files for each block.
+	 * If you want to add an individual CSS file for a specific
+	 * core block, which is only loaded if the block is present
+	 * on the page, add it to the .build/assets/styles/blocks/core
+	 * folder with a filename which matches the block: e.g. media-text.scss.
+	 *
+	 * If you're doing the same thing for non-core blocks, use a
+	 * subfolder of .build/assets/styles/blocks which matches the block key
+	 * prefix, e.g. sht or shp.
 	 *
 	 * @return void
 	 */
