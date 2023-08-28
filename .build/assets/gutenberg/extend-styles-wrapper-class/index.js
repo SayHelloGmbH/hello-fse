@@ -10,7 +10,7 @@ function my_admin_body_class($classes)
 {
 	global $post;
 	if ($post->post_type === 'block_area') {
-		$classes .= ' post-type-'.$post->post_type.'--'.$post->post_name;
+		$classes .= ' post-type-'.$post->post_type;
 	}
 	return $classes;
 }
@@ -20,25 +20,17 @@ function my_admin_body_class($classes)
 
 window.addEventListener('load', () => {
 	let body_classes = document.querySelector('body').classList;
-	if (
-		body_classes.contains('wp-admin') &&
-		body_classes.contains('block-editor-page')
-	) {
+	if (body_classes.contains('wp-admin') && body_classes.contains('block-editor-page')) {
 		const matches = document
 				.querySelector('body')
 				.getAttribute('class')
 				.match(/post-type-([a-z_]+)--([a-z_]+)/),
-			domElement = document.querySelector(
-				'.block-editor-block-list__layout'
-			);
+			domElement = document.querySelector('.block-editor-block-list__layout');
 
 		if (matches && !!domElement) {
 			const post_type = matches[1];
-			const post_name = matches[2];
 
-			domElement.classList.add(
-				`block-editor-block-list__layout--${post_type}`
-			);
+			domElement.classList.add(`block-editor-block-list__layout--${post_type}`);
 		}
 	}
 });
