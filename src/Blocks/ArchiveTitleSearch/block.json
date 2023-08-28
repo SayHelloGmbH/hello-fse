@@ -4,7 +4,7 @@
 	"name": "sht/archive-title-search",
 	"title": "Archive title (search)",
 	"description": "Adds support for heading block which Core currently omits. Provided by the Say Hello Theme.",
-	"category": "site",
+	"category": "theme",
 	"icon": "title",
 	"keywords": ["title"],
 	"textdomain": "sht",

@@ -4,7 +4,7 @@
 	"name": "sht/menu-toggle",
 	"title": "Menu toggler",
 	"description": "Adds a clickable button which opens/closes the mobile menu.",
-	"category": "site",
+	"category": "theme",
 	"icon": "title",
 	"keywords": ["title"],
 	"textdomain": "sht",
