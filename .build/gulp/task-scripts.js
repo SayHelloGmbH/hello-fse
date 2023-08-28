@@ -1,8 +1,6 @@
 import gulp from 'gulp';
 
 import gulpWebpack from 'webpack-stream';
-import rename from 'gulp-rename';
-import uglify from 'gulp-uglify';
 import fs from 'fs';
 import DependencyExtractionWebpackPlugin from '@wordpress/dependency-extraction-webpack-plugin';
 
