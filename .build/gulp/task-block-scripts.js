@@ -9,11 +9,8 @@ const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extract
 export const task = (config) => {
 	return new Promise((resolve) => {
 		const taskPath = `${config.blockScriptsSrc}/**/*.js`,
+			files = glob.sync(taskPath),
 			entries = {};
-
-		glob.sync(taskPath).forEach((file) => {
-			entries[file] = true;
-		});
 
 		files.forEach((file) => {
 			if (!path.basename(file).match(/^_/)) {
@@ -34,35 +31,15 @@ export const task = (config) => {
 						rules: [
 							{
 								test: /\.js$/,
-								exclude: /node_modules/,
 								loader: 'babel-loader',
 							},
 							{
 								test: /\.css$/i,
-								exclude: /node_modules/,
-								use: [
-									{
-										loader: 'style-loader',
-									},
-									{
-										loader: 'css-loader',
-									},
-								],
+								use: ['style-loader', 'css-loader'],
 							},
 							{
 								test: /\.scss$/i,
-								exclude: /node_modules/,
-								use: [
-									{
-										loader: 'style-loader',
-									},
-									{
-										loader: 'css-loader',
-									},
-									{
-										loader: 'sass-loader',
-									},
-								],
+								use: ['style-loader', 'css-loader', 'sass-loader'],
 							},
 						],
 					},
@@ -90,14 +67,6 @@ export const task = (config) => {
 				})
 			)
 			.pipe(dest('./'));
-		// .pipe(uglify())
-		// .pipe(
-		// 	rename({
-		// 		suffix: '.min',
-		// 	})
-		// )
-		// .on('error', config.errorLog)
-		// .pipe(dest('./'));
 		resolve();
 	});
 };
