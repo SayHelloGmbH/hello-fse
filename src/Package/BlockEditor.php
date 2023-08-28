@@ -81,10 +81,6 @@ class BlockEditor
 				$script_asset['version']
 			);
 		}
-
-		if (file_exists(get_template_directory() . '/assets/fonts/woff2.css')) {
-			wp_enqueue_style('sht-gutenberg-font', get_template_directory_uri() . '/assets/fonts/woff2.css', [], filemtime(get_template_directory() . '/assets/fonts/woff2.css'));
-		}
 	}
 
 	/**
