@@ -17,7 +17,6 @@ class Assets
 	{
 		add_action('wp_enqueue_scripts', [$this, 'registerAssets']);
 		add_action('admin_enqueue_scripts', [$this, 'registerAdminAssets']);
-		add_action('after_setup_theme', [$this, 'editorStyle']);
 		add_action('wp_head', [$this, 'loadFonts']);
 	}
 
@@ -57,15 +56,6 @@ class Assets
 	{
 		//wp_enqueue_style('sht-admin-editor-style', get_template_directory_uri() . '/assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css', ['wp-edit-blocks'], filemtime(get_template_directory() . '/assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css'));
 		wp_enqueue_style('sht-admin-style', get_template_directory_uri() . '/assets/styles/admin' . (sht_theme()->debug ? '' : '.min') . '.css', ['sht-admin-editor-style', 'wp-edit-blocks'], filemtime(get_template_directory() . '/assets/styles/admin' . (sht_theme()->debug ? '' : '.min') . '.css'));
-	}
-
-	public function editorStyle()
-	{
-		add_theme_support('editor-styles');
-		add_editor_style('assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css');
-		// if (file_exists(get_template_directory() . '/assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css')) {
-		// 	add_editor_style('assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css');
-		// }
 	}
 
 	public function loadFonts()

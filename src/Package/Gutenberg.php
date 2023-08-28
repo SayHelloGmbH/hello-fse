@@ -47,8 +47,6 @@ class Gutenberg
 	{
 		// Since WordPress 5.5: disallow block patterns delivered by Core
 		remove_theme_support('core-block-patterns');
-
-		add_editor_style('assets/styles/admin-editor.min.css');
 	}
 
 	/**
@@ -62,6 +60,15 @@ class Gutenberg
 		if (!is_admin()) {
 			return;
 		}
+
+		// Enqueue theme-level CSS in the Block and Site Editors
+		// Replaces add_editor_style which is for TinyMCE
+		wp_enqueue_style(
+			'sht-admin-editor-style',
+			get_template_directory_uri() . '/assets/styles/admin-editor' . ($this->min ? '.min' : '') . '.css',
+			[],
+			filemtime(get_template_directory() . '/assets/styles/admin-editor' . ($this->min ? '.min' : '') . '.css')
+		);
 
 		if (file_exists(get_template_directory() . '/assets/gutenberg/blocks' . ($this->min ? '.min' : '') . '.js')) {
 			$script_asset_path = get_template_directory() . '/assets/gutenberg/blocks.asset.php';
