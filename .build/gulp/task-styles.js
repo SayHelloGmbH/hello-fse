@@ -24,9 +24,9 @@ export const task = (config) => {
 			.pipe(sourcemaps.write({ includeContent: false }))
 			.pipe(sourcemaps.init({ loadMaps: true }))
 			.pipe(autoprefixer())
-            .pipe(blockFilter)
-            .pipe(editorStyles())
-            .pipe(blockFilter.restore)
+			.pipe(blockFilter) // filter stream so only admin-editor.css gets the editorStyles
+			.pipe(editorStyles())
+			.pipe(blockFilter.restore) // reset Filter
 			.pipe(dest(config.assetsDir + 'styles/'))
 			.pipe(sourcemaps.write('.'))
 			.on('error', config.errorLog)
