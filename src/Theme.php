@@ -60,7 +60,7 @@ class Theme
 
 				Package\Archives::class,
 				Package\Assets::class,
-				Package\Gutenberg::class,
+				Package\BlockEditor::class,
 				Package\Language::class,
 				Package\Media::class,
 				Package\Navigation::class,

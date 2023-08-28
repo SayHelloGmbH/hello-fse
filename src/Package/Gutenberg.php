@@ -5,11 +5,11 @@ namespace SayHello\Theme\Package;
 use WP_Block_Type_Registry;
 
 /**
- * Adjustments for the Gutenberg Editor
+ * Adjustments for the Block Editor
  *
  * @author Mark Howells-Mead <mark@sayhello.ch>
  */
-class Gutenberg
+class BlockEditor
 {
 	public $min = false;
 

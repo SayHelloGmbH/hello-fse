@@ -12,7 +12,7 @@ if (!empty($attributes['textAlign'] ?? '')) {
 	}
 }
 
-if (sht_theme()->Package->Gutenberg->isContextEdit()) {
+if (sht_theme()->Package->BlockEditor->isContextEdit()) {
 ?>
 	<h2>Archive title - search</h2>
 <?php
