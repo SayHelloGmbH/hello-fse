@@ -1,6 +1,5 @@
 // import './modules/settings';
 import './_polyfill';
-import './a11y';
 import './masthead';
 
 console.log('%cDeveloped by', 'font-style: italic; font-size: 12px;');

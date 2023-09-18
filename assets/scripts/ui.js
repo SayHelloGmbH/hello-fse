@@ -29,23 +29,6 @@ if (window.Element && !Element.prototype.closest) {
 
 /***/ }),
 
-/***/ 599:
-/***/ (function() {
-
-const check_class = 'c-body--no-outline';
-const body = document.body;
-body.classList.add(check_class);
-window.addEventListener('keydown', event => {
-  if (event.key.toLowerCase() === 'tab') {
-    body.classList.remove(check_class);
-  }
-});
-window.addEventListener('mousemove', () => {
-  body.classList.add(check_class);
-});
-
-/***/ }),
-
 /***/ 704:
 /***/ (function() {
 
@@ -122,12 +105,9 @@ var __webpack_exports__ = {};
 "use strict";
 /* harmony import */ var _polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(197);
 /* harmony import */ var _polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_polyfill__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _a11y__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(599);
-/* harmony import */ var _a11y__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_a11y__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _masthead__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(704);
-/* harmony import */ var _masthead__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_masthead__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _masthead__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(704);
+/* harmony import */ var _masthead__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_masthead__WEBPACK_IMPORTED_MODULE_1__);
 // import './modules/settings';
-
 
 
 console.log('%cDeveloped by', 'font-style: italic; font-size: 12px;');
