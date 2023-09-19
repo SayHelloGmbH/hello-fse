@@ -30,7 +30,7 @@ body {
 		padding: var(--wp-block-quote-padding);
 		font-size: var(--wp-block-quote-text-size--large);
 
-		* + & {
+		*+& {
 			margin-top: var(--c-block-margin-top);
 		}
 

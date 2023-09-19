@@ -27,6 +27,7 @@
 		"css-loader": "^6.8.1",
 		"fs": "^0.0.1-security",
 		"fsevents": "^2.3.3",
+		"glob": "^8.1.0",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^8.0.0",
 		"gulp-clean-css": "^4.3.0",

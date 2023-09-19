@@ -5,6 +5,7 @@
 				display: none !important;
 			}
 		}
+
 		&--tablet {
 			@include for-screen-min(tablet) {
 				@include for-screen-max(wide) {
@@ -12,6 +13,7 @@
 				}
 			}
 		}
+
 		&--desktop {
 			@include breakpoint(laptop) {
 				display: none !important;

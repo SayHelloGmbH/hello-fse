@@ -1,13 +1,9 @@
 .alignleft {
-	margin-inline-end: var(
-		--wp--preset--spacing--regular
-	) !important; // important to override unsuppressable inline core rules
+	margin-inline-end: var(--wp--preset--spacing--regular) !important; // important to override unsuppressable inline core rules
 }
 
 .alignright {
-	margin-inline-start: var(
-		--wp--preset--spacing--regular
-	) !important; // important to override unsuppressable inline core rules
+	margin-inline-start: var(--wp--preset--spacing--regular) !important; // important to override unsuppressable inline core rules
 }
 
 .aligncenter,

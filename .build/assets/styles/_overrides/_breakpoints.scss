@@ -2,13 +2,14 @@
 // Convert them to EM if they're numeric, otherwise use them as-is.
 
 body {
-	@each $size, $sizeValue in $breakpoints {
-		@if type-of($sizeValue) ==
-			'number' and
-			(unit($sizeValue) == '' or unit($sizeValue) == 'px')
-		{
+
+	@each $size,
+	$sizeValue in $breakpoints {
+		@if type-of($sizeValue)=='number' and (unit($sizeValue)=='' or unit($sizeValue)=='px') {
 			--constraint-#{$size}: #{calc($sizeValue/16) + 0rem};
-		} @else {
+		}
+
+		@else {
 			--constraint-#{$size}: #{$sizeValue};
 		}
 	}
