@@ -181,6 +181,9 @@ var external_wp_blockEditor_namespaceObject = window["wp"]["blockEditor"];
 // EXTERNAL MODULE: ./node_modules/classnames/index.js
 var classnames = __webpack_require__(184);
 var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
+;// CONCATENATED MODULE: external "lodash"
+var external_lodash_namespaceObject = window["lodash"];
+var external_lodash_default = /*#__PURE__*/__webpack_require__.n(external_lodash_namespaceObject);
 ;// CONCATENATED MODULE: ./.build/assets/scripts/block-editor/block-filter/visibility/index.js
 /**
  * Add visibility toggle to Core Blocks, so that Blocks can be hidden per breakpoint
@@ -189,6 +192,7 @@ var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
  *
  * Current version mark@sayhello.ch 16.3.2022
  */
+
 
 
 
@@ -210,8 +214,8 @@ const allowedBlocks = ['core/group', 'core/columns', 'core/column', 'sht/menu-to
   if (!allowedBlocks.includes(settings.name)) {
     return settings;
   }
-  return lodash.assign({}, settings, {
-    attributes: lodash.assign({}, settings.attributes, {
+  return external_lodash_default().assign({}, settings, {
+    attributes: external_lodash_default().assign({}, settings.attributes, {
       hiddenForMobile: {
         type: 'boolean',
         default: false

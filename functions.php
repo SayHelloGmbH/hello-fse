@@ -65,3 +65,5 @@ if (!function_exists('sht_theme')) {
 
 sht_theme();
 sht_theme()->run();
+
+add_filter('gform_confirmation_anchor', '__return_false');

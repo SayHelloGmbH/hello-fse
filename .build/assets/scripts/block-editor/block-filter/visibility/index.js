@@ -14,16 +14,12 @@ import { PanelBody, ToggleControl } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
 
 import classnames from 'classnames';
+import lodash from 'lodash';
 
 /**
  * Restrict to specific blocks
  */
-const allowedBlocks = [
-	'core/group',
-	'core/columns',
-	'core/column',
-	'sht/menu-toggler',
-];
+const allowedBlocks = ['core/group', 'core/columns', 'core/column', 'sht/menu-toggler'];
 
 /**
  * Add custom attributes for mobile visibility.
@@ -61,8 +57,7 @@ addFilter(
 		return (props) => {
 			const { name, attributes, setAttributes, isSelected } = props;
 
-			const { hiddenForMobile, hiddenForTablet, hiddenForDesktop } =
-				attributes;
+			const { hiddenForMobile, hiddenForTablet, hiddenForDesktop } = attributes;
 
 			if (!isSelected || !allowedBlocks.includes(name)) {
 				return <BlockEdit {...props} />;
@@ -71,10 +66,7 @@ addFilter(
 				<Fragment>
 					<BlockEdit {...props} />
 					<InspectorControls>
-						<PanelBody
-							title={__('Sichtbarkeit', 'sht')}
-							initialOpen={true}
-						>
+						<PanelBody title={__('Sichtbarkeit', 'sht')} initialOpen={true}>
 							<ToggleControl
 								label={__('Auf Mobilgeräte verstecken')}
 								checked={!!hiddenForMobile}
@@ -83,14 +75,7 @@ addFilter(
 										hiddenForMobile: !hiddenForMobile,
 									})
 								}
-								help={
-									!!hiddenForMobile
-										? __(
-												'Dieser Block ist versteckt auf Mobilgeräte.',
-												'sha'
-										  )
-										: ''
-								}
+								help={!!hiddenForMobile ? __('Dieser Block ist versteckt auf Mobilgeräte.', 'sha') : ''}
 							/>
 							<ToggleControl
 								label={__('Auf Tabletts verstecken')}
@@ -100,14 +85,7 @@ addFilter(
 										hiddenForTablet: !hiddenForTablet,
 									})
 								}
-								help={
-									!!hiddenForTablet
-										? __(
-												'Dieser Block ist versteckt auf Tabletts.',
-												'sha'
-										  )
-										: ''
-								}
+								help={!!hiddenForTablet ? __('Dieser Block ist versteckt auf Tabletts.', 'sha') : ''}
 							/>
 							<ToggleControl
 								label={__('Auf Desktopcomputer verstecken')}
@@ -117,14 +95,7 @@ addFilter(
 										hiddenForDesktop: !hiddenForDesktop,
 									})
 								}
-								help={
-									!!hiddenForDesktop
-										? __(
-												'Dieser Block ist versteckt auf Desktopcomputer.',
-												'sha'
-										  )
-										: ''
-								}
+								help={!!hiddenForDesktop ? __('Dieser Block ist versteckt auf Desktopcomputer.', 'sha') : ''}
 							/>
 						</PanelBody>
 					</InspectorControls>
@@ -137,38 +108,24 @@ addFilter(
 /**
  * Add custom element class in save context.
  */
-addFilter(
-	'blocks.getSaveContent.extraProps',
-	'sht/applyExtraClass',
-	(extraProps, blockType, attributes) => {
-		const { hiddenForMobile, hiddenForTablet, hiddenForDesktop } =
-			attributes;
+addFilter('blocks.getSaveContent.extraProps', 'sht/applyExtraClass', (extraProps, blockType, attributes) => {
+	const { hiddenForMobile, hiddenForTablet, hiddenForDesktop } = attributes;
 
-		if (!allowedBlocks.includes(blockType.name)) {
-			return extraProps;
-		}
-
-		if (!!hiddenForMobile) {
-			extraProps.className = classnames(
-				extraProps.className,
-				'is-hidden-for--mobile'
-			);
-		}
-
-		if (!!hiddenForTablet) {
-			extraProps.className = classnames(
-				extraProps.className,
-				'is-hidden-for--tablet'
-			);
-		}
-
-		if (!!hiddenForDesktop) {
-			extraProps.className = classnames(
-				extraProps.className,
-				'is-hidden-for--desktop'
-			);
-		}
-
+	if (!allowedBlocks.includes(blockType.name)) {
 		return extraProps;
 	}
-);
+
+	if (!!hiddenForMobile) {
+		extraProps.className = classnames(extraProps.className, 'is-hidden-for--mobile');
+	}
+
+	if (!!hiddenForTablet) {
+		extraProps.className = classnames(extraProps.className, 'is-hidden-for--tablet');
+	}
+
+	if (!!hiddenForDesktop) {
+		extraProps.className = classnames(extraProps.className, 'is-hidden-for--desktop');
+	}
+
+	return extraProps;
+});
