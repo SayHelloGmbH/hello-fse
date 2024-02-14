@@ -57,6 +57,7 @@ class Theme
 			[
 				Blocks\ArchiveTitleSearch\Block::class,
 				Blocks\MenuToggle\Block::class,
+				Blocks\Modal\Block::class,
 
 				Package\Archives::class,
 				Package\Assets::class,
