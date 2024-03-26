@@ -8,11 +8,10 @@
 		left: 0;
 		// Don't use "right" here: it creates a scroll overflow
 		width: 100%;
-		height: calc(100 * var(--svh));
+		height: 100svh;
 		transform: translateX(100%);
 		opacity: 0;
 		z-index: 2;
-		height: calc(var(--vh) * 100);
 		overflow: auto;
 		transition: transform 600ms ease, opacity 800ms ease;
 
