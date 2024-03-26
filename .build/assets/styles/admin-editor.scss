@@ -13,8 +13,6 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
 @use 'sass:math';
 $context: 'edit';
 
-@import '../../../assets/settings.json';
-
 @import '_______tools/__all.tools';
 @import '______generic/__all.generic';
 @import '_____elements/__all.elements';

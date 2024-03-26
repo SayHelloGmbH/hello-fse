@@ -1,4 +1,4 @@
-@mixin transition($properties: all, $speed: normal, $delay: 0) {
+@mixin transition($properties: all, $speed: normal, $delay: 0, $easing_bezier: [0.455, 0.03, 0.515, 0.955]) {
 	$duration: transition-get-duration($speed);
 	$string: $properties $duration cubic-bezier($easing_bezier);
 
@@ -6,8 +6,7 @@
 		$string: false;
 		@each $prop in $properties {
 			@if $string {
-				$string: #{$string},
-					#{$prop $duration cubic-bezier($easing_bezier)};
+				$string: #{$string}, #{$prop $duration cubic-bezier($easing_bezier)};
 			} @else {
 				$string: #{$prop $duration cubic-bezier($easing_bezier)};
 			}
@@ -17,11 +16,11 @@
 }
 
 @function transition-get-duration($speed: normal) {
-	$duration: $easing_speed + 0ms;
+	$duration: 300ms;
 	@if $speed==fast {
-		$duration: $easing_speed_fast + 0ms;
+		$duration: 150ms;
 	} @else if $speed==slow {
-		$duration: $easing_speed_slow + 0ms;
+		$duration: 600ms;
 	}
 	@return $duration;
 }
