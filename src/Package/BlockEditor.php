@@ -2,8 +2,6 @@
 
 namespace SayHello\Theme\Package;
 
-use WP_Block_Type_Registry;
-
 /**
  * Adjustments for the Block Editor
  *
@@ -32,7 +30,6 @@ class BlockEditor
 		add_filter('block_editor_settings_all', [$this, 'editorSettings']);
 		add_action('after_setup_theme', [$this, 'themeSupports']);
 		add_action('init', [$this, 'setScriptTranslations']);
-		add_filter('admin_body_class', [$this, 'extendAdminBodyClass']);
 		add_action('after_setup_theme', [$this, 'enqueueBlockStyles']);
 	}
 
@@ -175,21 +172,5 @@ class BlockEditor
 	public function isContextEdit()
 	{
 		return array_key_exists('context', $_GET) && $_GET['context'] === 'edit';
-	}
-
-	/**
-	 * Add a CSS class name to the admin body, containing current post
-	 * name and post type.
-	 * @param  string $classes The pre-existing body class name/s
-	 * @return string
-	 */
-	public function extendAdminBodyClass($classes)
-	{
-		global $post;
-		if ($post->post_type ?? false && $post->post_name ?? false) {
-			global $post;
-			$classes .= ' post-type-' . $post->post_type . ' post-type-' . $post->post_type . '--' . $post->post_name;
-		}
-		return $classes;
 	}
 }
