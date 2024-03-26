@@ -1,43 +1,28 @@
 import { src, dest } from 'gulp';
-import sourcemaps from 'gulp-sourcemaps';
-import rename from 'gulp-rename';
 import cleanCSS from 'gulp-clean-css';
-//import filter from 'gulp-filter';
-//import editorStyles from 'gulp-editor-styles';
+import rename from 'gulp-rename';
 const sass = require('gulp-sass')(require('sass'));
 
 export const task = (config) => {
-	//const filterAdminEditor = filter(`${config.assetsBuild}styles/admin-editor.css`, { restore: true });
-
-	return (
-		src([config.blockStylesSrc])
-			// Process non-admin-editor CSS files
-			// .pipe(filterAdminEditor.restore)
-			.pipe(sourcemaps.init())
-			.pipe(
-				sass({
-					includePaths: ['./node_modules/'], // Include node_modules folder
-				}).on('error', sass.logError)
-			)
-			.pipe(sourcemaps.write('.'))
-			.pipe(
-				rename(function (path) {
-					return {
-						dirname: config.blockStylesDist.replace('./', '') + path.dirname.replace('/assets/src', '/assets/dist'),
-						basename: path.basename,
-						extname: path.extname,
-					};
-				})
-			)
-			.pipe(dest('./'))
-			// Process admin-editor CSS file
-			// .pipe(filterAdminEditor)
-			// .pipe(editorStyles())
-			// .pipe(filterAdminEditor.restore)
-			.pipe(dest(config.assetsDir + 'styles/'))
-			// Process minified CSS files
-			.pipe(cleanCSS())
-			.pipe(rename({ suffix: '.min' }))
-			.pipe(dest('./'))
-	);
+	return src([config.blockStylesSrc])
+		.pipe(
+			sass({
+				includePaths: ['./node_modules/'],
+			}).on('error', sass.logError)
+		)
+		.pipe(
+			rename(function (path) {
+				return {
+					dirname: config.blockStylesDist.replace('./', '') + path.dirname.replace('/assets/src', '/assets/dist'),
+					basename: path.basename,
+					extname: path.extname,
+				};
+			})
+		)
+		.pipe(dest('./'))
+		.on('error', config.errorLog)
+		.pipe(cleanCSS())
+		.on('error', config.errorLog)
+		.pipe(rename({ suffix: '.min' }))
+		.pipe(dest('./'));
 };
