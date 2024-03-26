@@ -29,9 +29,7 @@ class BlockEditor
 			return;
 		}
 		add_action('enqueue_block_assets', [$this, 'enqueueBlockAssets']);
-		add_filter('block_categories_all', [$this, 'blockCategories']);
 		add_filter('block_editor_settings_all', [$this, 'editorSettings']);
-		add_filter('allowed_block_types_all', [$this, 'allowedBlockTypes'], 10, 2);
 		add_action('after_setup_theme', [$this, 'themeSupports']);
 		add_action('init', [$this, 'setScriptTranslations']);
 		add_filter('admin_body_class', [$this, 'extendAdminBodyClass']);
@@ -168,51 +166,10 @@ class BlockEditor
 	 */
 	public function editorSettings($settings)
 	{
-		$settings['enableOpenverseMediaCategory'] = false;
+		// Since WordPress 6.5: disable the font library
+		$settings['fontLibraryEnabled'] = false;
+
 		return $settings;
-	}
-
-	/**
-	 * Only add these blocks to the block inserter.
-	 *
-	 * @param array|boolean $blocks
-	 * @return array
-	 */
-	public function allowedBlockTypes($allowed_blocks, $context)
-	{
-
-		// Allow everything in the site editor
-		if ($context->name === 'core/edit-site') {
-			return $allowed_blocks;
-		}
-
-		// Default value is a boolean. Make sure we have an array.
-		if (!is_array($allowed_blocks)) {
-			$allowed_blocks = [];
-		}
-
-		// Always allow any blocks provided by Say Hello
-		$allowed_blocks = array_filter(
-			WP_Block_Type_Registry::get_instance()->get_all_registered(),
-			function ($block) {
-				return strpos($block->name, 'sht/') !== false || strpos($block->name, 'shp/') !== false;
-			}
-		);
-
-		// Add in the allowed core blocks for this project
-		$allowed_blocks = array_merge(array_keys($allowed_blocks), ['core/group', 'core/column', 'core/columns', 'core/paragraph', 'core/heading', 'core/image', 'core/list', 'core/list-item']);
-
-		return array_unique($allowed_blocks);
-	}
-
-	public function blockCategories($categories)
-	{
-		return array_merge($categories, [
-			[
-				'slug'  => 'sht/blocks',
-				'title' => _x('Blöcke von Say Hello', 'Custom block category name', 'sha'),
-			],
-		]);
 	}
 
 	public function isContextEdit()
