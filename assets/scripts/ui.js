@@ -1,44 +1,20 @@
-/******/ (function() { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 197:
-/***/ (function() {
+/***/ 634:
+/***/ (() => {
 
-if (window.NodeList && !NodeList.prototype.forEach) {
-  NodeList.prototype.forEach = function (callback, thisArg) {
-    var i;
-    var len = this.length;
-    thisArg = thisArg || window;
-    for (i = 0; i < len; i++) {
-      callback.call(thisArg, this[i], i, this);
-    }
-  };
-}
-if (window.Element && !Element.prototype.closest) {
-  Element.prototype.closest = function (s) {
-    var matches = (this.document || this.ownerDocument).querySelectorAll(s),
-      i,
-      el = this;
-    do {
-      i = matches.length;
-      while (--i >= 0 && matches.item(i) !== el) {}
-    } while (i < 0 && (el = el.parentElement));
-    return el;
-  };
-}
-
-/***/ }),
-
-/***/ 704:
-/***/ (function() {
-
-const masthead = document.querySelector('.c-masthead'),
+const masthead = document.querySelector('.c-masthead');
+if (masthead) {
   height = () => {
     document.documentElement.style.setProperty('--masthead--height', masthead.offsetHeight - 1 + 'px');
   };
-height();
-window.addEventListener('resize', height);
-window.addEventListener('orientationchange', height);
+  height();
+  window.addEventListener('resize', height);
+  window.addEventListener('orientationchange', height);
+} else {
+  console.warn('No .c-masthead available. This script is not needed.');
+}
 
 /***/ })
 
@@ -70,49 +46,45 @@ window.addEventListener('orientationchange', height);
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
-/******/ 	!function() {
+/******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = function(module) {
+/******/ 		__webpack_require__.n = (module) => {
 /******/ 			var getter = module && module.__esModule ?
-/******/ 				function() { return module['default']; } :
-/******/ 				function() { return module; };
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
 /******/ 			return getter;
 /******/ 		};
-/******/ 	}();
+/******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/define property getters */
-/******/ 	!function() {
+/******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 		__webpack_require__.d = (exports, definition) => {
 /******/ 			for(var key in definition) {
 /******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
 /******/ 		};
-/******/ 	}();
+/******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	!function() {
-/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
-/******/ 	}();
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
-!function() {
+(() => {
 "use strict";
-/* harmony import */ var _polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(197);
-/* harmony import */ var _polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_polyfill__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _masthead__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(704);
-/* harmony import */ var _masthead__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_masthead__WEBPACK_IMPORTED_MODULE_1__);
-// import './modules/settings';
-
+/* harmony import */ var _masthead__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(634);
+/* harmony import */ var _masthead__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_masthead__WEBPACK_IMPORTED_MODULE_0__);
 
 console.log('%cDeveloped by', 'font-style: italic; font-size: 12px;');
 console.log('%cSay Hello GmbH', 'font-weight: bold; color: #000; font-size: 16px;');
-console.log('%chttps://sayhello.ch', 'color: #000; font-size: 12px;');
+console.log('%chttps://sayhello.ch 👋', 'color: #000; font-size: 12px;');
 const conditionalLoadScript = (filename, condition) => {
   if (!!condition) {
     const min = sht_theme.debug ? '' : '.min';
@@ -121,8 +93,8 @@ const conditionalLoadScript = (filename, condition) => {
     document.head.appendChild(script);
   }
 };
-conditionalLoadScript('svh', !CSS.supports || !CSS.supports('height', '1svh'));
 conditionalLoadScript('aria-toggler', !!document.querySelectorAll('[aria-controls]:not([data-standalone-controller])').length);
-}();
+})();
+
 /******/ })()
 ;
