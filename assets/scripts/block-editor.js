@@ -41,7 +41,13 @@ const external_wp_domReady_namespaceObject = window["wp"]["domReady"];
 var external_wp_domReady_default = /*#__PURE__*/__webpack_require__.n(external_wp_domReady_namespaceObject);
 ;// CONCATENATED MODULE: external ["wp","blocks"]
 const external_wp_blocks_namespaceObject = window["wp"]["blocks"];
+;// CONCATENATED MODULE: external ["wp","editPost"]
+const external_wp_editPost_namespaceObject = window["wp"]["editPost"];
+;// CONCATENATED MODULE: external ["wp","editSite"]
+const external_wp_editSite_namespaceObject = window["wp"]["editSite"];
 ;// CONCATENATED MODULE: ./.build/assets/scripts/block-editor/block-styles/index.js
+
+
 
 
 external_wp_domReady_default()(() => {
