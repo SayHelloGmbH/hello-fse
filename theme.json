@@ -6,7 +6,7 @@
 		}
 	],
 	"settings": {
-		"appearanceTools": false,
+		"appearanceTools": true,
 		"border": {
 			"color": false,
 			"radius": false,
@@ -71,6 +71,7 @@
 			"wideSize": "1200px"
 		},
 		"spacing": {
+			"blockGap": true,
 			"padding": true,
 			"spacingSizes": [
 				{
