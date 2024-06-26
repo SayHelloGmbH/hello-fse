@@ -1,8 +1,8 @@
 {
 	"customTemplates": [
 		{
-			"name": "search",
-			"title": "Search"
+			"name": "page-with-inner-padding",
+			"title": "Seite mit Innenabstand"
 		}
 	],
 	"settings": {
