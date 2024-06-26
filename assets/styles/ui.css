@@ -73,22 +73,7 @@ body {
   background-color: var(--body-background-color);
 }
 
-html.is--mobilemenu--open {
-  overflow: hidden;
-  top: 0;
-  width: 100%;
-  height: 100svh;
-}
-@media screen and (min-width: 90em) {
-  html.is--mobilemenu--open {
-    overflow-y: auto;
-    position: static;
-    height: auto;
-  }
-}
-
 [id] {
-  scroll-snap-margin-top: var(--wp--preset--spacing--regular);
   scroll-margin-top: var(--wp--preset--spacing--regular);
 }
 
@@ -745,6 +730,10 @@ body.admin-bar .c-mobilemenu {
   pointer-events: auto;
   transform: translateX(0);
   opacity: 1;
+}
+
+html:has(.c-mobilemenu[aria-hidden=false]) {
+  overflow: hidden;
 }
 
 .c-pagelinks {
