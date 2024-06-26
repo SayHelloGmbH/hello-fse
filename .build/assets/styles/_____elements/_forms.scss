@@ -80,12 +80,12 @@ input {
 	overflow: hidden;
 	pointer-events: none;
 
-	~ label {
+	~label {
 		display: flex !important;
 		align-items: center;
 
 		&:before {
-			@include transition;
+			transition: all .3s;
 			content: '';
 			display: inline-block;
 			width: var(--checkbox-size);
@@ -106,18 +106,18 @@ input {
 		}
 	}
 
-	&:checked ~ label:before {
+	&:checked~label:before {
 		background-color: var(--checkbox-checked-background-color);
 		border-color: var(--checkbox-checked-border-color);
 		background-size: contain;
 	}
 }
 
-[type='checkbox'] ~ label:before {
+[type='checkbox']~label:before {
 	border-radius: var(--checkbox-radius);
 }
 
-[type='radio'] ~ label:before {
+[type='radio']~label:before {
 	border-radius: 50%;
 }
 

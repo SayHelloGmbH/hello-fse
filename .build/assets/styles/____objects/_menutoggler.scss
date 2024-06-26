@@ -41,7 +41,7 @@ body {
 		height: 3px;
 		transform: translateY(-50%);
 		background-color: currentColor;
-		@include transition;
+		transition: all .3s;
 
 		&:nth-child(1) {
 			top: 0;

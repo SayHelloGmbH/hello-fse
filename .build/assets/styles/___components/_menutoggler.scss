@@ -24,7 +24,7 @@ body {
 		transform: translateY(-50%);
 		background-color: currentColor;
 		display: block;
-		@include transition();
+		transition: all .3s;
 		will-change: transform;
 
 		&--1 {
