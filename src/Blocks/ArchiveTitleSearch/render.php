@@ -1,7 +1,6 @@
 <?php
 
-
-
+use SayHello\Theme\Package\BlockEditor as BlockEditorController;
 
 if (!empty($attributes['textAlign'] ?? '')) {
 	$text_align_class = esc_html("has-text-align-{$attributes['textAlign']}");
@@ -12,7 +11,9 @@ if (!empty($attributes['textAlign'] ?? '')) {
 	}
 }
 
-if (sht_theme()->Package->BlockEditor->isContextEdit()) {
+$block_editor_controller = new BlockEditorController();
+
+if ($block_editor_controller->isContextEdit()) {
 ?>
 	<h2>Archive title - search</h2>
 <?php
