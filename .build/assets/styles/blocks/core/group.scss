@@ -1,8 +1,4 @@
-@import '../../_____elements/_stack.scss';
-
 .wp-block-group {
-	@extend .h-stack;
-
 	&.has-background {
 		padding: var(--wp--preset--spacing--medium);
 	}

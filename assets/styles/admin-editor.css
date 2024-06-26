@@ -125,13 +125,6 @@ html.is--mobilemenu--open {
   }
 }
 
-figcaption {
-  text-align: center;
-  font-size: var(--wp--preset--font-size--small);
-  margin-top: var(--stack-size);
-  margin-bottom: 0;
-}
-
 body {
   --checkbox-size: calc(var(--wp--preset--spacing--regular) * 1.5);
   --checkbox-size-small: var(--wp--preset--spacing--regular);
@@ -332,13 +325,6 @@ img {
   max-width: 100%;
   height: auto;
   vertical-align: middle;
-}
-
-figure {
-  margin: 0;
-}
-figure > a {
-  border-bottom: none;
 }
 
 hr {

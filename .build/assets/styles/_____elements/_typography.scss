@@ -54,18 +54,6 @@ img {
 	vertical-align: middle;
 }
 
-figure {
-	margin: 0;
-
-	>a {
-		border-bottom: none;
-	}
-}
-
-figcaption {
-	@extend %figcaption;
-}
-
 hr {
 	border-style: solid;
 	border-width: 0 0 1px;
