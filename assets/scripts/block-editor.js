@@ -57,6 +57,7 @@ external_wp_domReady_default()(() => {
   (0,external_wp_blocks_namespaceObject.unregisterBlockStyle)('core/image', 'rounded');
   (0,external_wp_blocks_namespaceObject.unregisterBlockStyle)('core/separator', 'wide');
   (0,external_wp_blocks_namespaceObject.unregisterBlockStyle)('core/separator', 'dots');
+  (0,external_wp_blocks_namespaceObject.unregisterBlockStyle)('core/quote', 'plain');
 });
 ;// CONCATENATED MODULE: ./.build/assets/scripts/block-editor/index.js
 

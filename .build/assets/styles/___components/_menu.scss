@@ -26,12 +26,12 @@
 		}
 
 		&--mobile {
-			@extend .h-stack;
+			@include stack;
 			margin-left: auto;
 			margin-right: auto;
 			padding-left: var(--wp--preset--spacing--regular);
 			padding-right: var(--wp--preset--spacing--regular);
-			max-width: var(--constraint-narrow);
+			max-width: var(--wp--style--global--content-size);
 
 			@include breakpoint(tablet) {
 				padding-left: 0;

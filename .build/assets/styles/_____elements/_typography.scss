@@ -24,11 +24,6 @@ button {
 	text-decoration: none;
 }
 
-blockquote {
-	margin: 0;
-	@extend .h-stack;
-}
-
 cite {
 	display: block;
 }
@@ -54,32 +49,15 @@ img {
 	vertical-align: middle;
 }
 
-figure {
-	margin: 0;
-
-	>a {
-		border-bottom: none;
-	}
-}
-
-figcaption {
-	@extend %figcaption;
-}
-
 hr {
 	border-style: solid;
 	border-width: 0 0 1px;
 	border-color: var(--wp-block-separator-color);
 }
 
-li {
-	@extend .h-stack;
-}
-
 ol {
 	padding-left: 0;
 	list-style: none;
-	@extend .h-stack--small;
 	counter-reset: item;
 
 	li:before {
@@ -97,11 +75,6 @@ ol {
 ul {
 	padding-left: 1.2em;
 	list-style: revert;
-	@extend .h-stack--small;
-
-	ul {
-		margin-top: var(--wp--preset--spacing--regular);
-	}
 }
 
 nav {
