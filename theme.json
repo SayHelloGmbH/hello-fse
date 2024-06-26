@@ -183,6 +183,11 @@
 	},
 	"styles": {
 		"blocks": {
+			"core/column": {
+				"spacing": {
+					"blockGap": "var(--wp--preset--spacing--regular)"
+				}
+			},
 			"core/group": {
 				"spacing": {
 					"blockGap": "var(--wp--preset--spacing--regular)"
