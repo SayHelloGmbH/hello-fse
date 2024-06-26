@@ -29,4 +29,8 @@
 			opacity: 1;
 		}
 	}
+
+	html:has(.c-mobilemenu[aria-hidden="false"]) {
+		overflow: hidden;
+	}
 }
