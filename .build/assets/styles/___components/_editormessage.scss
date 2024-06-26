@@ -12,9 +12,7 @@
 
 		&--error {
 			--c-editormessage-color: var(--sht-color--danger);
-			--c-editormessage-background-color: var(
-				--sht-color--danger-background
-			);
+			--c-editormessage-background-color: var(--sht-color--danger-background);
 			--c-editormessage-border-color: var(--sht-color--danger-border);
 		}
 	}

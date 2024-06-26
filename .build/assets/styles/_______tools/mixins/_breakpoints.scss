@@ -11,11 +11,12 @@ $breakpoints: (
 	desktop: 1440,
 	desktop_large: 1600,
 	desktop_xlarge: 1920,
-) !default;
+	) !default;
 
 @function device-breakpoints-min($name, $sizes: $breakpoints) {
-	$min: map-get($sizes, $name);
-	@return if($min !=0px, $min, null);
+	$min: map-get($sizes, $name
+	);
+@return if($min !=0px, $min, null);
 }
 
 @function device-breakpoints-max($name, $sizes: $breakpoints) {
@@ -26,7 +27,7 @@ $breakpoints: (
 @function device-breakpoints-next($name, $sizes, $breakpoint-names: map-keys($breakpoints)) {
 	$n: index($breakpoint-names, $name);
 
-	@if type-of($n) != 'number' {
+	@if type-of($n) !='number' {
 		@return null;
 	}
 
@@ -36,17 +37,21 @@ $breakpoints: (
 @mixin for-screen-min($name, $sizes: $breakpoints, $rem-base: 16) {
 	$min: device-breakpoints-min($name, $sizes);
 
-	@if type-of($min) == 'number' {
-		@if unit($min) == '' {
+	@if type-of($min)=='number' {
+		@if unit($min)=='' {
 			@media screen and (min-width: calc($min/$rem-base) + 0em) {
 				@content;
 			}
-		} @else {
+		}
+
+		@else {
 			@media screen and (min-width: $min) {
 				@content;
 			}
 		}
-	} @else {
+	}
+
+	@else {
 		@content;
 	}
 }
@@ -54,17 +59,21 @@ $breakpoints: (
 @mixin for-screen-max($name, $sizes: $breakpoints, $rem-base: 16) {
 	$max: device-breakpoints-max($name, $sizes);
 
-	@if type-of($max) == 'number' {
-		@if unit($max) == '' {
+	@if type-of($max)=='number' {
+		@if unit($max)=='' {
 			@media screen and (max-width: calc($max/$rem-base)+0em) {
 				@content;
 			}
-		} @else {
+		}
+
+		@else {
 			@media screen and (max-width: $max) {
 				@content;
 			}
 		}
-	} @else {
+	}
+
+	@else {
 		@content;
 	}
 }
@@ -118,8 +127,10 @@ $breakpoints: (
 /// }
 
 @function map-get-next($map, $key, $fallback: false, $return: value) {
+
 	// Check if map is valid
-	@if type-of($map) == map {
+	@if type-of($map)==map {
+
 		// Check if key exists in map
 		@if map-has-key($map, $key) {
 			// Init index counter variable
@@ -134,21 +145,23 @@ $breakpoints: (
 				$i: $i + 1;
 
 				// If map key found, set key index
-				@if $map-key == $key {
+				@if $map-key ==$key {
 					$key-index: $i;
 				}
 
 				// If next index return next value or key based on $return
-				@if $i == $key-index + 1 {
-					@if $return == key {
+				@if $i ==$key-index +1 {
+					@if $return ==key {
 						@return $map-key;
-					} @else {
+					}
+
+					@else {
 						@return $map-value;
 					}
 				}
 
 				// If last entry return false
-				@if $i == length($map) {
+				@if $i ==length($map) {
 					@return $fallback;
 				}
 			}
@@ -188,23 +201,29 @@ $breakpoints: (
 	$direction: if(length($value) > 1, nth($value, 2), up);
 	$name: if(length($value) > 1, nth($value, 1), $value);
 
-	@if type-of(map-get($breakpoints, $name)) != 'null' {
-		@if $direction == down {
+	@if type-of(map-get($breakpoints, $name)) !='null' {
+		@if $direction ==down {
 			@include for-screen-max($name) {
 				@content;
 			}
-		} @else if $direction == only {
+		}
+
+		@else if $direction ==only {
 			@include for-screen-min($name) {
 				@include for-screen-max(map-get-next($breakpoints, $name, false, key)) {
 					@content;
 				}
 			}
-		} @else {
+		}
+
+		@else {
 			@include for-screen-min($name) {
 				@content;
 			}
 		}
-	} @else {
-		@debug 'Breakpoint ' + $value + ' not defined';
+	}
+
+	@else {
+		@debug 'Breakpoint '+$value +' not defined';
 	}
 }

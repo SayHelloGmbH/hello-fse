@@ -9,29 +9,15 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
 
 */
 
-@charset 'UTF-8';
-@use 'sass:math';
-$context: 'admin';
+// @charset 'UTF-8';
+// @use 'sass:math';
+// $context: 'admin';
 
-@import '_______tools/mixins/context';
+// @import '../../../assets/settings.json';
 
-@include context-admin {
-	body.post-type-block_area,
-	body.post-type-page {
-		.editor-post-title__block {
-			opacity: 0.5;
+// @import '_______tools/mixins/context';
 
-			&::after {
-				content: 'Wird nicht als Inhalt ausgegeben';
-				position: absolute;
-				top: 50%;
-				left: -10rem;
-				max-width: 9rem;
-				font-family: sans-serif;
-				text-transform: uppercase;
-				font-size: small;
-				transform: translateY(-50%);
-			}
-		}
-	}
-}
+// @include context-admin {
+
+
+// }

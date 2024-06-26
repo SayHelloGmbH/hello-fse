@@ -39,7 +39,7 @@ code {
 	padding: 0.0625em 0.25em;
 }
 
-dd + dt {
+dd+dt {
 	margin-top: var(--wp--preset--spacing--regular);
 }
 
@@ -57,7 +57,7 @@ img {
 figure {
 	margin: 0;
 
-	> a {
+	>a {
 		border-bottom: none;
 	}
 }
@@ -105,6 +105,7 @@ ul {
 }
 
 nav {
+
 	li,
 	ul {
 		list-style: none;
@@ -173,12 +174,14 @@ h6 {
 }
 
 @include context-edit {
+
 	h1,
 	h2,
 	h3,
 	h4,
 	h5,
 	h6 {
+
 		a,
 		a:active,
 		a:hover {
