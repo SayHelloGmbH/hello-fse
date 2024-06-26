@@ -66,44 +66,6 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
 /*
  * https://every-layout.dev/layouts/stack/
  */
-.h-stack, .c-menu__entries--mobile, .c-comments .comment-body,
-.c-comments .comment-content, .c-comments .comment,
-.c-comments .pingback,
-.c-comments .trackback, .c-blocks, .c-archive, li {
-  --stack-size: var(--wp--preset--spacing--regular);
-}
-.h-stack > *, .c-menu__entries--mobile > *, .c-comments .comment-body > *,
-.c-comments .comment-content > *, .c-comments .comment > *,
-.c-comments .pingback > *,
-.c-comments .trackback > *, .c-blocks > *, .c-archive > *, li > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.h-stack > * + *, .c-menu__entries--mobile > * + *, .c-comments .comment-body > * + *,
-.c-comments .comment-content > * + *, .c-comments .comment > * + *,
-.c-comments .pingback > * + *,
-.c-comments .trackback > * + *, .c-blocks > * + *, .c-archive > * + *, li > * + * {
-  margin-top: var(--stack-size);
-}
-.h-stack--xsmall > * + * {
-  --stack-size: var(--wp--preset--spacing--xsmall);
-}
-.h-stack--small > * + *, .c-loop__entryheader > * + *, .c-comments .comment-meta > * + *, ul > * + *, ol > * + * {
-  --stack-size: var(--wp--preset--spacing--small);
-}
-.h-stack--medium > * + *, .c-archive__entries > * + *, .c-archive__content > * + * {
-  --stack-size: var(--wp--preset--spacing--medium);
-}
-.h-stack--large > * + * {
-  --stack-size: var(--wp--preset--spacing--large);
-}
-.h-stack--xlarge > * + * {
-  --stack-size: var(--wp--preset--spacing--xlarge);
-}
-.h-stack--xxlarge > * + * {
-  --stack-size: var(--wp--preset--spacing--xxlarge);
-}
-
 body {
   --body-color: var(--wp--preset--color--black);
   --body-background-color: var(--wp--preset--color--white);
@@ -357,9 +319,6 @@ ul {
   padding-left: 1.2em;
   list-style: revert;
 }
-ul ul {
-  margin-top: var(--wp--preset--spacing--regular);
-}
 
 nav li,
 nav ul {
@@ -532,22 +491,10 @@ body {
   top: 50%;
 }
 
-.c-archive__header {
-  padding-bottom: var(--wp--preset--spacing--medium);
-}
 .c-archive__titleprefix {
-  font-size: var(--wp--preset--font-size--medium);
+  font-size: 0.5em;
+  line-height: 1;
   display: block;
-}
-
-body {
-  --c-block-margin-top: var(--wp--preset--spacing--regular);
-}
-
-.c-blocks:after {
-  content: " ";
-  display: table;
-  clear: both;
 }
 
 body {
@@ -609,6 +556,19 @@ body {
   flex: 0 0 100%;
   opacity: 0.65;
 }
+.c-comments .comment-body,
+.c-comments .comment-content {
+  --stack-size: var(--wp--preset--spacing--regular);
+}
+.c-comments .comment-body > *,
+.c-comments .comment-content > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.c-comments .comment-body > * + *,
+.c-comments .comment-content > * + * {
+  margin-top: var(--stack-size);
+}
 .c-comments .comment-body pre,
 .c-comments .comment-content pre {
   padding: 0;
@@ -617,6 +577,16 @@ body {
 .c-comments .commentlist {
   padding-left: 0;
   list-style: none;
+}
+.c-comments .comment-meta {
+  --stack-size: var(--wp--preset--spacing--regular);
+}
+.c-comments .comment-meta > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.c-comments .comment-meta > * + * {
+  margin-top: var(--stack-size);
 }
 @media screen and (min-width: 48em) {
   .c-comments .comment-meta {
@@ -714,11 +684,19 @@ body {
   }
 }
 .c-menu__entries--mobile {
+  --stack-size: var(--wp--preset--spacing--regular);
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--wp--preset--spacing--regular);
   padding-right: var(--wp--preset--spacing--regular);
   max-width: var(--wp--style--global--content-size);
+}
+.c-menu__entries--mobile > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.c-menu__entries--mobile > * + * {
+  margin-top: var(--stack-size);
 }
 @media screen and (min-width: 48em) {
   .c-menu__entries--mobile {

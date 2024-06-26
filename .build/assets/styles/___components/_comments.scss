@@ -29,7 +29,6 @@ body {
 	.trackback {
 		padding: var(--wp--preset--spacing--regular);
 		border: 1px solid var(--c-comments-border-color);
-		@extend .h-stack;
 
 		&[class*='depth'] {
 			padding-left: var(--wp--preset--spacing--regular);
@@ -59,7 +58,7 @@ body {
 
 	.comment-body,
 	.comment-content {
-		@extend .h-stack;
+		@include stack;
 
 		pre {
 			padding: 0;
@@ -73,7 +72,7 @@ body {
 	}
 
 	.comment-meta {
-		@extend .h-stack--small;
+		@include stack;
 
 		@include breakpoint(tablet) {
 			display: flex;

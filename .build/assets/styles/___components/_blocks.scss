@@ -1,17 +1,4 @@
-body {
-	--c-block-margin-top: var(--wp--preset--spacing--regular);
-}
-
-.c-blocks {
-	@include clearfix_after();
-	@extend .h-stack;
-}
-
 @include context-edit {
-	.is-root-container {
-		@extend .h-stack;
-	}
-
 	.wp-block {
 		&.is-reusable {
 			max-width: 100%;

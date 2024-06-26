@@ -55,14 +55,9 @@ hr {
 	border-color: var(--wp-block-separator-color);
 }
 
-li {
-	@extend .h-stack;
-}
-
 ol {
 	padding-left: 0;
 	list-style: none;
-	@extend .h-stack--small;
 	counter-reset: item;
 
 	li:before {
@@ -80,11 +75,6 @@ ol {
 ul {
 	padding-left: 1.2em;
 	list-style: revert;
-	@extend .h-stack--small;
-
-	ul {
-		margin-top: var(--wp--preset--spacing--regular);
-	}
 }
 
 nav {
