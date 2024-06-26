@@ -1,5 +1,4 @@
 import { src, dest } from 'gulp';
-import sourcemaps from 'gulp-sourcemaps';
 import rename from 'gulp-rename';
 import cleanCSS from 'gulp-clean-css';
 //import filter from 'gulp-filter';
@@ -13,13 +12,11 @@ export const task = (config) => {
 		src(config.assetsBuild + 'styles/**/*.scss')
 			// Process non-admin-editor CSS files
 			// .pipe(filterAdminEditor.restore)
-			.pipe(sourcemaps.init())
 			.pipe(
 				sass({
 					includePaths: ['./node_modules/'], // Include node_modules folder
 				}).on('error', sass.logError)
 			)
-			.pipe(sourcemaps.write('.'))
 			.pipe(dest(config.assetsDir + 'styles/'))
 			// Process admin-editor CSS file
 			// .pipe(filterAdminEditor)

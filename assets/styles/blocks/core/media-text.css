@@ -4,4 +4,3 @@ h1 + .wp-block-media-text, h2 + .wp-block-media-text, h3 + .wp-block-media-text,
 .wp-block-media-text .wp-block-media-text__content {
   padding: var(--wp--preset--spacing--medium) var(--wp--preset--spacing--regular);
 }
-/*# sourceMappingURL=media-text.css.map */

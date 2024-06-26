@@ -29,4 +29,3 @@
 .h-stack--xxlarge > * + * {
   --stack-size: var(--wp--preset--spacing--xxlarge);
 }
-/*# sourceMappingURL=post.css.map */
