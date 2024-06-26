@@ -69,20 +69,20 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
 .h-stack, .c-menu__entries--mobile, .c-editormessage, .c-comments .comment-body,
 .c-comments .comment-content, .c-comments .comment,
 .c-comments .pingback,
-.c-comments .trackback, .is-root-container, .c-blocks, .c-archive, li, blockquote {
+.c-comments .trackback, .is-root-container, .c-blocks, .c-archive, li {
   --stack-size: var(--wp--preset--spacing--regular);
 }
 .h-stack > *, .c-menu__entries--mobile > *, .c-editormessage > *, .c-comments .comment-body > *,
 .c-comments .comment-content > *, .c-comments .comment > *,
 .c-comments .pingback > *,
-.c-comments .trackback > *, .is-root-container > *, .c-blocks > *, .c-archive > *, li > *, blockquote > * {
+.c-comments .trackback > *, .is-root-container > *, .c-blocks > *, .c-archive > *, li > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 .h-stack > * + *, .c-menu__entries--mobile > * + *, .c-editormessage > * + *, .c-comments .comment-body > * + *,
 .c-comments .comment-content > * + *, .c-comments .comment > * + *,
 .c-comments .pingback > * + *,
-.c-comments .trackback > * + *, .is-root-container > * + *, .c-blocks > * + *, .c-archive > * + *, li > * + *, blockquote > * + * {
+.c-comments .trackback > * + *, .is-root-container > * + *, .c-blocks > * + *, .c-archive > * + *, li > * + * {
   margin-top: var(--stack-size);
 }
 .h-stack--xsmall > * + * {
@@ -296,10 +296,6 @@ button {
 
 button {
   text-decoration: none;
-}
-
-blockquote {
-  margin: 0;
 }
 
 cite {

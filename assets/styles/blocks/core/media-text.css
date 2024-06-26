@@ -1,6 +1,0 @@
-h1 + .wp-block-media-text, h2 + .wp-block-media-text, h3 + .wp-block-media-text, h4 + .wp-block-media-text, h5 + .wp-block-media-text, h6 + .wp-block-media-text {
-  margin-top: var(--c-block-margin-top-medium);
-}
-.wp-block-media-text .wp-block-media-text__content {
-  padding: var(--wp--preset--spacing--medium) var(--wp--preset--spacing--regular);
-}

@@ -10,4 +10,5 @@ domReady(() => {
 	unregisterBlockStyle('core/image', 'rounded');
 	unregisterBlockStyle('core/separator', 'wide');
 	unregisterBlockStyle('core/separator', 'dots');
+	unregisterBlockStyle('core/quote', 'plain');
 });
