@@ -46,6 +46,22 @@ class Theme
 	 */
 	private $theme;
 
+	private $objects = [];
+
+	public function __set($name, $value)
+	{
+		$this->objects[$name] = $value;
+	}
+
+	public function __get($name)
+	{
+		if (array_key_exists($name, $this->objects)) {
+			return $this->objects[$name];
+		}
+
+		return null;
+	}
+
 	public function __construct()
 	{
 		$this->theme = wp_get_theme();
@@ -66,7 +82,6 @@ class Theme
 				Package\Media::class,
 				Package\Navigation::class,
 				Package\Shyify::class,
-
 			]
 		);
 
@@ -112,19 +127,12 @@ class Theme
 			$class_parts = explode('\\', $class);
 			$class_short = end($class_parts);
 			$class_set   = $class_parts[count($class_parts) - 2];
+			$key = "{$class_set}_{$class_short}";
 
-			if (!isset(sht_theme()->{$class_set}) || !is_object(sht_theme()->{$class_set})) {
-				sht_theme()->{$class_set} = new \stdClass();
-			}
+			sht_theme()->{$key} = new $class();
 
-			if (property_exists(sht_theme()->{$class_set}, $class_short)) {
-				wp_die(sprintf(_x('Ein Problem ist geschehen im Theme. Nur eine PHP-Klasse namens «%1$s» darf dem Theme-Objekt «%2$s» zugewiesen werden.', 'Duplicate PHP class assignmment in Theme', 'sht'), $class_short, $class_set), 500);
-			}
-
-			sht_theme()->{$class_set}->{$class_short} = new $class();
-
-			if (method_exists(sht_theme()->{$class_set}->{$class_short}, 'run')) {
-				sht_theme()->{$class_set}->{$class_short}->run();
+			if (method_exists(sht_theme()->{$key}, 'run')) {
+				sht_theme()->{$key}->run();
 			}
 		}
 	}

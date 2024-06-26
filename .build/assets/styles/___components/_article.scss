@@ -1,8 +1,0 @@
-.c-article {
-	@extend .h-stack--medium;
-
-	&__header {
-		@extend .h-stack;
-		@extend %h-guttered;
-	}
-}
