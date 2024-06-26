@@ -150,7 +150,7 @@ $breakpoints: (
 				}
 
 				// If next index return next value or key based on $return
-				@if $i ==$key-index +1 {
+				@if $i ==($key-index (+1)) {
 					@if $return ==key {
 						@return $map-key;
 					}
@@ -224,6 +224,6 @@ $breakpoints: (
 	}
 
 	@else {
-		@debug 'Breakpoint '+$value +' not defined';
+		@debug "Breakpoint "+$value (+" not defined");
 	}
 }
