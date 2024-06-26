@@ -40,7 +40,7 @@ body {
   transform-origin: bottom left;
 }
 .wp-block-sht-menu-toggle[aria-expanded=true] .wp-block-sht-menu-toggle__line {
-  margin-left: 0.25rem;
+  margin-inline-start: 0.25rem;
 }
 .wp-block-sht-menu-toggle[aria-expanded=true] .wp-block-sht-menu-toggle__line:nth-child(1) {
   transform: rotate(45deg);

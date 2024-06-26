@@ -35,7 +35,7 @@ code {
 }
 
 dd+dt {
-	margin-top: var(--wp--preset--spacing--regular);
+	margin-block-start: var(--wp--preset--spacing--regular);
 }
 
 dt {
@@ -61,13 +61,13 @@ ol {
 	counter-reset: item;
 
 	li:before {
-		margin-right: var(--wp--preset--spacing--small);
+		margin-inline-end: var(--wp--preset--spacing--small);
 		content: counters(item, '.') '. ';
 		counter-increment: item;
 	}
 
 	ol {
-		margin-top: var(--wp--preset--spacing--small);
+		margin-block-start: var(--wp--preset--spacing--small);
 		padding-left: 1.2em;
 	}
 }

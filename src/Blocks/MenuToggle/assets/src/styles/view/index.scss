@@ -36,9 +36,11 @@ body {
 		height: 2px;
 		background-color: currentColor;
 		transition: all 300ms ease;
+
 		&:nth-child(1) {
 			transform-origin: top left;
 		}
+
 		&:nth-child(3) {
 			transform-origin: bottom left;
 		}
@@ -46,14 +48,17 @@ body {
 
 	&[aria-expanded='true'] {
 		.wp-block-sht-menu-toggle__line {
-			margin-left: 0.25rem;
+			margin-inline-start: 0.25rem;
+
 			&:nth-child(1) {
 				transform: rotate(45deg);
 				width: var(--menutoggle-width--open);
 			}
+
 			&:nth-child(2) {
 				opacity: 0;
 			}
+
 			&:nth-child(3) {
 				transform: rotate(-45deg);
 				width: var(--menutoggle-width--open);
