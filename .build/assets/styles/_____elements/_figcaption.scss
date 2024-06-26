@@ -1,8 +1,6 @@
 %figcaption {
 	text-align: center;
-	font-size: var(
-		--wp--preset--font-size--small
-	); // not supported in theme.json
+	font-size: var(--wp--preset--font-size--small); // not supported in theme.json
 	margin-top: var(--stack-size); // override core
 	margin-bottom: 0; // override core
 }

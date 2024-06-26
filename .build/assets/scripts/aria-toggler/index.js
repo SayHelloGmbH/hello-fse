@@ -37,22 +37,16 @@
  *
  */
 
-const controllers = document.querySelectorAll(
-	'[aria-controls]:not([data-standalone-controller])'
-);
+const controllers = document.querySelectorAll('[aria-controls]:not([data-standalone-controller])');
 
 if (!!controllers) {
 	var clickHandler = (event) => {
 		const controller = event.currentTarget;
 
-		let target = document.querySelector(
-			'#' + controller.getAttribute('aria-controls')
-		);
+		let target = document.querySelector('#' + controller.getAttribute('aria-controls'));
 
 		if (!target) {
-			console.error(
-				`Target #${controller.getAttribute('aria-controls')} not found`
-			);
+			console.error(`Target #${controller.getAttribute('aria-controls')} not found`);
 			return;
 		}
 
@@ -62,11 +56,9 @@ if (!!controllers) {
 			if (!!toClose) {
 				toClose.forEach((element) => {
 					element.setAttribute('aria-hidden', 'true');
-					document
-						.querySelectorAll(`[aria-controls="${element.id}"]`)
-						.forEach((controller) => {
-							controller.setAttribute('aria-expanded', 'false');
-						});
+					document.querySelectorAll(`[aria-controls="${element.id}"]`).forEach((controller) => {
+						controller.setAttribute('aria-expanded', 'false');
+					});
 				});
 			}
 		}
@@ -76,30 +68,15 @@ if (!!controllers) {
 		} else if (!!controller.dataset.open) {
 			target.setAttribute('aria-hidden', 'false');
 		} else {
-			target.setAttribute(
-				'aria-hidden',
-				controller.getAttribute('aria-expanded') == 'false'
-					? 'false'
-					: 'true'
-			);
+			target.setAttribute('aria-hidden', controller.getAttribute('aria-expanded') == 'false' ? 'false' : 'true');
 		}
 
-		document
-			.querySelectorAll(`[aria-controls="${target.id}"]`)
-			.forEach((controller) => {
-				controller.setAttribute(
-					'aria-expanded',
-					target.getAttribute('aria-hidden') === 'true'
-						? 'false'
-						: 'true'
-				);
-			});
+		document.querySelectorAll(`[aria-controls="${target.id}"]`).forEach((controller) => {
+			controller.setAttribute('aria-expanded', target.getAttribute('aria-hidden') === 'true' ? 'false' : 'true');
+		});
 
 		// Focus the first form field in the target if there is one
-		if (
-			target.getAttribute('aria-hidden') === 'false' &&
-			target.querySelectorAll('input,textarea').length
-		) {
+		if (target.getAttribute('aria-hidden') === 'false' && target.querySelectorAll('input,textarea').length) {
 			let field_focused = false,
 				fields = target.querySelectorAll('input,textarea');
 
@@ -109,12 +86,7 @@ if (!!controllers) {
 						return;
 					}
 					let style = window.getComputedStyle(field);
-					if (
-						!(
-							style.display === 'none' ||
-							style.visibility === 'hidden'
-						)
-					) {
+					if (!(style.display === 'none' || style.visibility === 'hidden')) {
 						target.querySelector('input').focus();
 						field_focused = true;
 					}
@@ -146,10 +118,7 @@ if (!!controllers) {
 	};
 
 	controllers.forEach((controller) => {
-		if (
-			controller.getAttribute('id') ===
-			controller.getAttribute('aria-controls')
-		) {
+		if (controller.getAttribute('id') === controller.getAttribute('aria-controls')) {
 			controller.removeAttribute('id');
 		}
 
@@ -157,10 +126,7 @@ if (!!controllers) {
 	});
 
 	if (!!document.querySelector('#mobilemenu')) {
-		document.querySelector('#mobilemenu').dataset.rootStyle =
-			'is--mobilemenu--open';
-		document
-			.querySelector('#mobilemenu')
-			.setAttribute('data-hidden', 'true');
+		document.querySelector('#mobilemenu').dataset.rootStyle = 'is--mobilemenu--open';
+		document.querySelector('#mobilemenu').setAttribute('data-hidden', 'true');
 	}
 }

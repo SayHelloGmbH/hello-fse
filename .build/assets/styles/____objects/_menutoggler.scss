@@ -42,12 +42,15 @@ body {
 		transform: translateY(-50%);
 		background-color: currentColor;
 		@include transition;
+
 		&:nth-child(1) {
 			top: 0;
 		}
+
 		&:nth-child(2) {
 			top: 50%;
 		}
+
 		&:nth-child(3) {
 			top: 100%;
 		}
@@ -67,9 +70,11 @@ body {
 				transform: rotate(45deg);
 				top: 50%;
 			}
+
 			&:nth-child(2) {
 				opacity: 0;
 			}
+
 			&:nth-child(3) {
 				transform: rotate(-45deg);
 				top: 50%;

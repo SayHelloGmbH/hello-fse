@@ -4,9 +4,11 @@ body {
 
 .c-menutoggler {
 	display: none;
+
 	@include breakpoint(desktop) {
 		display: block;
 	}
+
 	height: 3rem;
 	width: 4rem;
 	position: relative;

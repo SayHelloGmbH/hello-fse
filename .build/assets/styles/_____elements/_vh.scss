@@ -6,11 +6,15 @@
  * i.e. the viewport height before Safari fucks it up.
  * https://dev.to/frehner/css-vh-dvh-lvh-svh-and-vw-units-27k4
  *
- * If 1svh isn't natively supported, it'll be faked by the svh JavaScript.
- *
  * Since July 2022
  **/
 
 body {
-	--vh: 1svh;
+	--vh: 1vh;
+}
+
+@supports(--vh: 1svh) {
+	body {
+		--vh: 1svh;
+	}
 }

@@ -5,47 +5,47 @@
 .h-stack {
 	--stack-size: var(--wp--preset--spacing--regular);
 
-	> * {
+	>* {
 		margin-top: 0;
 		margin-bottom: 0;
 
-		& + * {
+		&+* {
 			margin-top: var(--stack-size);
 		}
 	}
 
 	&--xsmall {
-		> * + * {
+		>*+* {
 			--stack-size: var(--wp--preset--spacing--xsmall);
 		}
 	}
 
 	&--small {
-		> * + * {
+		>*+* {
 			--stack-size: var(--wp--preset--spacing--small);
 		}
 	}
 
 	&--medium {
-		> * + * {
+		>*+* {
 			--stack-size: var(--wp--preset--spacing--medium);
 		}
 	}
 
 	&--large {
-		> * + * {
+		>*+* {
 			--stack-size: var(--wp--preset--spacing--large);
 		}
 	}
 
 	&--xlarge {
-		> * + * {
+		>*+* {
 			--stack-size: var(--wp--preset--spacing--xlarge);
 		}
 	}
 
 	&--xxlarge {
-		> * + * {
+		>*+* {
 			--stack-size: var(--wp--preset--spacing--xxlarge);
 		}
 	}

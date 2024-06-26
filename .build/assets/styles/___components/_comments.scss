@@ -4,9 +4,7 @@ body {
 	--c-comments-background-odd: var(--wp--preset--color--white);
 	--c-comments-respond-border-color: var(--wp--preset--color--gray-light);
 	--c-comments-cancel-link-color: var(--wp--preset--color--primary);
-	--c-comments-cancel-link-color-hover: var(
-		--wp--preset--color--primary-dark
-	);
+	--c-comments-cancel-link-color-hover: var(--wp--preset--color--primary-dark);
 }
 
 .c-comments {
@@ -76,12 +74,13 @@ body {
 
 	.comment-meta {
 		@extend .h-stack--small;
+
 		@include breakpoint(tablet) {
 			display: flex;
 			justify-content: space-between;
 			flex-wrap: wrap;
 
-			> * {
+			>* {
 				margin-top: 0;
 			}
 		}
@@ -90,6 +89,7 @@ body {
 	.comment-metadata {
 		font-size: var(--wp--preset--font-size--tiny);
 		text-align: right;
+
 		@include breakpoint(tablet) {
 			flex: 0 0 40%;
 			margin-left: var(--wp--preset--spacing--regular);
