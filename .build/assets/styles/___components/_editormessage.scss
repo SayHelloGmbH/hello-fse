@@ -8,7 +8,7 @@
 		color: var(--c-editormessage-color);
 		background-color: var(--c-editormessage-background-color);
 		padding: 1rem;
-		@extend .h-stack;
+		@include stack;
 
 		&--error {
 			--c-editormessage-color: var(--sht-color--danger);

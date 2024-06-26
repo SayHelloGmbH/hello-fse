@@ -66,44 +66,6 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
 /*
  * https://every-layout.dev/layouts/stack/
  */
-.h-stack, .c-menu__entries--mobile, .c-comments .comment-body,
-.c-comments .comment-content, .c-comments .comment,
-.c-comments .pingback,
-.c-comments .trackback, .c-blocks, .c-archive, li, blockquote {
-  --stack-size: var(--wp--preset--spacing--regular);
-}
-.h-stack > *, .c-menu__entries--mobile > *, .c-comments .comment-body > *,
-.c-comments .comment-content > *, .c-comments .comment > *,
-.c-comments .pingback > *,
-.c-comments .trackback > *, .c-blocks > *, .c-archive > *, li > *, blockquote > * {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.h-stack > * + *, .c-menu__entries--mobile > * + *, .c-comments .comment-body > * + *,
-.c-comments .comment-content > * + *, .c-comments .comment > * + *,
-.c-comments .pingback > * + *,
-.c-comments .trackback > * + *, .c-blocks > * + *, .c-archive > * + *, li > * + *, blockquote > * + * {
-  margin-top: var(--stack-size);
-}
-.h-stack--xsmall > * + * {
-  --stack-size: var(--wp--preset--spacing--xsmall);
-}
-.h-stack--small > * + *, .c-loop__entryheader > * + *, .c-comments .comment-meta > * + *, ul > * + *, ol > * + * {
-  --stack-size: var(--wp--preset--spacing--small);
-}
-.h-stack--medium > * + *, .c-archive__entries > * + *, .c-archive__content > * + * {
-  --stack-size: var(--wp--preset--spacing--medium);
-}
-.h-stack--large > * + * {
-  --stack-size: var(--wp--preset--spacing--large);
-}
-.h-stack--xlarge > * + * {
-  --stack-size: var(--wp--preset--spacing--xlarge);
-}
-.h-stack--xxlarge > * + * {
-  --stack-size: var(--wp--preset--spacing--xxlarge);
-}
-
 body {
   --body-color: var(--wp--preset--color--black);
   --body-background-color: var(--wp--preset--color--white);
@@ -132,13 +94,6 @@ html.is--mobilemenu--open {
 
 body {
   overflow-x: hidden;
-}
-
-figcaption {
-  text-align: center;
-  font-size: var(--wp--preset--font-size--small);
-  margin-top: var(--stack-size);
-  margin-bottom: 0;
 }
 
 body {
@@ -314,10 +269,6 @@ button {
   text-decoration: none;
 }
 
-blockquote {
-  margin: 0;
-}
-
 cite {
   display: block;
 }
@@ -341,13 +292,6 @@ img {
   max-width: 100%;
   height: auto;
   vertical-align: middle;
-}
-
-figure {
-  margin: 0;
-}
-figure > a {
-  border-bottom: none;
 }
 
 hr {
@@ -374,9 +318,6 @@ ol ol {
 ul {
   padding-left: 1.2em;
   list-style: revert;
-}
-ul ul {
-  margin-top: var(--wp--preset--spacing--regular);
 }
 
 nav li,
@@ -550,22 +491,10 @@ body {
   top: 50%;
 }
 
-.c-archive__header {
-  padding-bottom: var(--wp--preset--spacing--medium);
-}
 .c-archive__titleprefix {
-  font-size: var(--wp--preset--font-size--medium);
+  font-size: 0.5em;
+  line-height: 1;
   display: block;
-}
-
-body {
-  --c-block-margin-top: var(--wp--preset--spacing--regular);
-}
-
-.c-blocks:after {
-  content: " ";
-  display: table;
-  clear: both;
 }
 
 body {
@@ -578,7 +507,7 @@ body {
 }
 
 .c-comments {
-  max-width: var(--constraint-narrow);
+  max-width: var(--wp--style--global--content-size);
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--wp--preset--spacing--regular);
@@ -627,6 +556,19 @@ body {
   flex: 0 0 100%;
   opacity: 0.65;
 }
+.c-comments .comment-body,
+.c-comments .comment-content {
+  --stack-size: var(--wp--preset--spacing--regular);
+}
+.c-comments .comment-body > *,
+.c-comments .comment-content > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.c-comments .comment-body > * + *,
+.c-comments .comment-content > * + * {
+  margin-top: var(--stack-size);
+}
 .c-comments .comment-body pre,
 .c-comments .comment-content pre {
   padding: 0;
@@ -635,6 +577,16 @@ body {
 .c-comments .commentlist {
   padding-left: 0;
   list-style: none;
+}
+.c-comments .comment-meta {
+  --stack-size: var(--wp--preset--spacing--regular);
+}
+.c-comments .comment-meta > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.c-comments .comment-meta > * + * {
+  margin-top: var(--stack-size);
 }
 @media screen and (min-width: 48em) {
   .c-comments .comment-meta {
@@ -676,20 +628,6 @@ body {
 }
 .c-comments #cancel-comment-reply-link:active, .c-comments #cancel-comment-reply-link:hover {
   color: var(--c-comments-cancel-link-color-hover);
-}
-
-body {
-  --c-constraint-padding-side: var(--wp--preset--spacing--regular);
-}
-
-.c-constraint {
-  padding-left: var(--c-constraint-padding-side);
-  padding-right: var(--c-constraint-padding-side);
-}
-.c-constraint > * {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: var(--constraint-narrow);
 }
 
 .c-header__logo {
@@ -746,11 +684,19 @@ body {
   }
 }
 .c-menu__entries--mobile {
+  --stack-size: var(--wp--preset--spacing--regular);
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--wp--preset--spacing--regular);
   padding-right: var(--wp--preset--spacing--regular);
-  max-width: var(--constraint-narrow);
+  max-width: var(--wp--style--global--content-size);
+}
+.c-menu__entries--mobile > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.c-menu__entries--mobile > * + * {
+  margin-top: var(--stack-size);
 }
 @media screen and (min-width: 48em) {
   .c-menu__entries--mobile {
@@ -803,7 +749,7 @@ body.admin-bar .c-mobilemenu {
 
 .c-pagelinks {
   text-align: center;
-  max-width: var(--constraint-narrow);
+  max-width: var(--wp--style--global--content-size);
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--wp--preset--spacing--regular);
@@ -923,23 +869,6 @@ body.admin-bar .c-mobilemenu {
 .has-block-vertical-padding.has-block-vertical-padding--xlarge {
   padding-top: var(--wp--preset--spacing--xlarge);
   padding-bottom: var(--wp--preset--spacing--xlarge);
-}
-
-body {
-  --constraint-zero: 0rem;
-  --constraint-phone: 20rem;
-  --constraint-wordpress_small: 37.5rem;
-  --constraint-phone_wide: 41.6875rem;
-  --constraint-tablet: 48rem;
-  --constraint-wordpress_medium: 48.9375rem;
-  --constraint-medium: 60rem;
-  --constraint-tablet_landscape: 64rem;
-  --constraint-laptop: 80rem;
-  --constraint-desktop: 90rem;
-  --constraint-desktop_large: 100rem;
-  --constraint-desktop_xlarge: 120rem;
-  --constraint-narrow: var(--wp--style--global--content-size);
-  --constraint-wide: var(--wp--style--global--wide-size);
 }
 
 body.c-body--themedev::after {

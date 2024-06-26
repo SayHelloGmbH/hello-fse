@@ -183,14 +183,9 @@
 	},
 	"styles": {
 		"blocks": {
-			"core/column": {
-				"spacing": {
-					"blockGap": "var(--wp--preset--spacing--regular)"
-				}
-			},
-			"core/group": {
-				"spacing": {
-					"blockGap": "var(--wp--preset--spacing--regular)"
+			"core/separator": {
+				"border": {
+					"width": "1px"
 				}
 			}
 		},
@@ -234,6 +229,9 @@
 					"text": "var(--wp--preset--color--primary)"
 				}
 			}
+		},
+		"spacing": {
+			"blockGap": "var(--wp--preset--spacing--regular)"
 		},
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--system-fonts)",
