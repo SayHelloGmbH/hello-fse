@@ -71,43 +71,41 @@
 			"wideSize": "1200px"
 		},
 		"spacing": {
-			"blockGap": true,
-			"padding": true,
 			"spacingSizes": [
 				{
+					"name": "XS",
 					"size": "0.25rem",
-					"slug": "xsmall",
-					"name": "XS"
+					"slug": "xsmall"
 				},
 				{
+					"name": "S",
 					"size": "0.5rem",
-					"slug": "small",
-					"name": "S"
+					"slug": "small"
 				},
 				{
+					"name": "R",
 					"size": "1rem",
-					"slug": "regular",
-					"name": "R"
+					"slug": "regular"
 				},
 				{
+					"name": "M",
 					"size": "2rem",
-					"slug": "medium",
-					"name": "M"
+					"slug": "medium"
 				},
 				{
+					"name": "L",
 					"size": "3rem",
-					"slug": "large",
-					"name": "L"
+					"slug": "large"
 				},
 				{
+					"name": "XL",
 					"size": "4rem",
-					"slug": "xlarge",
-					"name": "XL"
+					"slug": "xlarge"
 				},
 				{
+					"name": "XXL",
 					"size": "5rem",
-					"slug": "xxlarge",
-					"name": "XXL"
+					"slug": "xxlarge"
 				}
 			]
 		},
@@ -124,55 +122,55 @@
 			],
 			"fontSizes": [
 				{
+					"fluid": false,
 					"name": "Small",
 					"size": "14px",
-					"slug": "small",
-					"fluid": false
+					"slug": "small"
 				},
 				{
+					"fluid": {
+						"max": "1rem",
+						"min": "0.9375rem"
+					},
 					"name": "Regular",
 					"size": "16px",
-					"slug": "regular",
-					"fluid": {
-						"min": "0.9375rem",
-						"max": "1rem"
-					}
+					"slug": "regular"
 				},
 				{
+					"fluid": {
+						"max": "1.125rem",
+						"min": "1rem"
+					},
 					"name": "Medium",
 					"size": "18px",
-					"slug": "medium",
-					"fluid": {
-						"min": "1rem",
-						"max": "1.125rem"
-					}
+					"slug": "medium"
 				},
 				{
+					"fluid": {
+						"max": "1.5rem",
+						"min": "1.125rem"
+					},
 					"name": "Large",
 					"size": "24px",
-					"slug": "large",
-					"fluid": {
-						"min": "1.125rem",
-						"max": "1.5rem"
-					}
+					"slug": "large"
 				},
 				{
+					"fluid": {
+						"max": "2rem",
+						"min": "1.5rem"
+					},
 					"name": "Extra large",
 					"size": "32px",
-					"slug": "xlarge",
-					"fluid": {
-						"min": "1.5rem",
-						"max": "2rem"
-					}
+					"slug": "xlarge"
 				},
 				{
+					"fluid": {
+						"max": "2.25rem",
+						"min": "2rem"
+					},
 					"name": "Huge",
 					"size": "36px",
-					"slug": "xxxlarge",
-					"fluid": {
-						"min": "2rem",
-						"max": "2.25rem"
-					}
+					"slug": "xxxlarge"
 				}
 			],
 			"fontStyle": false,
@@ -248,5 +246,6 @@
 			"title": "Mobile Navigation"
 		}
 	],
-	"version": 2
+	"version": 2,
+	"$schema": "https://schemas.wp.org/wp/6.5/theme.json"
 }
