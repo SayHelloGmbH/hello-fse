@@ -126,7 +126,7 @@ if (!!controllers) {
 	});
 
 	if (!!document.querySelector('#mobilemenu')) {
-		document.querySelector('#mobilemenu').dataset.rootStyle = 'is--mobilemenu--open';
+		//document.querySelector('#mobilemenu').dataset.rootStyle = 'is--mobilemenu--open';
 		document.querySelector('#mobilemenu').setAttribute('data-hidden', 'true');
 	}
 }
