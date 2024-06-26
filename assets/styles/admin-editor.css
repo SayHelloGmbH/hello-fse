@@ -420,12 +420,12 @@ h6 a:hover {
  * Since July 2022
  **/
 body {
-  --vh: 1vh;
+  --svh: 1vh;
 }
 
-@supports (--vh: 1svh) {
+@supports (--svh: 1svh) {
   body {
-    --vh: 1svh;
+    --svh: 1svh;
   }
 }
 video {
@@ -788,13 +788,13 @@ body {
   }
 }
 
-.wp-site-blocks {
+.wp-site-blocks__inner {
   display: flex;
   flex-direction: column;
-  min-height: 100svh;
+  min-height: calc(100 * var(--svh));
 }
-.admin-bar .wp-site-blocks {
-  min-height: calc(100svh - var(--wp-admin--admin-bar--height));
+.admin-bar .wp-site-blocks__inner {
+  min-height: calc(100 * var(--svh) - var(--wp-admin--admin-bar--height));
 }
 
 .alignleft {
