@@ -1,8 +1,6 @@
 body {
 	--checkbox-size: calc(var(--wp--preset--spacing--regular) * 1.5);
-	--checkbox-size-small: var(
-		--wp--preset--spacing--regular
-	); // used in other SCSS files, not here
+	--checkbox-size-small: var(--wp--preset--spacing--regular); // used in other SCSS files, not here
 	--field-border: 1px solid var(--wp--preset--color--light-gray);
 	--field-radius: var(--radius);
 	--checkbox-radius: #{rem-calc(2px)};
@@ -82,20 +80,19 @@ input {
 	overflow: hidden;
 	pointer-events: none;
 
-	~ label {
+	~label {
 		display: flex !important;
 		align-items: center;
 
 		&:before {
-			@include transition;
+			transition: all .3s;
 			content: '';
 			display: inline-block;
 			width: var(--checkbox-size);
 			height: var(--checkbox-size);
 			flex: 0 0 var(--checkbox-size);
 			margin-right: 0.5em;
-			background: url('../img/icons/checkbox-active.min.svg') center
-				no-repeat;
+			background: url('../img/icons/checkbox-active.min.svg') center no-repeat;
 			background-color: var(--checkbox-background-color);
 			background-size: 0;
 			border: var(--field-border);
@@ -109,18 +106,18 @@ input {
 		}
 	}
 
-	&:checked ~ label:before {
+	&:checked~label:before {
 		background-color: var(--checkbox-checked-background-color);
 		border-color: var(--checkbox-checked-border-color);
 		background-size: contain;
 	}
 }
 
-[type='checkbox'] ~ label:before {
+[type='checkbox']~label:before {
 	border-radius: var(--checkbox-radius);
 }
 
-[type='radio'] ~ label:before {
+[type='radio']~label:before {
 	border-radius: 50%;
 }
 
@@ -150,10 +147,10 @@ textarea {
 }
 
 label.error {
-	color: var(--sht--preset--color--danger);
+	color: var(--wp--preset--color--danger);
 }
 
 .input.error {
-	border-color: var(--sht--preset--color--danger-border);
-	outline-color: var(--sht--preset--color--danger-border);
+	border-color: var(--wp--preset--color--danger-border);
+	outline-color: var(--wp--preset--color--danger-border);
 }

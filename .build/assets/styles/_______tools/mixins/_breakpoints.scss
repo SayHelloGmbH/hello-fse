@@ -1,6 +1,22 @@
+$breakpoints: (
+	zero: 0,
+	phone: 320,
+	wordpress_small: 600,
+	phone_wide: 667,
+	tablet: 768,
+	wordpress_medium: 783,
+	medium: 960,
+	tablet_landscape: 1024,
+	laptop: 1280,
+	desktop: 1440,
+	desktop_large: 1600,
+	desktop_xlarge: 1920,
+	) !default;
+
 @function device-breakpoints-min($name, $sizes: $breakpoints) {
-	$min: map-get($sizes, $name);
-	@return if($min !=0px, $min, null);
+	$min: map-get($sizes, $name
+	);
+@return if($min !=0px, $min, null);
 }
 
 @function device-breakpoints-max($name, $sizes: $breakpoints) {
@@ -8,26 +24,22 @@
 	@return if($next, device-breakpoints-min($next, $sizes) - 0.1, null);
 }
 
-@function device-breakpoints-next($name,
-	$sizes,
-	$breakpoint-names: map-keys($breakpoints)) {
+@function device-breakpoints-next($name, $sizes, $breakpoint-names: map-keys($breakpoints)) {
 	$n: index($breakpoint-names, $name);
 
 	@if type-of($n) !='number' {
 		@return null;
 	}
 
-	@return if($n < length($breakpoint-names),
-		nth($breakpoint-names, $n + 1),
-		null);
+	@return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
 }
 
-@mixin for-screen-min($name, $sizes: $breakpoints) {
+@mixin for-screen-min($name, $sizes: $breakpoints, $rem-base: 16) {
 	$min: device-breakpoints-min($name, $sizes);
 
 	@if type-of($min)=='number' {
 		@if unit($min)=='' {
-			@media screen and (min-width: calc($min/map-get($rem-base, value))+0em) {
+			@media screen and (min-width: calc($min/$rem-base) + 0em) {
 				@content;
 			}
 		}
@@ -44,12 +56,12 @@
 	}
 }
 
-@mixin for-screen-max($name, $sizes: $breakpoints) {
+@mixin for-screen-max($name, $sizes: $breakpoints, $rem-base: 16) {
 	$max: device-breakpoints-max($name, $sizes);
 
 	@if type-of($max)=='number' {
 		@if unit($max)=='' {
-			@media screen and (max-width: calc($max/map-get($rem-base, value))+0em) {
+			@media screen and (max-width: calc($max/$rem-base)+0em) {
 				@content;
 			}
 		}
@@ -138,7 +150,7 @@
 				}
 
 				// If next index return next value or key based on $return
-				@if $i ==($key-index (+1)) {
+				@if $i ==$key-index +1 {
 					@if $return ==key {
 						@return $map-key;
 					}
@@ -212,6 +224,6 @@
 	}
 
 	@else {
-		@debug "Breakpoint "+$value (+" not defined");
+		@debug 'Breakpoint '+$value +' not defined';
 	}
 }

@@ -1,44 +1,20 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 197:
-/***/ (function() {
-
-if (window.NodeList && !NodeList.prototype.forEach) {
-  NodeList.prototype.forEach = function (callback, thisArg) {
-    var i;
-    var len = this.length;
-    thisArg = thisArg || window;
-    for (i = 0; i < len; i++) {
-      callback.call(thisArg, this[i], i, this);
-    }
-  };
-}
-if (window.Element && !Element.prototype.closest) {
-  Element.prototype.closest = function (s) {
-    var matches = (this.document || this.ownerDocument).querySelectorAll(s),
-      i,
-      el = this;
-    do {
-      i = matches.length;
-      while (--i >= 0 && matches.item(i) !== el) {}
-    } while (i < 0 && (el = el.parentElement));
-    return el;
-  };
-}
-
-/***/ }),
-
 /***/ 704:
 /***/ (function() {
 
-const masthead = document.querySelector('.c-masthead'),
+const masthead = document.querySelector('.c-masthead');
+if (masthead) {
   height = () => {
     document.documentElement.style.setProperty('--masthead--height', masthead.offsetHeight - 1 + 'px');
   };
-height();
-window.addEventListener('resize', height);
-window.addEventListener('orientationchange', height);
+  height();
+  window.addEventListener('resize', height);
+  window.addEventListener('orientationchange', height);
+} else {
+  console.warn('No .c-masthead available. This script is not needed.');
+}
 
 /***/ })
 
@@ -103,16 +79,12 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 !function() {
 "use strict";
-/* harmony import */ var _polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(197);
-/* harmony import */ var _polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_polyfill__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _masthead__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(704);
-/* harmony import */ var _masthead__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_masthead__WEBPACK_IMPORTED_MODULE_1__);
-// import './modules/settings';
-
+/* harmony import */ var _masthead__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(704);
+/* harmony import */ var _masthead__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_masthead__WEBPACK_IMPORTED_MODULE_0__);
 
 console.log('%cDeveloped by', 'font-style: italic; font-size: 12px;');
 console.log('%cSay Hello GmbH', 'font-weight: bold; color: #000; font-size: 16px;');
-console.log('%chttps://sayhello.ch', 'color: #000; font-size: 12px;');
+console.log('%chttps://sayhello.ch 👋', 'color: #000; font-size: 12px;');
 const conditionalLoadScript = (filename, condition) => {
   if (!!condition) {
     const min = sht_theme.debug ? '' : '.min';
