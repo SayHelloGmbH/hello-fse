@@ -121,7 +121,6 @@ const conditionalLoadScript = (filename, condition) => {
     document.head.appendChild(script);
   }
 };
-conditionalLoadScript('svh', !CSS.supports || !CSS.supports('height', '1svh'));
 conditionalLoadScript('aria-toggler', !!document.querySelectorAll('[aria-controls]:not([data-standalone-controller])').length);
 }();
 /******/ })()

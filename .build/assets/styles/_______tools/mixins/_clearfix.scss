@@ -1,4 +1,5 @@
 @mixin clearfix() {
+
 	&:after,
 	&:before {
 		content: ' ';
