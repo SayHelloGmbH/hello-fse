@@ -224,6 +224,17 @@
 					"fontSize": "var(--wp--preset--font-size--small)"
 				}
 			},
+			"caption": {
+				"spacing": {
+					"margin": {
+						"top": ".5em",
+						"bottom": "0"
+					}
+				},
+				"typography": {
+					"fontSize": "0.875em"
+				}
+			},
 			"link": {
 				"color": {
 					"text": "var(--wp--preset--color--primary)"

@@ -91,7 +91,7 @@ input {
 			width: var(--checkbox-size);
 			height: var(--checkbox-size);
 			flex: 0 0 var(--checkbox-size);
-			margin-right: 0.5em;
+			margin-inline-end: 0.5em;
 			background: url('../img/icons/checkbox-active.min.svg') center no-repeat;
 			background-color: var(--checkbox-background-color);
 			background-size: 0;
@@ -102,7 +102,7 @@ input {
 
 		a {
 			display: inline-block;
-			margin-right: 0.25em;
+			margin-inline-end: 0.25em;
 		}
 	}
 

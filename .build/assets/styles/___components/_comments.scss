@@ -9,8 +9,8 @@ body {
 
 .c-comments {
 	max-width: var(--wp--style--global--content-size);
-	margin-left: auto;
-	margin-right: auto;
+	margin-inline-start: auto;
+	margin-inline-end: auto;
 	padding-left: var(--wp--preset--spacing--regular);
 	padding-right: var(--wp--preset--spacing--regular);
 
@@ -91,7 +91,7 @@ body {
 
 		@include breakpoint(tablet) {
 			flex: 0 0 40%;
-			margin-left: var(--wp--preset--spacing--regular);
+			margin-inline-start: var(--wp--preset--spacing--regular);
 		}
 	}
 
@@ -100,7 +100,7 @@ body {
 	}
 
 	.edit-link {
-		margin-left: var(--wp--preset--spacing--small);
+		margin-inline-start: var(--wp--preset--spacing--small);
 	}
 
 	.navigation {
