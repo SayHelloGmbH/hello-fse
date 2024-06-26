@@ -10,11 +10,11 @@
  **/
 
 body {
-	--vh: 1vh;
+	--svh: 1vh;
 }
 
-@supports(--vh: 1svh) {
+@supports(--svh: 1svh) {
 	body {
-		--vh: 1svh;
+		--svh: 1svh;
 	}
 }
