@@ -564,7 +564,7 @@ body {
 }
 
 .c-comments {
-  max-width: var(--constraint-narrow);
+  max-width: var(--wp--style--global--content-size);
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--wp--preset--spacing--regular);
@@ -664,20 +664,6 @@ body {
   color: var(--c-comments-cancel-link-color-hover);
 }
 
-body {
-  --c-constraint-padding-side: var(--wp--preset--spacing--regular);
-}
-
-.c-constraint {
-  padding-left: var(--c-constraint-padding-side);
-  padding-right: var(--c-constraint-padding-side);
-}
-.c-constraint > * {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: var(--constraint-narrow);
-}
-
 .c-header__logo {
   display: inline-block;
   margin: var(--wp--preset--spacing--regular) 0;
@@ -736,7 +722,7 @@ body {
   margin-right: auto;
   padding-left: var(--wp--preset--spacing--regular);
   padding-right: var(--wp--preset--spacing--regular);
-  max-width: var(--constraint-narrow);
+  max-width: var(--wp--style--global--content-size);
 }
 @media screen and (min-width: 48em) {
   .c-menu__entries--mobile {
@@ -789,7 +775,7 @@ body.admin-bar .c-mobilemenu {
 
 .c-pagelinks {
   text-align: center;
-  max-width: var(--constraint-narrow);
+  max-width: var(--wp--style--global--content-size);
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--wp--preset--spacing--regular);
@@ -909,23 +895,6 @@ body.admin-bar .c-mobilemenu {
 .has-block-vertical-padding.has-block-vertical-padding--xlarge {
   padding-top: var(--wp--preset--spacing--xlarge);
   padding-bottom: var(--wp--preset--spacing--xlarge);
-}
-
-body {
-  --constraint-zero: 0rem;
-  --constraint-phone: 20rem;
-  --constraint-wordpress_small: 37.5rem;
-  --constraint-phone_wide: 41.6875rem;
-  --constraint-tablet: 48rem;
-  --constraint-wordpress_medium: 48.9375rem;
-  --constraint-medium: 60rem;
-  --constraint-tablet_landscape: 64rem;
-  --constraint-laptop: 80rem;
-  --constraint-desktop: 90rem;
-  --constraint-desktop_large: 100rem;
-  --constraint-desktop_xlarge: 120rem;
-  --constraint-narrow: var(--wp--style--global--content-size);
-  --constraint-wide: var(--wp--style--global--wide-size);
 }
 
 body.c-body--themedev::after {
