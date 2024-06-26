@@ -69,20 +69,20 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
 .h-stack, .c-menu__entries--mobile, .c-comments .comment-body,
 .c-comments .comment-content, .c-comments .comment,
 .c-comments .pingback,
-.c-comments .trackback, .c-blocks, .c-article__header, .c-archive, li, blockquote {
+.c-comments .trackback, .c-blocks, .c-archive, li, blockquote {
   --stack-size: var(--wp--preset--spacing--regular);
 }
 .h-stack > *, .c-menu__entries--mobile > *, .c-comments .comment-body > *,
 .c-comments .comment-content > *, .c-comments .comment > *,
 .c-comments .pingback > *,
-.c-comments .trackback > *, .c-blocks > *, .c-article__header > *, .c-archive > *, li > *, blockquote > * {
+.c-comments .trackback > *, .c-blocks > *, .c-archive > *, li > *, blockquote > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 .h-stack > * + *, .c-menu__entries--mobile > * + *, .c-comments .comment-body > * + *,
 .c-comments .comment-content > * + *, .c-comments .comment > * + *,
 .c-comments .pingback > * + *,
-.c-comments .trackback > * + *, .c-blocks > * + *, .c-article__header > * + *, .c-archive > * + *, li > * + *, blockquote > * + * {
+.c-comments .trackback > * + *, .c-blocks > * + *, .c-archive > * + *, li > * + *, blockquote > * + * {
   margin-top: var(--stack-size);
 }
 .h-stack--xsmall > * + * {
@@ -91,7 +91,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
 .h-stack--small > * + *, .c-loop__entryheader > * + *, .c-comments .comment-meta > * + *, ul > * + *, ol > * + * {
   --stack-size: var(--wp--preset--spacing--small);
 }
-.h-stack--medium > * + *, .c-article > * + *, .c-archive__entries > * + *, .c-archive__content > * + * {
+.h-stack--medium > * + *, .c-archive__entries > * + *, .c-archive__content > * + * {
   --stack-size: var(--wp--preset--spacing--medium);
 }
 .h-stack--large > * + * {
@@ -277,41 +277,6 @@ label.error {
   outline-color: var(--wp--preset--color--danger-border);
 }
 
-/**
- * In order to ensure that the content doesn't align against the
- * edge of the browser window at small screen sizes, we apply a
- * gutter using var(--wp--custom--spacing-outer-gutter), which
- * is defined in theme.json. This will indent all content on the
- * left and right. The CSS custom property will be defined inline
- * by WordPress core.
- *
- * In order to allow alignfull to work with this guttering, we
- * stretch the alignfull elements by the amount of the guttering.
- * This only applies to elements which are direct children of the
- * main container. (By default, this wrapper is .wp-block-post-content.)
- *
- * If you need these rules to apply to an additional container, use
- * e.g. .c-mycontainer { @extend %h-guttered; }
- *
- * To apply the stretching rules to an element (to mimic alignfull)
- * then use e.g. .c-my-full-container { @extend %h-guttered-full; }
- *
- * The use of body & is to add a level of specificity, in order to
- * override the inline core CSS rules.
- *
- * This version mark@sayhello.ch 7.4.2022
- */
-body .c-masthead > .alignfull, body .c-main__inner--index > .alignfull, body .c-footer > .alignfull, body .c-article__header > .alignfull {
-  width: unset;
-  max-width: none !important;
-  margin-left: calc(-1 * var(--wp--custom--spacing-outer-gutter)) !important;
-  margin-right: calc(-1 * var(--wp--custom--spacing-outer-gutter)) !important;
-}
-
-.c-masthead, .c-main__inner--index, .c-footer, .c-article__header {
-  padding-left: var(--wp--custom--spacing-outer-gutter);
-  padding-right: var(--wp--custom--spacing-outer-gutter);
-}
 iframe {
   max-width: 100% !important;
 }
@@ -727,10 +692,6 @@ body {
   max-width: var(--constraint-narrow);
 }
 
-.c-footer {
-  background: pink;
-}
-
 .c-header__logo {
   display: inline-block;
   margin: var(--wp--preset--spacing--regular) 0;
@@ -743,6 +704,7 @@ body {
 .c-main {
   flex: 1;
 }
+
 body {
   --c-masthead-height: 5.3125rem;
   --c-masthead-padding-top: var(--wp--preset--spacing--medium);
