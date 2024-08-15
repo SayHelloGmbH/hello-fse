@@ -13,7 +13,6 @@ class Assets
 	public function run()
 	{
 		add_action('wp_enqueue_scripts', [$this, 'registerAssets']);
-		add_action('admin_enqueue_scripts', [$this, 'registerAdminAssets']);
 	}
 
 	/**
@@ -43,16 +42,5 @@ class Assets
 			'directory_uri' => get_template_directory_uri(),
 			'version' => wp_get_theme()->get('Version')
 		]);
-	}
-
-	/**
-	 * Registers assets for the admin area OUTSIDE the block editor
-	 *
-	 * @return void
-	 */
-	public function registerAdminAssets()
-	{
-		$min = defined('WP_DEBUG') && WP_DEBUG === false;
-		wp_enqueue_style('sht-admin-style', get_template_directory_uri() . '/assets/styles/admin' . ($min ? '.min' : '') . '.css', ['sht-admin-editor-style', 'wp-edit-blocks'], filemtime(get_template_directory() . '/assets/styles/admin' . ($min ? '.min' : '') . '.css'));
 	}
 }
