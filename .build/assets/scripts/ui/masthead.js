@@ -1,7 +1,7 @@
 const masthead = document.querySelector('.c-masthead');
 
 if (masthead) {
-	height = () => {
+	const height = () => {
 		document.documentElement.style.setProperty('--masthead--height', masthead.offsetHeight - 1 + 'px');
 	};
 
