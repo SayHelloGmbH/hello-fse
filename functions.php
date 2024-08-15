@@ -33,3 +33,6 @@ $controller_block_editor->run();
 
 $controller_language = new Controller\Language();
 $controller_language->run();
+
+$controller_navigation = new Controller\Navigation();
+$controller_navigation->run();
