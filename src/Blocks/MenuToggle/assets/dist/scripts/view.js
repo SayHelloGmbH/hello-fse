@@ -1,1 +1,0 @@
-(()=>{"use strict";document.addEventListener("DOMContentLoaded",(()=>{document.querySelectorAll(".wp-block-sht-menu-toggle").forEach((e=>{e.setAttribute("aria-expanded","false")}))}))})();
