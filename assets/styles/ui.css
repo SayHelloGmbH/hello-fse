@@ -56,6 +56,9 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
     transform: rotate(360deg);
   }
 }
+/*
+ * https://every-layout.dev/layouts/stack/
+ */
 * {
   box-sizing: border-box;
 }
@@ -63,9 +66,6 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
   box-sizing: border-box;
 }
 
-/*
- * https://every-layout.dev/layouts/stack/
- */
 body {
   --body-color: var(--wp--preset--color--black);
   --body-background-color: var(--wp--preset--color--white);
@@ -113,7 +113,7 @@ input[disabled] {
   opacity: 0.75;
 }
 input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week] {
-  -webkit-appearance: none;
+  appearance: none;
   border: var(--field-border);
   border-radius: var(--field-radius);
   padding: var(--wp--preset--spacing--small);
@@ -402,78 +402,6 @@ body {
 }
 video {
   max-width: 100%;
-}
-
-body {
-  --menutoggler-color: currentColor;
-  --menutoggler-color-open: currentColor;
-  --menutoggler-width: 1.625rem;
-  --menutoggler-height: 1.3125rem;
-  --menutoggler-width-closer: 1.3125rem;
-  --menutoggler-height-closer: 1.3125rem;
-}
-
-.o-menutoggler {
-  position: relative;
-  cursor: pointer;
-  color: var(--menutoggler-color);
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: space-between;
-  flex: 0 0 var(--menutoggler-width);
-  width: var(--menutoggler-width);
-  height: var(--menutoggler-height);
-  transition: none;
-  background-color: transparent;
-  border: 0;
-  padding: 0;
-}
-.o-menutoggler:active, .o-menutoggler:hover {
-  color: var(--menutoggler-color-open);
-  outline: none;
-}
-@media screen and (min-width: 90em) {
-  .o-menutoggler {
-    display: none;
-  }
-}
-.o-menutoggler__line {
-  display: block;
-  will-change: transform;
-  position: absolute;
-  width: var(--menutoggler-width);
-  height: 3px;
-  transform: translateY(-50%);
-  background-color: currentColor;
-  transition: all 0.3s;
-}
-.o-menutoggler__line:nth-child(1) {
-  top: 0;
-}
-.o-menutoggler__line:nth-child(2) {
-  top: 50%;
-}
-.o-menutoggler__line:nth-child(3) {
-  top: 100%;
-}
-.o-menutoggler__text {
-  font-size: 0.75rem;
-  letter-spacing: 0.066667em;
-  line-height: 1;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-.o-menutoggler[aria-expanded=true] .o-menutoggler__line:nth-child(1) {
-  transform: rotate(45deg);
-  top: 50%;
-}
-.o-menutoggler[aria-expanded=true] .o-menutoggler__line:nth-child(2) {
-  opacity: 0;
-}
-.o-menutoggler[aria-expanded=true] .o-menutoggler__line:nth-child(3) {
-  transform: rotate(-45deg);
-  top: 50%;
 }
 
 .c-archive__titleprefix {

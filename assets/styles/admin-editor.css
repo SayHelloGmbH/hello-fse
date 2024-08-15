@@ -56,6 +56,9 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
     transform: rotate(360deg);
   }
 }
+/*
+ * https://every-layout.dev/layouts/stack/
+ */
 .editor-styles-wrapper * {
   box-sizing: border-box;
 }
@@ -63,9 +66,6 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
   box-sizing: border-box;
 }
 
-/*
- * https://every-layout.dev/layouts/stack/
- */
 .editor-styles-wrapper {
   --body-color: var(--wp--preset--color--black);
   --body-background-color: var(--wp--preset--color--white);
@@ -105,7 +105,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
   opacity: 0.75;
 }
 .editor-styles-wrapper input[type=date], .editor-styles-wrapper input[type=datetime-local], .editor-styles-wrapper input[type=datetime], .editor-styles-wrapper input[type=email], .editor-styles-wrapper input[type=month], .editor-styles-wrapper input[type=number], .editor-styles-wrapper input[type=password], .editor-styles-wrapper input[type=search], .editor-styles-wrapper input[type=tel], .editor-styles-wrapper input[type=text], .editor-styles-wrapper input[type=time], .editor-styles-wrapper input[type=url], .editor-styles-wrapper input[type=week] {
-  -webkit-appearance: none;
+  appearance: none;
   border: var(--field-border);
   border-radius: var(--field-radius);
   padding: var(--wp--preset--spacing--small);
@@ -416,78 +416,6 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
 }
 .editor-styles-wrapper video {
   max-width: 100%;
-}
-
-.editor-styles-wrapper {
-  --menutoggler-color: currentColor;
-  --menutoggler-color-open: currentColor;
-  --menutoggler-width: 1.625rem;
-  --menutoggler-height: 1.3125rem;
-  --menutoggler-width-closer: 1.3125rem;
-  --menutoggler-height-closer: 1.3125rem;
-}
-
-.editor-styles-wrapper .o-menutoggler {
-  position: relative;
-  cursor: pointer;
-  color: var(--menutoggler-color);
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: space-between;
-  flex: 0 0 var(--menutoggler-width);
-  width: var(--menutoggler-width);
-  height: var(--menutoggler-height);
-  transition: none;
-  background-color: transparent;
-  border: 0;
-  padding: 0;
-}
-.editor-styles-wrapper .o-menutoggler:active, .editor-styles-wrapper .o-menutoggler:hover {
-  color: var(--menutoggler-color-open);
-  outline: none;
-}
-@media screen and (min-width: 90em) {
-  .editor-styles-wrapper .o-menutoggler {
-    display: none;
-  }
-}
-.editor-styles-wrapper .o-menutoggler__line {
-  display: block;
-  will-change: transform;
-  position: absolute;
-  width: var(--menutoggler-width);
-  height: 3px;
-  transform: translateY(-50%);
-  background-color: currentColor;
-  transition: all 0.3s;
-}
-.editor-styles-wrapper .o-menutoggler__line:nth-child(1) {
-  top: 0;
-}
-.editor-styles-wrapper .o-menutoggler__line:nth-child(2) {
-  top: 50%;
-}
-.editor-styles-wrapper .o-menutoggler__line:nth-child(3) {
-  top: 100%;
-}
-.editor-styles-wrapper .o-menutoggler__text {
-  font-size: 0.75rem;
-  letter-spacing: 0.066667em;
-  line-height: 1;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-.editor-styles-wrapper .o-menutoggler[aria-expanded=true] .o-menutoggler__line:nth-child(1) {
-  transform: rotate(45deg);
-  top: 50%;
-}
-.editor-styles-wrapper .o-menutoggler[aria-expanded=true] .o-menutoggler__line:nth-child(2) {
-  opacity: 0;
-}
-.editor-styles-wrapper .o-menutoggler[aria-expanded=true] .o-menutoggler__line:nth-child(3) {
-  transform: rotate(-45deg);
-  top: 50%;
 }
 
 .editor-styles-wrapper .c-archive__titleprefix {

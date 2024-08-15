@@ -44,7 +44,7 @@ input {
 	&[type='time'],
 	&[type='url'],
 	&[type='week'] {
-		-webkit-appearance: none; // remove inner shadow
+		appearance: none;
 		border: var(--field-border);
 		border-radius: var(--field-radius);
 		padding: var(--wp--preset--spacing--small);
