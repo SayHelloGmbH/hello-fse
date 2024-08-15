@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * Title: header
+ * Slug: sht/header
+ * Categories: hidden
+ * Inserter: no
+ */
+?>
+<!-- wp:group {"className":"c-masthead","layout":{"inherit":true,"type":"constrained"}} -->
+<div class="wp-block-group c-masthead">
+	<!-- wp:group {"align":"wide","className":"c-masthead__inner","layout":{"inherit":true,"type":"constrained"}} -->
+	<div class="wp-block-group alignwide c-masthead__inner">
+		<!-- wp:columns {"verticalAlignment":"center","isStackedOnMobile":false,"align":"full"} -->
+		<div class="wp-block-columns alignfull are-vertically-aligned-center is-not-stacked-on-mobile">
+			<!-- wp:column {"verticalAlignment":"center","width":""} -->
+			<div class="wp-block-column is-vertically-aligned-center">
+				<!-- wp:site-title /-->
+
+				<!-- wp:site-tagline /-->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"verticalAlignment":"center","width":"1.5rem","hiddenForDesktop":true} -->
+			<div class="wp-block-column is-vertically-aligned-center is-hidden-for--desktop" style="flex-basis: 1.5rem">
+				<!-- wp:shp-must-use/menu-toggle {"target":"mobilemenu","className":"wp-block-shp-must-use-menu-toggle"} /-->
+			</div>
+			<!-- /wp:column -->
+		</div>
+		<!-- /wp:columns -->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->

@@ -1,10 +1,4 @@
 {
-	"customTemplates": [
-		{
-			"name": "page-with-inner-padding",
-			"title": "Seite mit Innenabstand"
-		}
-	],
 	"settings": {
 		"appearanceTools": true,
 		"border": {

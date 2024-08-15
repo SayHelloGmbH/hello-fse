@@ -1,14 +1,13 @@
 <?php
 
-namespace SayHello\Theme;
+namespace SayHello\Theme\Controller;
 
 /**
- * Theme class which gets loaded in functions.php.
- * Defines the Starting point of the Theme and registers Packages.
+ * Generic stuff which doesn't fit elsewhere
  *
  * @author Mark Howells-Mead <mark@sayhello.ch>
  */
-class Theme
+class General
 {
 	public function run()
 	{

@@ -2,10 +2,6 @@
 
 namespace SayHello\Theme;
 
-if (!defined('DISALLOW_FILE_EDIT')) {
-	define('DISALLOW_FILE_EDIT', true);
-}
-
 spl_autoload_register(function ($class) {
 	$prefix = 'SayHello\\Theme\\';
 
@@ -30,6 +26,9 @@ $controller_assets->run();
 
 $controller_block_editor = new Controller\BlockEditor();
 $controller_block_editor->run();
+
+$controller_general = new Controller\General();
+$controller_general->run();
 
 $controller_language = new Controller\Language();
 $controller_language->run();
