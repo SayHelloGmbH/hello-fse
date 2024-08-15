@@ -1,5 +1,7 @@
 <?php
 
+namespace SayHello\Theme;
+
 if (!defined('DISALLOW_FILE_EDIT')) {
 	define('DISALLOW_FILE_EDIT', true);
 }
@@ -54,17 +56,11 @@ spl_autoload_register(function ($class) {
 	}
 });
 
-/**
- * Returns the Theme Instance
- *
- * @return Object Theme Object
- */
-if (!function_exists('sht_theme')) {
-	function sht_theme()
-	{
-		return SayHello\Theme\Theme::getInstance();
-	}
-}
+$controller_assets = new Controller\Assets();
+$controller_assets->run();
 
-sht_theme();
-sht_theme()->run();
+$controller_block_editor = new Controller\BlockEditor();
+$controller_block_editor->run();
+
+$controller_language = new Controller\Language();
+$controller_language->run();

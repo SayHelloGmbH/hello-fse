@@ -1,6 +1,6 @@
 <?php
 
-namespace SayHello\Theme\Package;
+namespace SayHello\Theme\Controller;
 
 /**
  * Assets (CSS, JavaScript etc)
@@ -10,15 +10,17 @@ namespace SayHello\Theme\Package;
 class Assets
 {
 
-	public $theme_url = '';
-	public $theme_path = '';
-
 	public function run()
 	{
 		add_action('wp_enqueue_scripts', [$this, 'registerAssets']);
 		add_action('admin_enqueue_scripts', [$this, 'registerAdminAssets']);
 	}
 
+	/**
+	 * Registers assets for the frontend only
+	 *
+	 * @return void
+	 */
 	public function registerAssets()
 	{
 
@@ -26,11 +28,9 @@ class Assets
 			wp_deregister_style('dashicons');
 		}
 
-		$min = !sht_theme()->debug;
+		$min = defined('WP_DEBUG') && WP_DEBUG === false;
 
-		/**
-		 * CSS
-		 */
+		// CSS. Make sure that the block library CSS is loaded first.
 		$deps = ['wp-block-library'];
 
 		wp_enqueue_style('sht-style', get_template_directory_uri() . '/assets/styles/ui' . ($min ? '.min' : '') . '.css', $deps, filemtime(get_template_directory() . '/assets/styles/ui' . ($min ? '.min' : '') . '.css'));
@@ -45,9 +45,14 @@ class Assets
 		]);
 	}
 
+	/**
+	 * Registers assets for the admin area OUTSIDE the block editor
+	 *
+	 * @return void
+	 */
 	public function registerAdminAssets()
 	{
-		//wp_enqueue_style('sht-admin-editor-style', get_template_directory_uri() . '/assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css', ['wp-edit-blocks'], filemtime(get_template_directory() . '/assets/styles/admin-editor' . (sht_theme()->debug ? '' : '.min') . '.css'));
-		wp_enqueue_style('sht-admin-style', get_template_directory_uri() . '/assets/styles/admin' . (sht_theme()->debug ? '' : '.min') . '.css', ['sht-admin-editor-style', 'wp-edit-blocks'], filemtime(get_template_directory() . '/assets/styles/admin' . (sht_theme()->debug ? '' : '.min') . '.css'));
+		$min = defined('WP_DEBUG') && WP_DEBUG === false;
+		wp_enqueue_style('sht-admin-style', get_template_directory_uri() . '/assets/styles/admin' . ($min ? '.min' : '') . '.css', ['sht-admin-editor-style', 'wp-edit-blocks'], filemtime(get_template_directory() . '/assets/styles/admin' . ($min ? '.min' : '') . '.css'));
 	}
 }

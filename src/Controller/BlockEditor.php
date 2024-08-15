@@ -1,6 +1,6 @@
 <?php
 
-namespace SayHello\Theme\Package;
+namespace SayHello\Theme\Controller;
 
 /**
  * Adjustments for the Block Editor
@@ -13,7 +13,7 @@ class BlockEditor
 
 	public function __construct()
 	{
-		$this->min = !sht_theme()->debug;
+		$this->min = defined('WP_DEBUG') && WP_DEBUG === false;
 	}
 
 	/**
@@ -28,7 +28,6 @@ class BlockEditor
 		}
 		add_action('enqueue_block_assets', [$this, 'enqueueBlockAssets']);
 		add_filter('block_editor_settings_all', [$this, 'editorSettings']);
-		// add_filter('allowed_block_types_all', [$this, 'allowedBlockTypes'], 10, 2);
 		add_action('after_setup_theme', [$this, 'themeSupports']);
 		add_action('init', [$this, 'setScriptTranslations']);
 		add_action('after_setup_theme', [$this, 'enqueueBlockStyles']);
@@ -74,8 +73,9 @@ class BlockEditor
 		 * their own, individual Block Package files.
 		 */
 		if (file_exists(get_template_directory() . '/assets/scripts/block-editor' . ($this->min ? '.min' : '') . '.js')) {
+
 			$script_asset_path = get_template_directory() . '/assets/scripts/block-editor.asset.php';
-			$script_asset = file_exists($script_asset_path) ? require($script_asset_path) : ['dependencies' => [], 'version' => sht_theme()->version];
+			$script_asset = file_exists($script_asset_path) ? require($script_asset_path) : ['dependencies' => [], 'version' => wp_get_theme()->get('Version')];
 
 			wp_enqueue_script(
 				'sht-block-editor-script',
