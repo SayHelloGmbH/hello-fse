@@ -63,9 +63,6 @@
 			],
 			"text": true
 		},
-		"custom": {
-			"spacing-outer-gutter": "var(--wp--preset--spacing--regular)"
-		},
 		"layout": {
 			"contentSize": "600px",
 			"wideSize": "1200px"
@@ -179,7 +176,8 @@
 			"lineHeight": false,
 			"textDecoration": false,
 			"textTransform": false
-		}
+		},
+		"useRootPaddingAwareAlignments": true
 	},
 	"styles": {
 		"blocks": {
@@ -242,7 +240,13 @@
 			}
 		},
 		"spacing": {
-			"blockGap": "var(--wp--preset--spacing--regular)"
+			"blockGap": "var(--wp--preset--spacing--regular)",
+			"padding": {
+				"top": "0",
+				"right": "var(--wp--preset--spacing--regular)",
+				"bottom": "0",
+				"left": "var(--wp--preset--spacing--regular)"
+			}
 		},
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--system-fonts)",
@@ -267,6 +271,6 @@
 			"title": "Mobile Navigation"
 		}
 	],
-	"version": 2,
-	"$schema": "https://schemas.wp.org/wp/6.5/theme.json"
+	"version": 3,
+	"$schema": "https://schemas.wp.org/wp/6.6/theme.json"
 }
