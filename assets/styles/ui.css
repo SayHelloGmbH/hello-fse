@@ -660,12 +660,12 @@ body {
   }
 }
 .c-menu__entries--mobile {
-  --stack-size: var(--wp--preset--spacing--regular);
   margin-inline-start: auto;
   margin-inline-end: auto;
   padding-left: var(--wp--preset--spacing--regular);
   padding-right: var(--wp--preset--spacing--regular);
   max-width: var(--wp--style--global--content-size);
+  --stack-size: var(--wp--preset--spacing--regular);
 }
 .c-menu__entries--mobile > * {
   margin-block-start: 0;

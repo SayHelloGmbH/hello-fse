@@ -1,1 +1,0 @@
-window.addEventListener("click",(e=>{const t=document.querySelector(".c-modal__inner"),r=document.querySelector(".c-modal__toggle");t.contains(e.target)||e.target===t||e.target===r||(r.setAttribute("aria-expanded","false"),t.setAttribute("aria-hidden","true"))}));

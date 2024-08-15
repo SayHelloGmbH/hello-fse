@@ -1,1 +1,1 @@
-import './block-styles';
+import './block-styles/index.js';

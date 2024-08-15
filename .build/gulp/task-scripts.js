@@ -2,6 +2,7 @@ import gulp from 'gulp';
 
 import gulpWebpack from 'webpack-stream';
 import fs from 'fs';
+
 import DependencyExtractionWebpackPlugin from '@wordpress/dependency-extraction-webpack-plugin';
 
 const getDirectories = (path) => fs.readdirSync(path).filter((file) => fs.statSync(path + '/' + file).isDirectory());
@@ -18,56 +19,35 @@ export const task = (config) => {
 			}
 		});
 
-		const webpackConfig = {
-			entry,
-			mode: 'production',
-			module: {
-				rules: [
-					{
-						test: /\.js$/,
-						exclude: /node_modules/,
-						loader: 'babel-loader',
-					},
-					{
-						test: /\.s?css$/i,
-						use: ['style-loader', 'css-loader', 'sass-loader'],
-					},
-				],
-			},
-			output: {
-				filename: '[name].js',
-			},
-			externals: {
-				jquery: 'jQuery',
-			},
-			optimization: {
-				minimize: false,
-			},
-			plugins: [new DependencyExtractionWebpackPlugin()],
-		};
-
-		// Generate non-minified scripts
-		gulp.src([`${config.assetsBuild}scripts/*`])
-			.pipe(gulpWebpack(webpackConfig))
-			.on('error', config.errorLog)
-			.pipe(gulp.dest(config.assetsDir + 'scripts/'));
-
-		// Generate minified scripts
 		gulp.src([`${config.assetsBuild}scripts/*`])
 			.pipe(
 				gulpWebpack({
-					...webpackConfig,
-					output: {
-						filename: '[name].min.js', // Output minified file
+					entry,
+					mode: 'production',
+					module: {
+						rules: [
+							{
+								test: /\.js$/,
+								exclude: /node_modules/,
+								loader: 'babel-loader',
+							},
+							{
+								test: /\.s?css$/i,
+								use: ['style-loader', 'css-loader', 'sass-loader'],
+							},
+						],
 					},
-					optimization: {
-						minimize: true, // Minify only the .min.js file
+					output: {
+						filename: '[name].js',
+					},
+					plugins: [new DependencyExtractionWebpackPlugin()],
+					externals: {
+						jquery: 'jQuery',
 					},
 				})
 			)
 			.on('error', config.errorLog)
 			.pipe(gulp.dest(config.assetsDir + 'scripts/'));
-
 		resolve();
 	});
 };
