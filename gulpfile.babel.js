@@ -19,11 +19,11 @@ const config = {
 	},
 };
 
-import { task as taskBlockScripts } from './.build/gulp/task-block-scripts';
-import { task as taskBlockStyles } from './.build/gulp/task-block-styles';
-import { task as taskScripts } from './.build/gulp/task-scripts';
-import { task as taskStyles } from './.build/gulp/task-styles';
-import { task as taskSvg } from './.build/gulp/task-svg';
+import { task as taskBlockScripts } from './.build/gulp/task-block-scripts.js';
+import { task as taskBlockStyles } from './.build/gulp/task-block-styles.js';
+import { task as taskScripts } from './.build/gulp/task-scripts.js';
+import { task as taskStyles } from './.build/gulp/task-styles.js';
+import { task as taskSvg } from './.build/gulp/task-svg.js';
 
 export const block_scripts = () => taskBlockScripts(config);
 export const block_styles = () => taskBlockStyles(config);
