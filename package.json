@@ -16,14 +16,14 @@
 	},
 	"homepage": "https://github.com/SayHelloGmbH/hello-fse#readme",
 	"dependencies": {
-		"@babel/preset-env": "^7.25.3",
-		"@babel/preset-react": "^7.24.7",
-		"@babel/register": "^7.24.6",
+		"@babel/preset-env": "^7.26.0",
+		"@babel/preset-react": "^7.26.3",
+		"@babel/register": "^7.25.9",
 		"@sayhellogmbh/gulp-sass-import-json": "github:sayhellogmbh/gulp-sass-import-json",
-		"@wordpress/dependency-extraction-webpack-plugin": "^6.5.0",
-		"@wordpress/icons": "^10.5.0",
-		"babel-loader": "^9.1.3",
-		"chokidar": "^3.6.0",
+		"@wordpress/dependency-extraction-webpack-plugin": "^6.16.0",
+		"@wordpress/icons": "^10.16.0",
+		"babel-loader": "^9.2.1",
+		"chokidar": "^4.0.3",
 		"css-loader": "^7.1.2",
 		"fsevents": "^2.3.3",
 		"glob": "^9.3.5",
@@ -33,14 +33,14 @@
 		"gulp-editor-styles": "^1.0.1",
 		"gulp-filter": "^9.0.1",
 		"gulp-rename": "^2.0.0",
-		"gulp-sass": "^5.1.0",
+		"gulp-sass": "^6.0.0",
 		"gulp-svgmin": "^4.1.0",
 		"gulp-uglify": "^3.0.2",
 		"path": "^0.12.7",
-		"sass": "^1.77.8",
-		"sass-loader": "^16.0.0",
+		"sass": "^1.83.4",
+		"sass-loader": "^16.0.4",
 		"style-loader": "^4.0.0",
-		"webpack": "^5.93.0",
+		"webpack": "^5.97.1",
 		"webpack-stream": "^7.0.0"
 	},
 	"author": "Say Hello GmbH - https://sayhello.ch",
@@ -59,7 +59,7 @@
 	],
 	"engines": {
 		"node": "v20.12.0",
-		"npm": "10.8.2"
+		"npm": "10.8.3"
 	},
 	"type": "module"
 }

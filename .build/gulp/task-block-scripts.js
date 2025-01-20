@@ -3,21 +3,21 @@ import glob from 'glob';
 import rename from 'gulp-rename';
 import path from 'path';
 import gulpWebpack from 'webpack-stream';
-
+import sass from 'sass';
 import DependencyExtractionWebpackPlugin from '@wordpress/dependency-extraction-webpack-plugin';
 
 export const task = (config) => {
 	return new Promise((resolve) => {
-		const taskPath = `${config.blockScriptsSrc}/**/*.js`,
-			files = glob.sync(taskPath),
-			entries = {};
+		const taskPath = `${config.blockScriptsSrc}/**/*.js`;
+		const files = glob.sync(taskPath);
+		const entries = {};
 
 		files.forEach((file) => {
-			if (!path.basename(file).match(/^_/)) {
-				const folders = path.dirname(file).split('/');
+			if (!path.basename(file).startsWith('_')) {
+				const folders = path.dirname(file).split(path.sep);
 				const folder_last = folders[folders.length - 1];
 
-				if (!folder_last.match(/^_/)) {
+				if (!folder_last.startsWith('_')) {
 					entries[`${folders[2]}_${folder_last}`] = `./${file}`; // MyBlock_editor.js || MyBlock_view.js
 				}
 			}
@@ -36,12 +36,17 @@ export const task = (config) => {
 								loader: 'babel-loader',
 							},
 							{
-								test: /\.css$/i,
-								use: ['style-loader', 'css-loader'],
-							},
-							{
-								test: /\.scss$/i,
-								use: ['style-loader', 'css-loader', 'sass-loader'],
+								test: /\.s?css$/i,
+								use: [
+									'style-loader',
+									'css-loader',
+									{
+										loader: 'sass-loader',
+										options: {
+											implementation: sass,
+										},
+									},
+								],
 							},
 						],
 					},
@@ -56,14 +61,14 @@ export const task = (config) => {
 			)
 			.on('error', config.errorLog)
 			.pipe(
-				rename((path) => {
-					const basenameParts = path.basename.split('_');
+				rename((filePath) => {
+					const basenameParts = filePath.basename.split('_');
 					const targetBasename = basenameParts[1];
 					const targetBasefolder = basenameParts[0];
 					return {
 						dirname: `${config.blockScriptsDist}${targetBasefolder}/assets/dist/scripts/`,
 						basename: targetBasename,
-						extname: path.extname,
+						extname: filePath.extname,
 					};
 				})
 			)
