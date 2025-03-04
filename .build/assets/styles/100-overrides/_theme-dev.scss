@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 body.c-body--themedev::after {
 	position: fixed;
 	padding: 0.5em 0.75em;
@@ -11,7 +13,7 @@ body.c-body--themedev::after {
 	display: block;
 	content: '';
 
-	@each $breakpoint in map-keys($breakpoints) {
+	@each $breakpoint in map.keys($breakpoints) {
 		@include breakpoint($breakpoint only) {
 			content: '#{$breakpoint}';
 		}
