@@ -1,3 +1,5 @@
+@use '../10-tools/mixins/breakpoints' as mixins_breakpoints;
+
 body {
 	--checkbox-size: calc(var(--wp--preset--spacing--regular) * 1.5);
 	--checkbox-size-small: var(--wp--preset--spacing--regular); // used in other SCSS files, not here
@@ -52,7 +54,7 @@ input {
 		width: 100%;
 
 		&.medium {
-			@include breakpoint(tablet) {
+			@include mixins_breakpoints.breakpoint(tablet) {
 				width: calc(50% - var(--wp--preset--spacing--regular));
 			}
 		}
@@ -80,12 +82,12 @@ input {
 	overflow: hidden;
 	pointer-events: none;
 
-	~label {
+	~ label {
 		display: flex !important;
 		align-items: center;
 
 		&:before {
-			transition: all .3s;
+			transition: all 0.3s;
 			content: '';
 			display: inline-block;
 			width: var(--checkbox-size);
@@ -106,23 +108,23 @@ input {
 		}
 	}
 
-	&:checked~label:before {
+	&:checked ~ label:before {
 		background-color: var(--checkbox-checked-background-color);
 		border-color: var(--checkbox-checked-border-color);
 		background-size: contain;
 	}
 }
 
-[type='checkbox']~label:before {
+[type='checkbox'] ~ label:before {
 	border-radius: var(--checkbox-radius);
 }
 
-[type='radio']~label:before {
+[type='radio'] ~ label:before {
 	border-radius: 50%;
 }
 
 textarea {
-	-webkit-appearance: none; // remove inner shadow
+	appearance: none; // remove inner shadow
 	resize: vertical;
 	border: var(--field-border);
 	border-radius: var(--field-radius);
@@ -131,7 +133,7 @@ textarea {
 	width: 100%;
 
 	&.medium {
-		@include breakpoint(tablet) {
+		@include mixins_breakpoints.breakpoint(tablet) {
 			width: calc(50% - var(--wp--preset--spacing--regular));
 		}
 	}

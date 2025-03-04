@@ -1,0 +1,21 @@
+// Get the "rem-base" font size from the assets.json file
+// This must be a pixel value, so that the calculation function rem-calc works.
+// In most cases, leave the value as 16px.
+$rem-base: 16 !default;
+
+$rem-font-size: $rem-base + 0px;
+
+$breakpoints: (
+	zero: 0,
+	phone: 320,
+	wordpress_small: 600,
+	phone_wide: 667,
+	tablet: 768,
+	wordpress_medium: 783,
+	medium: 960,
+	tablet_landscape: 1024,
+	laptop: 1280,
+	desktop: 1440,
+	desktop_large: 1600,
+	desktop_xlarge: 1920,
+) !default;

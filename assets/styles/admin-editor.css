@@ -1,49 +1,4 @@
 /*! Created by Say Hello GmbH (Switzerland), hello@sayhello.ch */
-/*
-
-This stylesheet was generated using Sass (http://sass-lang.com).
-Original files can be found inside the /.build/assets/styles/ folder inside the main folder of this project.
-
-The structure follows the principles of ITCSS (http://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528)
-
-*/
-/**
- * Use in order to make a set of rules only apply above
- * or below a certain breakpoint.
- * Standard usage:
-
- @include breakpoint(tablet){
- 	// Applies to screen sizes tablet and LARGER
- }
-
- @include breakpoint(tablet up){
- 	// Applies to screen sizes tablet and LARGER
- }
-
- @include breakpoint(tablet down){
- 	// Applies to screen sizes tablet and SMALLER
- }
- *
- **/
-/**
- * Set custom typography sizes (e.g. header)
- * @param  {int} $size        font-size
- * @param  {int} $line-height line-height
- * @param  {int} $av          AV letter-spacing from XD
- * @return {void}
- */
-/**
- * Converts a pixel, percentage, rem or em value to a unitless value based on a given font size. Ideal for working out unitless line heights.
- *
- * @param {Number} $value - Value to convert to a unitless line height
- * @param {Number} $base - The font size to use to work out the line height - defaults to $rem-font-size
- *
- * @return {Number} - Unitless number
- */
-/**
- * AV letter spacing measurement convertor from Adobe applications
- * https://scotch.io/tutorials/converting-photoshop-letter-spacing-to-css
- */
 .editor-styles-wrapper :focus:not(:focus-visible) {
   outline: none;
 }
@@ -74,11 +29,36 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
 }
 
 .editor-styles-wrapper {
+  scroll-margin-top: var(--wp--preset--spacing--regular);
+}
+.editor-styles-wrapper {
+  overflow-x: hidden;
+}
+
+/**
+ * Use in order to make a set of rules only apply above
+ * or below a certain breakpoint.
+ * Standard usage:
+
+ @include breakpoint(tablet){
+ 	// Applies to screen sizes tablet and LARGER
+ }
+
+ @include breakpoint(tablet up){
+ 	// Applies to screen sizes tablet and LARGER
+ }
+
+ @include breakpoint(tablet down){
+ 	// Applies to screen sizes tablet and SMALLER
+ }
+ *
+ **/
+.editor-styles-wrapper {
   --checkbox-size: calc(var(--wp--preset--spacing--regular) * 1.5);
   --checkbox-size-small: var(--wp--preset--spacing--regular);
   --field-border: 1px solid var(--wp--preset--color--light-gray);
   --field-radius: var(--radius);
-  --checkbox-radius: 0.125rem;
+  --checkbox-radius: rem-calc(2px);
   --checkbox-background-color: var(--wp--preset--color--white);
   --checkbox-checked-background-color: var(--wp--preset--color--primary);
   --checkbox-checked-border-color: var(--wp--preset--color--primary);
@@ -179,7 +159,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
 }
 
 .editor-styles-wrapper textarea:not([class^="components-"]):not([class^="editor-"]):not([class^="block-"]):not([aria-owns]):not([id^="mceu_"]) {
-  -webkit-appearance: none;
+  appearance: none;
   resize: vertical;
   border: var(--field-border);
   border-radius: var(--field-radius);
@@ -373,24 +353,24 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
   color: currentColor;
 }
 
-.editor-styles-wrapper h1 a,
-.editor-styles-wrapper h1 a:active,
-.editor-styles-wrapper h1 a:hover,
-.editor-styles-wrapper h2 a,
-.editor-styles-wrapper h2 a:active,
-.editor-styles-wrapper h2 a:hover,
-.editor-styles-wrapper h3 a,
-.editor-styles-wrapper h3 a:active,
-.editor-styles-wrapper h3 a:hover,
-.editor-styles-wrapper h4 a,
-.editor-styles-wrapper h4 a:active,
-.editor-styles-wrapper h4 a:hover,
-.editor-styles-wrapper h5 a,
-.editor-styles-wrapper h5 a:active,
-.editor-styles-wrapper h5 a:hover,
-.editor-styles-wrapper h6 a,
-.editor-styles-wrapper h6 a:active,
-.editor-styles-wrapper h6 a:hover {
+.editor-styles-wrapper,
+.editor-styles-wrapper,
+.editor-styles-wrapper,
+.editor-styles-wrapper,
+.editor-styles-wrapper,
+.editor-styles-wrapper,
+.editor-styles-wrapper,
+.editor-styles-wrapper,
+.editor-styles-wrapper,
+.editor-styles-wrapper,
+.editor-styles-wrapper,
+.editor-styles-wrapper,
+.editor-styles-wrapper,
+.editor-styles-wrapper,
+.editor-styles-wrapper,
+.editor-styles-wrapper,
+.editor-styles-wrapper,
+.editor-styles-wrapper {
   color: currentColor !important;
   border: none !important;
 }
@@ -403,15 +383,15 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
  * i.e. the viewport height before Safari fucks it up.
  * https://dev.to/frehner/css-vh-dvh-lvh-svh-and-vw-units-27k4
  *
- * Since July 2022
+ * Since March 2025
  **/
 .editor-styles-wrapper {
-  --svh: 1vh;
+  --dvh: 1vh;
 }
 
-@supports (--svh: 1svh) {
+@supports (--dvh: 1dvh) {
   .editor-styles-wrapper {
-    --svh: 1svh;
+    --svh: 1dvh;
   }
 }
 .editor-styles-wrapper video {
@@ -424,7 +404,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
   display: block;
 }
 
-.editor-styles-wrapper .wp-block.is-reusable {
+.editor-styles-wrapper {
   max-width: 100%;
 }
 
@@ -561,7 +541,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
   color: var(--c-comments-cancel-link-color-hover);
 }
 
-.editor-styles-wrapper .c-editormessage {
+.editor-styles-wrapper {
   --c-editormessage-color: var(--sht-color--info);
   --c-editormessage-background-color: var(--sht-color--info-background);
   --c-editormessage-border-color: var(--sht-color--info-border);
@@ -571,14 +551,14 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
   padding: 1rem;
   --stack-size: var(--wp--preset--spacing--regular);
 }
-.editor-styles-wrapper .c-editormessage > * {
+.editor-styles-wrapper {
   margin-block-start: 0;
   margin-block-end: 0;
 }
-.editor-styles-wrapper .c-editormessage > * + * {
+.editor-styles-wrapper {
   margin-block-start: var(--stack-size);
 }
-.editor-styles-wrapper .c-editormessage--error {
+.editor-styles-wrapper {
   --c-editormessage-color: var(--sht-color--danger);
   --c-editormessage-background-color: var(--sht-color--danger-background);
   --c-editormessage-border-color: var(--sht-color--danger-border);
@@ -589,13 +569,13 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
 }
 
 .editor-styles-wrapper {
-  --c-masthead-height: 5.3125rem;
+  --c-masthead-height: rem-calc(85px);
   --c-masthead-padding-top: var(--wp--preset--spacing--medium);
   --c-masthead-padding-bottom: var(--c-masthead-padding-top);
 }
 @media screen and (min-width: 80em) {
   .editor-styles-wrapper {
-    --c-masthead-height: 6.5rem;
+    --c-masthead-height: rem-calc(104px);
   }
 }
 
@@ -663,13 +643,45 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
   padding: 0.5em 1em;
 }
 
+.editor-styles-wrapper {
+  display: block;
+  pointer-events: none;
+  box-sizing: border-box;
+  position: fixed;
+  top: var(--masthead--height);
+  left: 0;
+  width: 100%;
+  height: calc(100 * var(--dvh));
+  transform: translateX(100%);
+  opacity: 0;
+  z-index: 2;
+  overflow: auto;
+  transition: transform 600ms ease, opacity 800ms ease;
+}
+@media screen and (prefers-reduced-motion: reduce) {
+  .editor-styles-wrapper {
+    transition: none;
+  }
+}
+.editor-styles-wrapper {
+  top: calc(var(--masthead--height) + var(--wp-admin--admin-bar--height));
+}
+.editor-styles-wrapper {
+  pointer-events: auto;
+  transform: translateX(0);
+  opacity: 1;
+}
+.editor-styles-wrapper {
+  overflow: hidden;
+}
+
 .editor-styles-wrapper .wp-site-blocks__inner {
   display: flex;
   flex-direction: column;
-  min-height: calc(100 * var(--svh));
+  min-height: calc(100 * var(--dvh));
 }
 .editor-styles-wrapper .admin-bar .wp-site-blocks__inner {
-  min-height: calc(100 * var(--svh) - var(--wp-admin--admin-bar--height));
+  min-height: calc(100 * var(--dvh) - var(--wp-admin--admin-bar--height));
 }
 
 .editor-styles-wrapper .alignleft {

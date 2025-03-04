@@ -1,3 +1,7 @@
+@use '../10-tools/mixins/breakpoints' as mixins_breakpoints;
+@use '../10-tools/mixins/clearfix' as mixins_clearfix;
+@use '../30-elements/stack' as elements_stack;
+
 body {
 	--c-comments-border-color: var(--wp--preset--color--gray-light);
 	--c-comments-background-even: var(--wp--preset--color--gray-light);
@@ -14,7 +18,7 @@ body {
 	padding-left: var(--wp--preset--spacing--regular);
 	padding-right: var(--wp--preset--spacing--regular);
 
-	@include breakpoint(tablet) {
+	@include mixins_breakpoints.breakpoint(tablet) {
 		padding-left: 0;
 		padding-right: 0;
 	}
@@ -58,7 +62,7 @@ body {
 
 	.comment-body,
 	.comment-content {
-		@include stack;
+		@include elements_stack.stack;
 
 		pre {
 			padding: 0;
@@ -72,14 +76,14 @@ body {
 	}
 
 	.comment-meta {
-		@include stack;
+		@include elements_stack.stack;
 
-		@include breakpoint(tablet) {
+		@include mixins_breakpoints.breakpoint(tablet) {
 			display: flex;
 			justify-content: space-between;
 			flex-wrap: wrap;
 
-			>* {
+			> * {
 				margin-top: 0;
 			}
 		}
@@ -89,7 +93,7 @@ body {
 		font-size: var(--wp--preset--font-size--tiny);
 		text-align: right;
 
-		@include breakpoint(tablet) {
+		@include mixins_breakpoints.breakpoint(tablet) {
 			flex: 0 0 40%;
 			margin-inline-start: var(--wp--preset--spacing--regular);
 		}
@@ -104,7 +108,7 @@ body {
 	}
 
 	.navigation {
-		@include clearfix;
+		@include mixins_clearfix.clearfix;
 	}
 
 	#cancel-comment-reply-link {

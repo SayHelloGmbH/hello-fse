@@ -6,15 +6,15 @@
  * i.e. the viewport height before Safari fucks it up.
  * https://dev.to/frehner/css-vh-dvh-lvh-svh-and-vw-units-27k4
  *
- * Since July 2022
+ * Since March 2025
  **/
 
 body {
-	--svh: 1vh;
+	--dvh: 1vh;
 }
 
-@supports(--svh: 1svh) {
+@supports (--dvh: 1dvh) {
 	body {
-		--svh: 1svh;
+		--svh: 1dvh;
 	}
 }

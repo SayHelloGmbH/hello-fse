@@ -2,11 +2,10 @@
 	&__inner {
 		display: flex;
 		flex-direction: column;
-		min-height: calc(100 * var(--svh));
+		min-height: calc(100 * var(--dvh));
 
 		.admin-bar & {
-			min-height: calc(100 * var(--svh) - var(--wp-admin--admin-bar--height));
+			min-height: calc(100 * var(--dvh) - var(--wp-admin--admin-bar--height));
 		}
-
 	}
 }

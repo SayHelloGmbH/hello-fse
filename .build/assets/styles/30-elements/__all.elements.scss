@@ -1,12 +1,12 @@
 // Helpers
-@import 'stack';
+@use 'stack' as stack;
 
 // Elements
-@import 'document';
-@import 'forms';
-@import 'iframe';
-@import 'img';
-@import 'table';
-@import 'typography';
-@import 'vh';
-@import 'video';
+@use 'document' as document;
+@use 'forms' as forms;
+@use 'iframe' as iframe;
+@use 'img' as img;
+@use 'table' as table;
+@use 'typography' as typography;
+@use 'vh' as vh;
+@use 'video' as video;

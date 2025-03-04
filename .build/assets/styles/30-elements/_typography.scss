@@ -1,3 +1,5 @@
+@use '../00-settings/settings' as settings;
+
 body {
 	--font-weight-normal: 400;
 	--font-weight-bold: 700;
@@ -5,7 +7,7 @@ body {
 	--radius: 0;
 
 	// Probably not necessary but useful for browser debugging
-	--wp--preset--font-size--rem-base: #{$rem-font-size};
+	--wp--preset--font-size--rem-base: #{settings.$rem-font-size};
 
 	-webkit-font-smoothing: antialiased;
 }
@@ -17,7 +19,7 @@ acronym {
 
 a,
 button {
-	transition: opacity .3s;
+	transition: opacity 0.3s;
 }
 
 button {
@@ -34,7 +36,7 @@ code {
 	padding: 0.0625em 0.25em;
 }
 
-dd+dt {
+dd + dt {
 	margin-block-start: var(--wp--preset--spacing--regular);
 }
 
@@ -78,7 +80,6 @@ ul {
 }
 
 nav {
-
 	li,
 	ul {
 		list-style: none;
@@ -146,15 +147,13 @@ h6 {
 	}
 }
 
-@include context-edit {
-
+.editor-styles-wrapper {
 	h1,
 	h2,
 	h3,
 	h4,
 	h5,
 	h6 {
-
 		a,
 		a:active,
 		a:hover {

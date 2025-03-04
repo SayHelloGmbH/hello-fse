@@ -7,43 +7,6 @@ Original files can be found inside the /.build/assets/styles/ folder inside the 
 The structure follows the principles of ITCSS (http://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528)
 
 */
-/**
- * Use in order to make a set of rules only apply above
- * or below a certain breakpoint.
- * Standard usage:
-
- @include breakpoint(tablet){
- 	// Applies to screen sizes tablet and LARGER
- }
-
- @include breakpoint(tablet up){
- 	// Applies to screen sizes tablet and LARGER
- }
-
- @include breakpoint(tablet down){
- 	// Applies to screen sizes tablet and SMALLER
- }
- *
- **/
-/**
- * Set custom typography sizes (e.g. header)
- * @param  {int} $size        font-size
- * @param  {int} $line-height line-height
- * @param  {int} $av          AV letter-spacing from XD
- * @return {void}
- */
-/**
- * Converts a pixel, percentage, rem or em value to a unitless value based on a given font size. Ideal for working out unitless line heights.
- *
- * @param {Number} $value - Value to convert to a unitless line height
- * @param {Number} $base - The font size to use to work out the line height - defaults to $rem-font-size
- *
- * @return {Number} - Unitless number
- */
-/**
- * AV letter spacing measurement convertor from Adobe applications
- * https://scotch.io/tutorials/converting-photoshop-letter-spacing-to-css
- */
 :focus:not(:focus-visible) {
   outline: none;
 }
@@ -73,20 +36,37 @@ body {
   background-color: var(--body-background-color);
 }
 
-[id] {
+:not(.editor-styles-wrapper) [id] {
   scroll-margin-top: var(--wp--preset--spacing--regular);
 }
-
-body {
+:not(.editor-styles-wrapper) body {
   overflow-x: hidden;
 }
 
+/**
+ * Use in order to make a set of rules only apply above
+ * or below a certain breakpoint.
+ * Standard usage:
+
+ @include breakpoint(tablet){
+ 	// Applies to screen sizes tablet and LARGER
+ }
+
+ @include breakpoint(tablet up){
+ 	// Applies to screen sizes tablet and LARGER
+ }
+
+ @include breakpoint(tablet down){
+ 	// Applies to screen sizes tablet and SMALLER
+ }
+ *
+ **/
 body {
   --checkbox-size: calc(var(--wp--preset--spacing--regular) * 1.5);
   --checkbox-size-small: var(--wp--preset--spacing--regular);
   --field-border: 1px solid var(--wp--preset--color--light-gray);
   --field-radius: var(--radius);
-  --checkbox-radius: 0.125rem;
+  --checkbox-radius: rem-calc(2px);
   --checkbox-background-color: var(--wp--preset--color--white);
   --checkbox-checked-background-color: var(--wp--preset--color--primary);
   --checkbox-checked-border-color: var(--wp--preset--color--primary);
@@ -187,7 +167,7 @@ input[type=date]:focus, input[type=datetime-local]:focus, input[type=datetime]:f
 }
 
 textarea {
-  -webkit-appearance: none;
+  appearance: none;
   resize: vertical;
   border: var(--field-border);
   border-radius: var(--field-radius);
@@ -381,6 +361,28 @@ h6 a:hover {
   color: currentColor;
 }
 
+.editor-styles-wrapper h1 a,
+.editor-styles-wrapper h1 a:active,
+.editor-styles-wrapper h1 a:hover,
+.editor-styles-wrapper h2 a,
+.editor-styles-wrapper h2 a:active,
+.editor-styles-wrapper h2 a:hover,
+.editor-styles-wrapper h3 a,
+.editor-styles-wrapper h3 a:active,
+.editor-styles-wrapper h3 a:hover,
+.editor-styles-wrapper h4 a,
+.editor-styles-wrapper h4 a:active,
+.editor-styles-wrapper h4 a:hover,
+.editor-styles-wrapper h5 a,
+.editor-styles-wrapper h5 a:active,
+.editor-styles-wrapper h5 a:hover,
+.editor-styles-wrapper h6 a,
+.editor-styles-wrapper h6 a:active,
+.editor-styles-wrapper h6 a:hover {
+  color: currentColor !important;
+  border: none !important;
+}
+
 /**
  * VH is the viewport height. This works fine in most browsers,
  * but Safari changes the vieport height on scrolling, which
@@ -389,15 +391,15 @@ h6 a:hover {
  * i.e. the viewport height before Safari fucks it up.
  * https://dev.to/frehner/css-vh-dvh-lvh-svh-and-vw-units-27k4
  *
- * Since July 2022
+ * Since March 2025
  **/
 body {
-  --svh: 1vh;
+  --dvh: 1vh;
 }
 
-@supports (--svh: 1svh) {
+@supports (--dvh: 1dvh) {
   body {
-    --svh: 1svh;
+    --svh: 1dvh;
   }
 }
 video {
@@ -408,6 +410,10 @@ video {
   font-size: 0.5em;
   line-height: 1;
   display: block;
+}
+
+.editor-styles-wrapper .wp-block.is-reusable {
+  max-width: 100%;
 }
 
 body {
@@ -543,18 +549,41 @@ body {
   color: var(--c-comments-cancel-link-color-hover);
 }
 
+.editor-styles-wrapper .c-editormessage {
+  --c-editormessage-color: var(--sht-color--info);
+  --c-editormessage-background-color: var(--sht-color--info-background);
+  --c-editormessage-border-color: var(--sht-color--info-border);
+  border: 1px solid var(--c-editormessage-border-color);
+  color: var(--c-editormessage-color);
+  background-color: var(--c-editormessage-background-color);
+  padding: 1rem;
+  --stack-size: var(--wp--preset--spacing--regular);
+}
+.editor-styles-wrapper .c-editormessage > * {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.editor-styles-wrapper .c-editormessage > * + * {
+  margin-block-start: var(--stack-size);
+}
+.editor-styles-wrapper .c-editormessage--error {
+  --c-editormessage-color: var(--sht-color--danger);
+  --c-editormessage-background-color: var(--sht-color--danger-background);
+  --c-editormessage-border-color: var(--sht-color--danger-border);
+}
+
 .c-main {
   flex: 1;
 }
 
 body {
-  --c-masthead-height: 5.3125rem;
+  --c-masthead-height: rem-calc(85px);
   --c-masthead-padding-top: var(--wp--preset--spacing--medium);
   --c-masthead-padding-bottom: var(--c-masthead-padding-top);
 }
 @media screen and (min-width: 80em) {
   body {
-    --c-masthead-height: 6.5rem;
+    --c-masthead-height: rem-calc(104px);
   }
 }
 
@@ -622,7 +651,7 @@ body {
   padding: 0.5em 1em;
 }
 
-.c-mobilemenu {
+.editor-styles-wrapper .c-mobilemenu {
   display: block;
   pointer-events: none;
   box-sizing: border-box;
@@ -630,7 +659,7 @@ body {
   top: var(--masthead--height);
   left: 0;
   width: 100%;
-  height: 100svh;
+  height: calc(100 * var(--dvh));
   transform: translateX(100%);
   opacity: 0;
   z-index: 2;
@@ -638,30 +667,29 @@ body {
   transition: transform 600ms ease, opacity 800ms ease;
 }
 @media screen and (prefers-reduced-motion: reduce) {
-  .c-mobilemenu {
+  .editor-styles-wrapper .c-mobilemenu {
     transition: none;
   }
 }
-body.admin-bar .c-mobilemenu {
+body.admin-bar .editor-styles-wrapper .c-mobilemenu {
   top: calc(var(--masthead--height) + var(--wp-admin--admin-bar--height));
 }
-.c-mobilemenu[aria-hidden=false] {
+.editor-styles-wrapper .c-mobilemenu[aria-hidden=false] {
   pointer-events: auto;
   transform: translateX(0);
   opacity: 1;
 }
-
-html:has(.c-mobilemenu[aria-hidden=false]) {
+.editor-styles-wrapper html:has(.c-mobilemenu[aria-hidden=false]) {
   overflow: hidden;
 }
 
 .wp-site-blocks__inner {
   display: flex;
   flex-direction: column;
-  min-height: calc(100 * var(--svh));
+  min-height: calc(100 * var(--dvh));
 }
 .admin-bar .wp-site-blocks__inner {
-  min-height: calc(100 * var(--svh) - var(--wp-admin--admin-bar--height));
+  min-height: calc(100 * var(--dvh) - var(--wp-admin--admin-bar--height));
 }
 
 .alignleft {

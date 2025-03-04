@@ -1,9 +1,11 @@
+@use '../10-tools/mixins/breakpoints' as mixins_breakpoints;
+
 body {
 	--c-masthead-height: #{rem-calc(85px)};
 	--c-masthead-padding-top: var(--wp--preset--spacing--medium);
 	--c-masthead-padding-bottom: var(--c-masthead-padding-top);
 
-	@include breakpoint(laptop) {
+	@include mixins_breakpoints.breakpoint(laptop) {
 		--c-masthead-height: #{rem-calc(104px)};
 	}
 }

@@ -1,3 +1,6 @@
+@use '../10-tools/mixins/breakpoints' as mixins_breakpoints;
+@use '../30-elements/stack' as elements_stack;
+
 .c-menu {
 	list-style: none;
 	text-align: center;
@@ -8,7 +11,7 @@
 		display: none;
 		font-size: var(--wp--preset--font-size--small);
 
-		@include breakpoint(laptop) {
+		@include mixins_breakpoints.breakpoint(laptop) {
 			display: block;
 		}
 
@@ -19,7 +22,7 @@
 
 	&__entries {
 		&--primary {
-			@include breakpoint(laptop) {
+			@include mixins_breakpoints.breakpoint(laptop) {
 				display: flex;
 				flex-flow: row wrap;
 			}
@@ -31,9 +34,9 @@
 			padding-left: var(--wp--preset--spacing--regular);
 			padding-right: var(--wp--preset--spacing--regular);
 			max-width: var(--wp--style--global--content-size);
-			@include stack;
+			@include elements_stack.stack;
 
-			@include breakpoint(tablet) {
+			@include mixins_breakpoints.breakpoint(tablet) {
 				padding-left: 0;
 				padding-right: 0;
 			}

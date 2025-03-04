@@ -3,32 +3,19 @@
 @use 'sass:math';
 @use 'sass:meta';
 
-$breakpoints: (
-	zero: 0,
-	phone: 320,
-	wordpress_small: 600,
-	phone_wide: 667,
-	tablet: 768,
-	wordpress_medium: 783,
-	medium: 960,
-	tablet_landscape: 1024,
-	laptop: 1280,
-	desktop: 1440,
-	desktop_large: 1600,
-	desktop_xlarge: 1920,
-) !default;
+@use '../../00-settings/settings' as settings;
 
-@function device-breakpoints-min($name, $sizes: $breakpoints) {
+@function device-breakpoints-min($name, $sizes: settings.$breakpoints) {
 	$min: map.get($sizes, $name);
 	@return if($min !=0px, $min, null);
 }
 
-@function device-breakpoints-max($name, $sizes: $breakpoints) {
+@function device-breakpoints-max($name, $sizes: settings.$breakpoints) {
 	$next: device-breakpoints-next($name, $sizes);
 	@return if($next, device-breakpoints-min($next, $sizes) - 0.1, null);
 }
 
-@function device-breakpoints-next($name, $sizes, $breakpoint-names: map.keys($breakpoints)) {
+@function device-breakpoints-next($name, $sizes, $breakpoint-names: map.keys(settings.$breakpoints)) {
 	$n: list.index($breakpoint-names, $name);
 
 	@if meta.type-of($n) != 'number' {
@@ -38,7 +25,7 @@ $breakpoints: (
 	@return if($n < list.length($breakpoint-names), list.nth($breakpoint-names, $n + 1), null);
 }
 
-@mixin for-screen-min($name, $sizes: $breakpoints, $rem-base: 16) {
+@mixin for-screen-min($name, $sizes: settings.$breakpoints, $rem-base: 16) {
 	$min: device-breakpoints-min($name, $sizes);
 
 	@if meta.type-of($min) == 'number' {
@@ -56,12 +43,12 @@ $breakpoints: (
 	}
 }
 
-@mixin for-screen-max($name, $sizes: $breakpoints, $rem-base: 16) {
+@mixin for-screen-max($name, $sizes: settings.$breakpoints, $rem-base: 16) {
 	$max: device-breakpoints-max($name, $sizes);
 
 	@if meta.type-of($max) == 'number' {
 		@if math.unit($max) == '' {
-			@media screen and (max-width: calc($max/$rem-base)+0em) {
+			@media screen and (max-width: calc($max/$rem-base) + 0em) {
 				@content;
 			}
 		} @else {
@@ -74,7 +61,7 @@ $breakpoints: (
 	}
 }
 
-@mixin for-screen($name, $sizes: $breakpoints) {
+@mixin for-screen($name, $sizes: settings.$breakpoints) {
 	@include for-screen-min($name, $sizes) {
 		@include for-screen-max(-next($sizes, $name, false, key)) {
 			@content;
@@ -193,14 +180,14 @@ $breakpoints: (
 	$direction: if(list.length($value) > 1, list.nth($value, 2), up);
 	$name: if(list.length($value) > 1, list.nth($value, 1), $value);
 
-	@if meta.type-of(map.get($breakpoints, $name)) != 'null' {
+	@if meta.type-of(map.get(settings.$breakpoints, $name)) != 'null' {
 		@if $direction ==down {
 			@include for-screen-max($name) {
 				@content;
 			}
 		} @else if $direction ==only {
 			@include for-screen-min($name) {
-				@include for-screen-max(map-get-next($breakpoints, $name, false, key)) {
+				@include for-screen-max(map-get-next(settings.$breakpoints, $name, false, key)) {
 					@content;
 				}
 			}
