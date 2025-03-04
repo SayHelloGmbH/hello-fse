@@ -1,28 +1,25 @@
-// Get the "rem-base" font size from the assets.json file
-// This must be a pixel value, so that the calculation function rem-calc works.
-// In most cases, leave the value as 16px.
-$rem-base: 16 !default;
+@use 'sass:list';
+@use 'sass:math';
 
-$rem-font-size: $rem-base + 0px;
+@use '../../00-settings/settings' as settings;
 
-@function rem-calc($values, $base-value: $rem-font-size) {
-	$max: length($values);
+@function rem-calc($values, $base-value: settings.$rem-font-size) {
+	$max: list.length($values);
 
 	@if $max==1 {
-		@return convert-to-rem(nth($values, 1), $base-value);
+		@return convert-to-rem(list.nth($values, 1), $base-value);
 	}
 
-	$remValues: (
-	);
+	$remValues: ();
 
-@for $i from 1 through $max {
-	$remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+	@for $i from 1 through $max {
+		$remValues: append($remValues, convert-to-rem(list.nth($values, $i), $base-value));
+	}
+
+	@return $remValues;
 }
 
-@return $remValues;
-}
-
-@function convert-to-rem($value, $base-value: $rem-font-size) {
+@function convert-to-rem($value, $base-value: settings.$rem-font-size) {
 	$value: calc(strip-unit($value) / strip-unit($base-value)) * 1rem;
 
 	@if ($value==0rem) {
@@ -64,58 +61,54 @@ $rem-font-size: $rem-base + 0px;
  * Converts a pixel, percentage, rem or em value to a unitless value based on a given font size. Ideal for working out unitless line heights.
  *
  * @param {Number} $value - Value to convert to a unitless line height
- * @param {Number} $base - The font size to use to work out the line height - defaults to $rem-font-size
+ * @param {Number} $base - The font size to use to work out the line height - defaults to settings.$rem-font-size
  *
  * @return {Number} - Unitless number
  */
 @function unitless-calc($value, $base: null) {
-
 	// If no base is defined, defer to the global font size
 	@if $base ==null {
-		$base: $rem-font-size;
+		$base: settings.$rem-font-size;
 	}
 
 	// First, lets convert our $base to pixels
 	// If the base font size is a %, then multiply it by 16px
-	@if unit($base)=='%' {
-		$base: (
-			$base / 100%) * 16px;
+	@if unit($base) == '%' {
+		$base: ($base / 100%) * 16px;
 	}
 
-	@if unit($base)=='rem' {
+	@if unit($base) == 'rem' {
 		$base: strip-unit($base) * 16px;
 	}
 
-	@if unit($base)=='em' {
+	@if unit($base) == 'em' {
 		$base: strip-unit($base) * 16px;
 	}
 
 	// Now let's convert our value to pixels too
-	@if unit($value)=='%' {
-		$value: (
-			$value / 100%) * $base;
+	@if unit($value) == '%' {
+		$value: ($value / 100%) * $base;
 	}
 
-	@if unit($value)=='rem' {
+	@if unit($value) == 'rem' {
 		$value: strip-unit($value) * $base;
 	}
 
-	@if unit($value)=='em' {
+	@if unit($value) == 'em' {
 		$value: strip-unit($value) * $base;
 	}
 
 	// 'px'
-	@if unit($value)=='px' {
-		@return strip-unit($value) / strip-unit($base
-	);
-}
+	@if unit($value) == 'px' {
+		@return strip-unit($value) / strip-unit($base);
+	}
 
-// assume that line-heights greater than 10 are meant to be absolute in 'px'
-@if unitless($value) and ($value > 10) {
-	@return $value / strip-unit($base);
-}
+	// assume that line-heights greater than 10 are meant to be absolute in 'px'
+	@if unitless($value) and ($value > 10) {
+		@return $value / strip-unit($base);
+	}
 
-@return $value;
+	@return $value;
 }
 
 /**

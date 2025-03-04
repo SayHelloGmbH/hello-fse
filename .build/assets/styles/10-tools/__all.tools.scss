@@ -1,5 +1,5 @@
-@import 'mixins/breakpoints';
-@import 'mixins/clearfix';
-@import 'mixins/context';
-@import 'mixins/flood';
-@import 'mixins/typography';
+@use 'mixins/breakpoints' as mixins_breakpoints;
+@use 'mixins/clearfix' as mixins_clearfix;
+@use 'mixins/context' as mixins_context;
+@use 'mixins/flood' as mixins_flood;
+@use 'mixins/typography' as mixins_typography;

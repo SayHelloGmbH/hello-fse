@@ -1,3 +1,7 @@
+@use 'sass:map';
+@use '../00-settings/settings' as settings;
+@use '../10-tools/mixins/breakpoints' as mixins_breakpoints;
+
 body.c-body--themedev::after {
 	position: fixed;
 	padding: 0.5em 0.75em;
@@ -11,8 +15,8 @@ body.c-body--themedev::after {
 	display: block;
 	content: '';
 
-	@each $breakpoint in map-keys($breakpoints) {
-		@include breakpoint($breakpoint only) {
+	@each $breakpoint in map.keys(settings.$breakpoints) {
+		@include mixins_breakpoints.breakpoint($breakpoint only) {
 			content: '#{$breakpoint}';
 		}
 	}

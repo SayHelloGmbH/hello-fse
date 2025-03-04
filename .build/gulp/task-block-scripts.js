@@ -1,5 +1,5 @@
 import { src, dest } from 'gulp';
-import glob from 'glob';
+import { sync as globSync } from 'glob';
 import rename from 'gulp-rename';
 import path from 'path';
 import gulpWebpack from 'webpack-stream';
@@ -9,7 +9,7 @@ import DependencyExtractionWebpackPlugin from '@wordpress/dependency-extraction-
 export const task = (config) => {
 	return new Promise((resolve) => {
 		const taskPath = `${config.blockScriptsSrc}/**/*.js`;
-		const files = glob.sync(taskPath);
+		const files = globSync(taskPath);
 		const entries = {};
 
 		files.forEach((file) => {

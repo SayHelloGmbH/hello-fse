@@ -1,4 +1,6 @@
-@include context-edit {
+@use '../30-elements/stack' as elements_stack;
+
+.editor-styles-wrapper {
 	.c-editormessage {
 		--c-editormessage-color: var(--sht-color--info);
 		--c-editormessage-background-color: var(--sht-color--info-background);
@@ -8,7 +10,7 @@
 		color: var(--c-editormessage-color);
 		background-color: var(--c-editormessage-background-color);
 		padding: 1rem;
-		@include stack;
+		@include elements_stack.stack;
 
 		&--error {
 			--c-editormessage-color: var(--sht-color--danger);

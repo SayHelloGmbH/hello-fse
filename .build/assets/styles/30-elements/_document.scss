@@ -15,7 +15,7 @@ body {
 	background-color: var(--body-background-color);
 }
 
-@include context-view {
+:not(.editor-styles-wrapper) {
 	[id] {
 		scroll-margin-top: var(--wp--preset--spacing--regular);
 	}

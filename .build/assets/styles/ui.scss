@@ -13,8 +13,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
 @use 'sass:math';
 $context: 'view';
 
-@import '10-tools/__all.tools';
-@import '20-generic/__all.generic';
-@import '30-elements/__all.elements';
-@import '40-components/__all.components';
-@import '100-overrides/__all.overrides';
+@use '20-generic/__all.generic' as all_generic;
+@use '30-elements/__all.elements' as all_elements;
+@use '40-components/__all.components' as all_components;
+@use '100-overrides/__all.overrides' as all_overrides;

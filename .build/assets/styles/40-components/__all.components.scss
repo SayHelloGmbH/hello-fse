@@ -1,9 +1,9 @@
-@import 'archive';
-@import 'blocks';
-@import 'comments';
-@import 'editormessage';
-@import 'main';
-@import 'masthead';
-@import 'menu';
-@import 'mobilemenu';
-@import 'wp-site-blocks';
+@use 'archive' as archive;
+@use 'blocks' as blocks;
+@use 'comments' as comments;
+@use 'editormessage' as editormessage;
+@use 'main' as main;
+@use 'masthead' as masthead;
+@use 'menu' as menu;
+@use 'mobilemenu' as mobilemenu;
+@use 'wp-site-blocks' as wp-site-blocks;
