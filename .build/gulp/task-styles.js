@@ -1,5 +1,5 @@
 import { src, dest } from 'gulp';
-import cleanCSS from 'gulp-clean-css';
+import cleanCSS from '@aptuitiv/gulp-clean-css';
 import filter from 'gulp-filter';
 import autoprefixer from 'gulp-autoprefixer';
 import rename from 'gulp-rename';

@@ -16,6 +16,7 @@
 	},
 	"homepage": "https://github.com/SayHelloGmbH/hello-fse#readme",
 	"dependencies": {
+		"@aptuitiv/gulp-clean-css": "github:aptuitiv/gulp-clean-css",
 		"@babel/preset-env": "^7.26.9",
 		"@babel/preset-react": "^7.26.3",
 		"@babel/register": "^7.25.9",
@@ -28,7 +29,6 @@
 		"glob": "^11.0.1",
 		"gulp": "^5.0.0",
 		"gulp-autoprefixer": "^9.0.0",
-		"gulp-clean-css": "^4.3.0",
 		"gulp-editor-styles": "^1.0.1",
 		"gulp-filter": "^9.0.1",
 		"gulp-rename": "^2.0.0",
