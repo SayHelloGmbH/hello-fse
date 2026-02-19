@@ -17,7 +17,7 @@ class Assets
 	 */
 	public function run(): void
 	{
-		add_action('wp_enqueue_scripts', [$this, 'registerAssets']);
+		add_action('enqueue_block_assets', [$this, 'registerFrontendAssets']);
 	}
 
 	/**
@@ -25,7 +25,7 @@ class Assets
 	 *
 	 * @return void
 	 */
-	public function registerAssets(): void
+	public function registerFrontendAssets(): void
 	{
 
 		if (!is_user_logged_in()) {
