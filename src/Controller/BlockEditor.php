@@ -172,8 +172,13 @@ class BlockEditor
 		return $settings;
 	}
 
-	public function isContextEdit()
+	/**
+	 * Check if the Block Editor is in 'edit' context
+	 *
+	 * @return bool
+	 */
+	public function isContextEdit(): bool
 	{
-		return array_key_exists('context', $_GET) && $_GET['context'] === 'edit';
+		return is_admin() || (defined('REST_REQUEST') && REST_REQUEST);
 	}
 }
