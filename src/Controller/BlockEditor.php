@@ -32,7 +32,7 @@ class BlockEditor
 		if (!function_exists('register_block_type')) {
 			return;
 		}
-		add_action('enqueue_block_assets', [$this, 'enqueueBlockAssets']);
+		add_action('enqueue_block_editor_assets', [$this, 'enqueueBlockEditorAssets']);
 		add_filter('block_editor_settings_all', [$this, 'editorSettings']);
 		add_action('after_setup_theme', [$this, 'themeSupports']);
 		add_action('init', [$this, 'setScriptTranslations']);
@@ -51,16 +51,12 @@ class BlockEditor
 	}
 
 	/**
-	 * Enqueues the main CSS and JS files for the Block Editor views
+	 * Enqueues the main CSS and JS files for the Block and Site Editor
 	 *
 	 * @return void
 	 */
-	public function enqueueBlockAssets()
+	public function enqueueBlockEditorAssets(): void
 	{
-
-		if (!is_admin()) {
-			return;
-		}
 
 		// Enqueue theme-level CSS in the Block and Site Editors
 		// Replaces add_editor_style which is for TinyMCE
