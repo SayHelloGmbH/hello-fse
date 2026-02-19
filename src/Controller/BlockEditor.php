@@ -74,14 +74,14 @@ class BlockEditor
 		 * Individual Block scripts and CSS files are loaded through
 		 * their own, individual Block Package files.
 		 */
-		if (file_exists(get_template_directory() . '/assets/scripts/block-editor' . ($this->min ? '.min' : '') . '.js')) {
+		if (file_exists(get_template_directory() . '/assets/scripts/block-editor.js')) {
 
 			$script_asset_path = get_template_directory() . '/assets/scripts/block-editor.asset.php';
 			$script_asset = file_exists($script_asset_path) ? require($script_asset_path) : ['dependencies' => [], 'version' => wp_get_theme()->get('Version')];
 
 			wp_enqueue_script(
 				'sht-block-editor-script',
-				get_template_directory_uri() . '/assets/scripts/block-editor' . ($this->min ? '.min' : '') . '.js',
+				get_template_directory_uri() . '/assets/scripts/block-editor.js',
 				$script_asset['dependencies'],
 				$script_asset['version']
 			);
