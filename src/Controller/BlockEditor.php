@@ -37,6 +37,7 @@ class BlockEditor
 		add_action('after_setup_theme', [$this, 'themeSupports']);
 		add_action('init', [$this, 'setScriptTranslations']);
 		add_action('after_setup_theme', [$this, 'enqueueBlockStyles']);
+		add_action('init', [$this, 'registerBlockPatternCategories']);
 	}
 
 	/**
@@ -180,5 +181,17 @@ class BlockEditor
 	public function isContextEdit(): bool
 	{
 		return is_admin() || (defined('REST_REQUEST') && REST_REQUEST);
+	}
+
+	/**
+	 * Add custom block pattern categories
+	 *
+	 * @return void
+	 */
+	public function registerBlockPatternCategories(): void
+	{
+		register_block_pattern_category('sht/example', [
+			'label' => _x('Example', 'Custom pattern category name', 'sht')
+		]);
 	}
 }
