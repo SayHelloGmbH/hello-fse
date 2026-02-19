@@ -9,7 +9,13 @@ namespace SayHello\Theme\Controller;
  */
 class BlockEditor
 {
-	public $min = false;
+
+	/**
+	 * Whether to load minified assets or not.
+	 *
+	 * @var bool
+	 */
+	public bool $min = false;
 
 	public function __construct()
 	{
@@ -21,16 +27,17 @@ class BlockEditor
 	 *
 	 * @return void
 	 */
-	public function run()
+	public function run(): void
 	{
 		if (!function_exists('register_block_type')) {
 			return;
 		}
-		add_action('enqueue_block_assets', [$this, 'enqueueBlockAssets']);
+		add_action('enqueue_block_editor_assets', [$this, 'enqueueBlockEditorAssets']);
 		add_filter('block_editor_settings_all', [$this, 'editorSettings']);
 		add_action('after_setup_theme', [$this, 'themeSupports']);
 		add_action('init', [$this, 'setScriptTranslations']);
 		add_action('after_setup_theme', [$this, 'enqueueBlockStyles']);
+		add_action('init', [$this, 'registerBlockPatternCategories']);
 	}
 
 	/**
@@ -38,23 +45,19 @@ class BlockEditor
 	 *
 	 * @return void
 	 */
-	public function themeSupports()
+	public function themeSupports(): void
 	{
 		// Since WordPress 5.5: disallow block patterns delivered by Core
 		remove_theme_support('core-block-patterns');
 	}
 
 	/**
-	 * Enqueues the main CSS and JS files for the Block Editor views
+	 * Enqueues the main CSS and JS files for the Block and Site Editor
 	 *
 	 * @return void
 	 */
-	public function enqueueBlockAssets()
+	public function enqueueBlockEditorAssets(): void
 	{
-
-		if (!is_admin()) {
-			return;
-		}
 
 		// Enqueue theme-level CSS in the Block and Site Editors
 		// Replaces add_editor_style which is for TinyMCE
@@ -72,14 +75,14 @@ class BlockEditor
 		 * Individual Block scripts and CSS files are loaded through
 		 * their own, individual Block Package files.
 		 */
-		if (file_exists(get_template_directory() . '/assets/scripts/block-editor' . ($this->min ? '.min' : '') . '.js')) {
+		if (file_exists(get_template_directory() . '/assets/scripts/block-editor.js')) {
 
 			$script_asset_path = get_template_directory() . '/assets/scripts/block-editor.asset.php';
 			$script_asset = file_exists($script_asset_path) ? require($script_asset_path) : ['dependencies' => [], 'version' => wp_get_theme()->get('Version')];
 
 			wp_enqueue_script(
 				'sht-block-editor-script',
-				get_template_directory_uri() . '/assets/scripts/block-editor' . ($this->min ? '.min' : '') . '.js',
+				get_template_directory_uri() . '/assets/scripts/block-editor.js',
 				$script_asset['dependencies'],
 				$script_asset['version']
 			);
@@ -99,7 +102,7 @@ class BlockEditor
 	 *
 	 * @return void
 	 */
-	public function enqueueBlockStyles()
+	public function enqueueBlockStyles(): void
 	{
 		$root_folder = get_template_directory() . '/assets/styles/blocks';
 		$min = $this->min ? '.min' : '';
@@ -151,7 +154,7 @@ class BlockEditor
 	 *
 	 * mhm 28.1.2020
 	 */
-	public function setScriptTranslations()
+	public function setScriptTranslations(): void
 	{
 		wp_set_script_translations('sht-block-editor-script', 'sht', get_template_directory() . '/languages');
 	}
@@ -162,7 +165,7 @@ class BlockEditor
 	 * @param array $settings
 	 * @return array
 	 */
-	public function editorSettings($settings)
+	public function editorSettings(array $settings): array
 	{
 		// Since WordPress 6.5: disable the font library
 		$settings['fontLibraryEnabled'] = false;
@@ -170,8 +173,25 @@ class BlockEditor
 		return $settings;
 	}
 
-	public function isContextEdit()
+	/**
+	 * Check if the Block Editor is in 'edit' context
+	 *
+	 * @return bool
+	 */
+	public function isContextEdit(): bool
 	{
-		return array_key_exists('context', $_GET) && $_GET['context'] === 'edit';
+		return is_admin() || (defined('REST_REQUEST') && REST_REQUEST);
+	}
+
+	/**
+	 * Add custom block pattern categories
+	 *
+	 * @return void
+	 */
+	public function registerBlockPatternCategories(): void
+	{
+		register_block_pattern_category('sht/example', [
+			'label' => _x('Example', 'Custom pattern category name', 'sht')
+		]);
 	}
 }
