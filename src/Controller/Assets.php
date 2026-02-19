@@ -27,6 +27,10 @@ class Assets
 			wp_deregister_style('dashicons');
 		}
 
+		if (is_admin()) {
+			return;
+		}
+
 		$min = defined('WP_DEBUG') && WP_DEBUG === false;
 
 		// CSS. Make sure that the block library CSS is loaded first.
