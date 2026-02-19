@@ -9,7 +9,13 @@ namespace SayHello\Theme\Controller;
  */
 class BlockEditor
 {
-	public $min = false;
+
+	/**
+	 * Whether to load minified assets or not.
+	 *
+	 * @var bool
+	 */
+	public bool $min = false;
 
 	public function __construct()
 	{
@@ -21,7 +27,7 @@ class BlockEditor
 	 *
 	 * @return void
 	 */
-	public function run()
+	public function run(): void
 	{
 		if (!function_exists('register_block_type')) {
 			return;
@@ -38,7 +44,7 @@ class BlockEditor
 	 *
 	 * @return void
 	 */
-	public function themeSupports()
+	public function themeSupports(): void
 	{
 		// Since WordPress 5.5: disallow block patterns delivered by Core
 		remove_theme_support('core-block-patterns');
@@ -99,7 +105,7 @@ class BlockEditor
 	 *
 	 * @return void
 	 */
-	public function enqueueBlockStyles()
+	public function enqueueBlockStyles(): void
 	{
 		$root_folder = get_template_directory() . '/assets/styles/blocks';
 		$min = $this->min ? '.min' : '';
@@ -151,7 +157,7 @@ class BlockEditor
 	 *
 	 * mhm 28.1.2020
 	 */
-	public function setScriptTranslations()
+	public function setScriptTranslations(): void
 	{
 		wp_set_script_translations('sht-block-editor-script', 'sht', get_template_directory() . '/languages');
 	}
@@ -162,7 +168,7 @@ class BlockEditor
 	 * @param array $settings
 	 * @return array
 	 */
-	public function editorSettings($settings)
+	public function editorSettings(array $settings): array
 	{
 		// Since WordPress 6.5: disable the font library
 		$settings['fontLibraryEnabled'] = false;
