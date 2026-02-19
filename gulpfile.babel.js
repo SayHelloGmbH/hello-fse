@@ -38,7 +38,6 @@ export const watch = () => {
 	gulp.watch(`${config.blockScriptsSrc}/**/*.{scss,js}`, settings, gulp.series(block_scripts));
 	gulp.watch(`${config.assetsBuild}styles/**/*.scss`, settings, gulp.series(styles));
 	gulp.watch(`${config.assetsBuild}scripts/**/*.{scss,css,js}`, settings, gulp.series(scripts));
-	gulp.watch(`${config.assetsDir}settings.json`, settings, gulp.series(scripts, styles));
 	gulp.watch(`${config.themeDir}theme.json`, settings, gulp.series(scripts, styles));
 	gulp.watch([`${config.assetsDir}**/*.svg`, `!${config.assetsDir}**/*.min.svg`], settings, gulp.series(svg));
 };
