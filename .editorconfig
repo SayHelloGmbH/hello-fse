@@ -1,5 +1,3 @@
-# editorconfig for Say Hello Projects
-
 [*]
 indent_style = tab
 indent_size = 4
