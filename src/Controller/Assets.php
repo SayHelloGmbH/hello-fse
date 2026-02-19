@@ -41,10 +41,12 @@ class Assets
 		// Javascript
 		$deps = [];
 
-		wp_enqueue_script('sht-script', get_template_directory_uri() . '/assets/scripts/ui' . ($min ? '.min' : '') . '.js', $deps, filemtime(get_template_directory() . '/assets/scripts/ui' . ($min ? '.min' : '') . '.js'), true);
+		// Javascript is always minified.
+		wp_enqueue_script('sht-script', get_template_directory_uri() . '/assets/scripts/ui.js', $deps, filemtime(get_template_directory() . '/assets/scripts/ui.js'), true);
 		wp_localize_script('sht-script', 'sht_theme', [
 			'directory_uri' => get_template_directory_uri(),
-			'version' => wp_get_theme()->get('Version')
+			'version' => wp_get_theme()->get('Version'),
+			'environment' => wp_get_environment_type(),
 		]);
 	}
 }
