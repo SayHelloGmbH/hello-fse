@@ -10,7 +10,12 @@ namespace SayHello\Theme\Controller;
 class Assets
 {
 
-	public function run()
+	/**
+	 * Runs the controller
+	 *
+	 * @return void
+	 */
+	public function run(): void
 	{
 		add_action('wp_enqueue_scripts', [$this, 'registerAssets']);
 	}
@@ -20,7 +25,7 @@ class Assets
 	 *
 	 * @return void
 	 */
-	public function registerAssets()
+	public function registerAssets(): void
 	{
 
 		if (!is_user_logged_in()) {
