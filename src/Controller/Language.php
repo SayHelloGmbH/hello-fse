@@ -10,9 +10,10 @@ namespace SayHello\Theme\Controller;
 class Language
 {
 
-	public function run()
+	public function run():void
 	{
 		add_action('after_setup_theme', [$this, 'loadTranslations']);
+		add_action('enqueue_block_assets', [$this, 'loadScriptTranslations']);
 	}
 
 	/**
@@ -21,9 +22,19 @@ class Language
 	 *
 	 * @return void
 	 */
-	public function loadTranslations()
+	public function loadTranslations():void
 	{
 		load_theme_textdomain('sht', get_template_directory() . '/languages'); // Textdomain Frontend
 		load_theme_textdomain('sha', get_template_directory() . '/languages'); // Textdomain Admin
+	}
+
+	/**
+	 * Set the translations for the block editor script
+	 *
+	 * @return void
+	 */
+	public function setScriptTranslations():void
+	{
+		wp_set_script_translations('sht-block-editor-script', 'sht', get_template_directory() . '/languages');
 	}
 }
