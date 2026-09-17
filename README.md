@@ -71,6 +71,28 @@ This theme uses a Gulp-based build pipeline with embedded Webpack bundling for J
 
 In short: you author JS/SCSS in the `src/Blocks/` or the canonical `.build/assets/` folders, then run `npm start` to build and watch. Webpack (via `webpack-stream`) handles JS bundling and the WP dependency extraction plugin keeps WordPress packages external, while Gulp orchestrates file-level compilation, minification and placement of outputs into the theme's `assets/` and each block's `assets/dist/` directories.
 
+### Enqueuing the assets
+
+Assets (JavsScript and CSS) get enqueued in three places. 
+
+#### Frontend
+
+Use `wp_enqueue_style` or `wp_enqueue_script` on the `wp_enqueue_scripts` hook. The non-minified version of CSS is usually loaded if `wp_get_environment_type()` is `develop`. JS is always minified. This is also the place to enqueue WOFF2 files and all other frontend CSS. This function is currently in the [_Assets_ Controller](https://github.com/SayHelloGmbH/hello-fse/blob/main/src/Controller/Assets.php).
+
+#### WordPress Admin
+
+Use `wp_enqueue_style` or `wp_enqueue_script` on the `admin_enqueue_scripts` hook. This hook passes a parameter `$hook_suffix` if you need to do any conditional loading.
+
+#### Block Editor and Site Editor. 
+
+Use `wp_enqueue_style` or `wp_enqueue_script` on the `enqueue_block_assets` hook. 
+
+Using this hook will enqueue the asset file in the frontend, WordPress Admin _and_ the Block Editor. If you only want the asset to load in the Block and Site Editors, use `if(!is_admin()){ … }` to bail early in the called function.
+
+##### enqueue_block_editor_assets
+
+This action is specifically for adding styles and scripts that impact the editor **interface** (e.g., the Block Sidebar or Toolbar). For styling editor **content**, use `enqueue_block_assets`.
+
 ## Author
 
 [Say Hello GmbH](https://sayhello.ch/) in Spiez, Switzerland. Specifically Mark Howells-Mead since 2024.
