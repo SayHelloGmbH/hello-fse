@@ -1,4 +1,6 @@
-.editor-styles-wrapper {
+@use '../10-tools/mixins/context';
+
+@include context.edit {
 	.c-mobilemenu {
 		display: block;
 		pointer-events: none;

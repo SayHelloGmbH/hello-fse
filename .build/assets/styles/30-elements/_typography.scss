@@ -1,3 +1,4 @@
+@use '../10-tools/mixins/context';
 @use '../00-settings/settings' as settings;
 
 body {
@@ -144,7 +145,7 @@ h6 {
 	}
 }
 
-.editor-styles-wrapper {
+@include context.edit {
 
 	h1,
 	h2,

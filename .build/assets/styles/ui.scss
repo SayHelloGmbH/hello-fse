@@ -11,7 +11,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
 
 @charset 'UTF-8';
 @use 'sass:math';
-$context: 'view';
+@use '10-tools/mixins/context' with ($context: 'view');
 
 @use '20-generic/__all.generic' as all_generic;
 @use '30-elements/__all.elements' as all_elements;

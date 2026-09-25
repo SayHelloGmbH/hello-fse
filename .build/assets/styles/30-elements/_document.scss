@@ -1,3 +1,5 @@
+@use '../10-tools/mixins/context';
+
 * {
 	box-sizing: border-box;
 
@@ -7,7 +9,7 @@
 	}
 }
 
-:not(.editor-styles-wrapper) {
+@include context.view {
 	[id] {
 		--sht--scroll-margin-top: var(--wp--preset--spacing--regular);
 		scroll-margin-top: var(--sht--scroll-margin-top);

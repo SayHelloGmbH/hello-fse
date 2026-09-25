@@ -1,17 +1,35 @@
-@mixin context-edit() {
-	@if $context ==edit {
+/**
+ * Build context switcher.
+ *
+ * Each entry stylesheet configures the context before anything else loads it:
+ *   @use '10-tools/mixins/context' with ($context: 'edit');
+ *
+ * Partials then wrap context-specific rules:
+ *   @use '../10-tools/mixins/context';
+ *   @include context.edit { … }
+ *
+ * Sass loads a module only once per compilation, so the configured
+ * value is shared by every partial in that build.
+ */
+
+@use 'sass:list';
+
+$context: 'view' !default;
+
+@if not list.index(('view', 'edit'), $context) {
+	@error 'Unknown build context "#{$context}". Use "view" or "edit".';
+}
+
+// Only output in the Block Editor build (admin-editor.scss)
+@mixin edit() {
+	@if $context == 'edit' {
 		@content;
 	}
 }
 
-@mixin context-view() {
-	@if $context ==view {
-		@content;
-	}
-}
-
-@mixin context-admin() {
-	@if $context ==admin {
+// Only output in the frontend build (ui.scss)
+@mixin view() {
+	@if $context == 'view' {
 		@content;
 	}
 }

@@ -1,4 +1,18 @@
+@charset "UTF-8";
 /*! Created by Say Hello GmbH (Switzerland), hello@sayhello.ch */
+/**
+ * Build context switcher.
+ *
+ * Each entry stylesheet configures the context before anything else loads it:
+ *   @use '10-tools/mixins/context' with ($context: 'edit');
+ *
+ * Partials then wrap context-specific rules:
+ *   @use '../10-tools/mixins/context';
+ *   @include context.edit { … }
+ *
+ * Sass loads a module only once per compilation, so the configured
+ * value is shared by every partial in that build.
+ */
 .editor-styles-wrapper :focus:not(:focus-visible) {
   outline: none;
 }
@@ -19,14 +33,6 @@
 }
 .editor-styles-wrapper *:after, .editor-styles-wrapper *:before {
   box-sizing: border-box;
-}
-
-.editor-styles-wrapper {
-  --sht--scroll-margin-top: var(--wp--preset--spacing--regular);
-  scroll-margin-top: var(--sht--scroll-margin-top);
-}
-.editor-styles-wrapper {
-  overflow-x: hidden;
 }
 
 /**
@@ -346,24 +352,24 @@
   color: currentColor;
 }
 
-.editor-styles-wrapper,
-.editor-styles-wrapper,
-.editor-styles-wrapper,
-.editor-styles-wrapper,
-.editor-styles-wrapper,
-.editor-styles-wrapper,
-.editor-styles-wrapper,
-.editor-styles-wrapper,
-.editor-styles-wrapper,
-.editor-styles-wrapper,
-.editor-styles-wrapper,
-.editor-styles-wrapper,
-.editor-styles-wrapper,
-.editor-styles-wrapper,
-.editor-styles-wrapper,
-.editor-styles-wrapper,
-.editor-styles-wrapper,
-.editor-styles-wrapper {
+.editor-styles-wrapper h1 a,
+.editor-styles-wrapper h1 a:active,
+.editor-styles-wrapper h1 a:hover,
+.editor-styles-wrapper h2 a,
+.editor-styles-wrapper h2 a:active,
+.editor-styles-wrapper h2 a:hover,
+.editor-styles-wrapper h3 a,
+.editor-styles-wrapper h3 a:active,
+.editor-styles-wrapper h3 a:hover,
+.editor-styles-wrapper h4 a,
+.editor-styles-wrapper h4 a:active,
+.editor-styles-wrapper h4 a:hover,
+.editor-styles-wrapper h5 a,
+.editor-styles-wrapper h5 a:active,
+.editor-styles-wrapper h5 a:hover,
+.editor-styles-wrapper h6 a,
+.editor-styles-wrapper h6 a:active,
+.editor-styles-wrapper h6 a:hover {
   color: currentColor !important;
   border: none !important;
 }
@@ -515,27 +521,42 @@
   color: var(--c-comments-cancel-link-color-hover);
 }
 
-.editor-styles-wrapper {
-  --c-editormessage-color: var(--sht-color--info);
-  --c-editormessage-background-color: var(--sht-color--info-background);
-  --c-editormessage-border-color: var(--sht-color--info-border);
+.editor-styles-wrapper .c-editormessage {
+  --c-editormessage-color: #2b2f32;
+  --c-editormessage-background-color: #e2e3e5;
+  --c-editormessage-border-color: #c4c8cb;
   border: 1px solid var(--c-editormessage-border-color);
   color: var(--c-editormessage-color);
   background-color: var(--c-editormessage-background-color);
   padding: 1rem;
   --stack-size: var(--wp--preset--spacing--regular);
 }
-.editor-styles-wrapper {
+.editor-styles-wrapper .c-editormessage > * {
   margin-block-start: 0;
   margin-block-end: 0;
 }
-.editor-styles-wrapper {
+.editor-styles-wrapper .c-editormessage > * + * {
   margin-block-start: var(--stack-size);
 }
-.editor-styles-wrapper {
-  --c-editormessage-color: var(--sht-color--danger);
-  --c-editormessage-background-color: var(--sht-color--danger-background);
-  --c-editormessage-border-color: var(--sht-color--danger-border);
+.editor-styles-wrapper .c-editormessage--error {
+  --c-editormessage-color: #58151c;
+  --c-editormessage-background-color: #f8d7da;
+  --c-editormessage-border-color: #f1aeb5;
+}
+.editor-styles-wrapper .c-editormessage--info {
+  --c-editormessage-color: #055160;
+  --c-editormessage-background-color: #cff4fc;
+  --c-editormessage-border-color: #9eeaf9;
+}
+.editor-styles-wrapper .c-editormessage--success {
+  --c-editormessage-color: #0a3622;
+  --c-editormessage-background-color: #d1e7dd;
+  --c-editormessage-border-color: #a3cfbb;
+}
+.editor-styles-wrapper .c-editormessage--warning {
+  --c-editormessage-color: #664d03;
+  --c-editormessage-background-color: #fff3cd;
+  --c-editormessage-border-color: #ffe69c;
 }
 
 .editor-styles-wrapper .c-main {
@@ -617,7 +638,7 @@
   padding: 0.5em 1em;
 }
 
-.editor-styles-wrapper {
+.editor-styles-wrapper .c-mobilemenu {
   display: block;
   pointer-events: none;
   box-sizing: border-box;
@@ -633,19 +654,20 @@
   transition: transform 600ms ease, opacity 800ms ease;
 }
 @media screen and (prefers-reduced-motion: reduce) {
-  .editor-styles-wrapper {
+  .editor-styles-wrapper .c-mobilemenu {
     transition: none;
   }
 }
-.editor-styles-wrapper {
+.editor-styles-wrapper body.admin-bar .c-mobilemenu {
   top: calc(var(--masthead--height) + var(--wp-admin--admin-bar--height));
 }
-.editor-styles-wrapper {
+.editor-styles-wrapper .c-mobilemenu[aria-hidden=false] {
   pointer-events: auto;
   transform: translateX(0);
   opacity: 1;
 }
-.editor-styles-wrapper {
+
+.editor-styles-wrapper html:has(.c-mobilemenu[aria-hidden=false]) {
   overflow: hidden;
 }
 

@@ -2,6 +2,9 @@
 
 @charset 'UTF-8';
 
+// Must be the first load of this module, so that the configuration applies.
+@use '10-tools/mixins/context' with ($context: 'edit');
+
 @use '20-generic/__all.generic' as all_generic;
 @use '30-elements/__all.elements' as all_elements;
 @use '40-components/__all.components' as all_components;

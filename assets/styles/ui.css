@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! Created by Say Hello GmbH (Switzerland), hello@sayhello.ch */
 /*
 
@@ -7,6 +8,19 @@ Original files can be found inside the /.build/assets/styles/ folder inside the 
 The structure follows the principles of ITCSS (http://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528)
 
 */
+/**
+ * Build context switcher.
+ *
+ * Each entry stylesheet configures the context before anything else loads it:
+ *   @use '10-tools/mixins/context' with ($context: 'edit');
+ *
+ * Partials then wrap context-specific rules:
+ *   @use '../10-tools/mixins/context';
+ *   @include context.edit { … }
+ *
+ * Sass loads a module only once per compilation, so the configured
+ * value is shared by every partial in that build.
+ */
 :focus:not(:focus-visible) {
   outline: none;
 }
@@ -29,11 +43,12 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
   box-sizing: border-box;
 }
 
-:not(.editor-styles-wrapper) [id] {
+[id] {
   --sht--scroll-margin-top: var(--wp--preset--spacing--regular);
   scroll-margin-top: var(--sht--scroll-margin-top);
 }
-:not(.editor-styles-wrapper) body {
+
+body {
   overflow-x: hidden;
 }
 
@@ -354,28 +369,6 @@ h6 a:hover {
   color: currentColor;
 }
 
-.editor-styles-wrapper h1 a,
-.editor-styles-wrapper h1 a:active,
-.editor-styles-wrapper h1 a:hover,
-.editor-styles-wrapper h2 a,
-.editor-styles-wrapper h2 a:active,
-.editor-styles-wrapper h2 a:hover,
-.editor-styles-wrapper h3 a,
-.editor-styles-wrapper h3 a:active,
-.editor-styles-wrapper h3 a:hover,
-.editor-styles-wrapper h4 a,
-.editor-styles-wrapper h4 a:active,
-.editor-styles-wrapper h4 a:hover,
-.editor-styles-wrapper h5 a,
-.editor-styles-wrapper h5 a:active,
-.editor-styles-wrapper h5 a:hover,
-.editor-styles-wrapper h6 a,
-.editor-styles-wrapper h6 a:active,
-.editor-styles-wrapper h6 a:hover {
-  color: currentColor !important;
-  border: none !important;
-}
-
 video {
   max-width: 100%;
 }
@@ -523,29 +516,6 @@ body {
   color: var(--c-comments-cancel-link-color-hover);
 }
 
-.editor-styles-wrapper .c-editormessage {
-  --c-editormessage-color: var(--sht-color--info);
-  --c-editormessage-background-color: var(--sht-color--info-background);
-  --c-editormessage-border-color: var(--sht-color--info-border);
-  border: 1px solid var(--c-editormessage-border-color);
-  color: var(--c-editormessage-color);
-  background-color: var(--c-editormessage-background-color);
-  padding: 1rem;
-  --stack-size: var(--wp--preset--spacing--regular);
-}
-.editor-styles-wrapper .c-editormessage > * {
-  margin-block-start: 0;
-  margin-block-end: 0;
-}
-.editor-styles-wrapper .c-editormessage > * + * {
-  margin-block-start: var(--stack-size);
-}
-.editor-styles-wrapper .c-editormessage--error {
-  --c-editormessage-color: var(--sht-color--danger);
-  --c-editormessage-background-color: var(--sht-color--danger-background);
-  --c-editormessage-border-color: var(--sht-color--danger-border);
-}
-
 .c-main {
   flex: 1;
 }
@@ -623,38 +593,6 @@ body {
 .c-menu__entrylink {
   display: block;
   padding: 0.5em 1em;
-}
-
-.editor-styles-wrapper .c-mobilemenu {
-  display: block;
-  pointer-events: none;
-  box-sizing: border-box;
-  position: fixed;
-  top: var(--masthead--height);
-  left: 0;
-  width: 100%;
-  height: 100dvh;
-  transform: translateX(100%);
-  opacity: 0;
-  z-index: 2;
-  overflow: auto;
-  transition: transform 600ms ease, opacity 800ms ease;
-}
-@media screen and (prefers-reduced-motion: reduce) {
-  .editor-styles-wrapper .c-mobilemenu {
-    transition: none;
-  }
-}
-body.admin-bar .editor-styles-wrapper .c-mobilemenu {
-  top: calc(var(--masthead--height) + var(--wp-admin--admin-bar--height));
-}
-.editor-styles-wrapper .c-mobilemenu[aria-hidden=false] {
-  pointer-events: auto;
-  transform: translateX(0);
-  opacity: 1;
-}
-.editor-styles-wrapper html:has(.c-mobilemenu[aria-hidden=false]) {
-  overflow: hidden;
 }
 
 .wp-site-blocks__inner {
