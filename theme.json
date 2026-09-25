@@ -74,7 +74,7 @@
 			"width": false
 		},
 		"layout": {
-			"allowEditing": false,
+			"allowEditing": true,
 			"allowCustomContentAndWideSize": false,
 			"contentSize": "600px",
 			"wideSize": "1200px"
