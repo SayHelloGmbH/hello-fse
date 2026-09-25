@@ -35,7 +35,6 @@ class BlockEditor
 		add_action('enqueue_block_editor_assets', [$this, 'enqueueBlockEditorAssets']);
 		add_filter('block_editor_settings_all', [$this, 'editorSettings']);
 		add_action('after_setup_theme', [$this, 'themeSupports']);
-		add_action('init', [$this, 'setScriptTranslations']);
 		add_action('after_setup_theme', [$this, 'enqueueBlockStyles']);
 		add_action('init', [$this, 'registerBlockPatternCategories']);
 	}
@@ -76,7 +75,6 @@ class BlockEditor
 		 * their own, individual Block Package files.
 		 */
 		if (file_exists(get_template_directory() . '/assets/scripts/block-editor.js')) {
-
 			$script_asset_path = get_template_directory() . '/assets/scripts/block-editor.asset.php';
 			$script_asset = file_exists($script_asset_path) ? require($script_asset_path) : ['dependencies' => [], 'version' => wp_get_theme()->get('Version')];
 
@@ -86,6 +84,10 @@ class BlockEditor
 				$script_asset['dependencies'],
 				$script_asset['version']
 			);
+
+			// Must run after the script is registered, otherwise WordPress ignores it.
+			// JSON files go in e.g. languages/sht-de_DE-{md5 of 'assets/scripts/block-editor.js'}.json
+			wp_set_script_translations('sht-block-editor-script', 'sht', get_template_directory() . '/languages');
 		}
 	}
 
@@ -117,7 +119,6 @@ class BlockEditor
 		);
 
 		foreach ($block_namespaces as $block_namespace) {
-
 			// Get all available block styles of the given block namespace.
 			$block_styles = glob("{$root_folder}/{$block_namespace}/*{$min}.css");
 			$block_styles = array_map(
@@ -133,30 +134,16 @@ class BlockEditor
 				}
 				wp_enqueue_block_style(
 					$block_namespace . '/' . str_replace('.min', '', $block_style),
-					array(
+					[
 						'handle' => "{$block_namespace}-{$block_style}-styles",
 						'src'    => get_theme_file_uri("assets/styles/blocks/{$block_namespace}/{$block_style}{$min}.css"),
 						// Add "path" to allow inlining of block styles when possible.
 						'path'   => get_theme_file_path("assets/styles/blocks/{$block_namespace}/{$block_style}{$min}.css"),
 						'ver' => filemtime(get_theme_file_path("assets/styles/blocks/{$block_namespace}/{$block_style}{$min}.css"))
-					),
+					],
 				);
 			}
 		}
-	}
-
-	/**
-	 * https://github.com/SayHelloGmbH/hello-roots/wiki/Translation-in-JavaScript
-	 *
-	 * Make sure that the JSON files are at e.g.
-	 * 'languages/sht-de_DE_formal-739d784e82179214dfd2a6c345374e30.json' or
-	 * 'languages/sht-fr_FR-739d784e82179214dfd2a6c345374e30.json'
-	 *
-	 * mhm 28.1.2020
-	 */
-	public function setScriptTranslations(): void
-	{
-		wp_set_script_translations('sht-block-editor-script', 'sht', get_template_directory() . '/languages');
 	}
 
 	/**

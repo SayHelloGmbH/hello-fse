@@ -26,7 +26,7 @@
 			<!-- wp:group {"className":"c-article__meta c-article__meta\u002d\u002dpost","layout":{"inherit":true,"type":"constrained"}} -->
 			<div class="wp-block-group c-article__meta c-article__meta--post"><!-- wp:group {"className":"c-article__meta-group c-article__meta-group\u002d\u002dtags","layout":{"type":"default"}} -->
 				<div class="wp-block-group c-article__meta-group c-article__meta-group--tags"><!-- wp:heading {"fontSize":"medium"} -->
-					<h2 class="wp-block-heading has-medium-font-size"><?php echo __('Kategorien', 'sht'); ?></h2>
+					<h2 class="wp-block-heading has-medium-font-size"><?php esc_html_e('Kategorien', 'sht'); ?></h2>
 					<!-- /wp:heading -->
 
 					<!-- wp:post-terms {"term":"category"} /-->
@@ -35,7 +35,7 @@
 
 				<!-- wp:group {"className":"c-article__meta-group c-article__meta-group\u002d\u002dtags","layout":{"type":"default"}} -->
 				<div class="wp-block-group c-article__meta-group c-article__meta-group--tags"><!-- wp:heading {"fontSize":"medium"} -->
-					<h2 class="wp-block-heading has-medium-font-size"><?php echo __('Schlagwörter', 'sht'); ?></h2>
+					<h2 class="wp-block-heading has-medium-font-size"><?php esc_html_e('Schlagwörter', 'sht'); ?></h2>
 					<!-- /wp:heading -->
 
 					<!-- wp:post-terms {"term":"post_tag"} /-->

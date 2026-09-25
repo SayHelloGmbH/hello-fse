@@ -36,40 +36,31 @@ These tools complement each other: EditorConfig keeps files consistent, PHPCS en
 
 ### Asset generation - JavaScript and CSS
 
-**Front-end asset workflow**: JavaScript and CSS source lives under `assets/` and in block-specific `assets/` folders under `src/Blocks/`. NPM build scripts (in `package.json`) compile, bundle and minify assets for production.
+**Front-end asset workflow**: JavaScript and SCSS sources live in `.build/assets/` and in block-specific `assets/src/` folders under `src/Blocks/`. Compiled files are written to `assets/` and to each block's `assets/dist/` folder, and are committed to the repository.
 
-This theme uses a Gulp-based build pipeline with embedded Webpack bundling for JavaScript. The gulp configuration is in `gulpfile.babel.js` and task implementations live in the `.build/gulp/` folder.
+JavaScript is bundled by `@wordpress/scripts` (Webpack) using `webpack.config.js`. CSS and SVG are handled by Gulp using `gulpfile.mjs`, with task implementations in `.build/gulp/`.
 
-- Entry: Run the default task with `npm start` which invokes `gulp` (see the `start` script in `package.json`). The default task runs the `watch` task which watches source files and triggers the appropriate build tasks on change.
+- Commands (see `package.json`):
+	- `npm run build` — builds JavaScript, CSS and SVG once.
+	- `npm start` — builds, then watches JavaScript (Webpack) and CSS/SVG (Gulp) in parallel. Both watchers use polling for reliable watching on network volumes.
+	- `npm run build:js`, `npm run build:css`, `npm run build:svg` — build one asset type.
+	- `npm run lint:js`, `npm run lint:css` — lint the sources using the `@wordpress/scripts` defaults.
 
-- Configuration: `gulpfile.babel.js` exports task functions and a `config` object that defines key paths used by the tasks:
-	- `assetsDir` — the public `assets/` folder used by the theme.
-	- `assetsBuild` — the working input folder `./.build/assets/` that contains canonical build sources for global assets.
-	- `blockScriptsSrc` / `blockStylesSrc` — globs under `src/Blocks/**/assets/src/` where block-specific JS/SCSS sources live.
-	- `blockScriptsDist` / `blockStylesDist` — where compiled block assets are written (usually back into each block's `assets/dist/` folder).
+- Scripts (`webpack.config.js`):
+	- Each folder in `.build/assets/scripts/` which contains an `index.js` becomes its own bundle, e.g. `ui/index.js` → `assets/scripts/ui.js`.
+	- Each folder in `src/Blocks/{Block}/assets/src/scripts/` which contains an `index.js` becomes `src/Blocks/{Block}/assets/dist/scripts/{folder}.js`.
+	- The `@wordpress/scripts` default configuration provides Babel, SCSS imports and the `DependencyExtractionWebpackPlugin`, which externalises WordPress packages (and `jquery`) and writes a `{name}.asset.php` file next to each bundle. The PHP enqueue logic reads the dependencies and version from this file.
+	- Scripts are always built in production mode (minified), including in watch mode.
 
-- Global scripts (`.build/gulp/task-scripts.js`):
-	- Reads each folder in `./.build/assets/scripts/` and builds a Webpack entry per bundle (expects an `index.js`).
-	- Uses `webpack-stream` with `babel-loader` to transpile modern JS and with loaders to allow importing SCSS from JS.
-	- Uses `@wordpress/dependency-extraction-webpack-plugin` to externalise WordPress dependencies (so packages like `wp-element` are not bundled but referenced as external WP globals).
-	- Outputs built bundles to `assets/scripts/` using the `[name].js` filename pattern. `jquery` is treated as an external global.
+- Global styles (`.build/gulp/task-styles.mjs`):
+	- Compiles `.build/assets/styles/**/*.scss` (partials starting with `_` are skipped), runs `autoprefixer`, writes unminified CSS to `assets/styles/`, then minifies with `clean-css` and writes `.min.css` alongside it. The subfolder structure (e.g. `blocks/core/`) is preserved.
+	- `admin-editor.css` is scoped to `.editor-styles-wrapper` using `gulp-editor-styles`.
 
-- Global styles (`.build/gulp/task-styles.js`):
-	- Compiles SCSS files from `./.build/assets/styles/**/*.scss` using `sass` and `gulp-sass`.
-	- Applies `sassImportJson` to allow importing JSON into SCSS, runs `autoprefixer`, writes unminified CSS to `assets/styles/`, then minifies with `clean-css` and writes `.min.css` alongside it.
-	- Special handling via `gulp-editor-styles` is used for editor/admin stylesheet output.
+- Block styles (`.build/gulp/task-block-styles.mjs`):
+	- Compiles `src/Blocks/{Block}/assets/src/styles/**/*.scss` and writes both normal and `.min.css` files to `src/Blocks/{Block}/assets/dist/styles/`.
 
-- Block-level scripts & styles (`task-block-scripts.js` / `task-block-styles.js`):
-	- Block sources are located under each block's `assets/src/` folder. The block scripts task globs `src/Blocks/**/assets/src/scripts` and creates Webpack entries for each block/editor/view script, then outputs compiled files into each block's `assets/dist/scripts/` folder.
-	- Block styles compile SCSS in `assets/src/styles` and write both normal and `.min.css` files to `assets/dist/styles` for the block.
-
-- SVG optimisation (`task-svg.js`):
+- SVG optimisation (`.build/gulp/task-svg.mjs`):
 	- Minifies `.svg` files in `assets/` (skips already-minified `*.min.svg`) and writes `*.min.svg` next to the originals.
-
-- Watching & reload:
-	- The `watch` task observes block sources, `.build/assets/*`, and `theme.json`, and triggers the relevant tasks. Gulp uses polling in the provided configuration for reliable watching on some platforms.
-
-In short: you author JS/SCSS in the `src/Blocks/` or the canonical `.build/assets/` folders, then run `npm start` to build and watch. Webpack (via `webpack-stream`) handles JS bundling and the WP dependency extraction plugin keeps WordPress packages external, while Gulp orchestrates file-level compilation, minification and placement of outputs into the theme's `assets/` and each block's `assets/dist/` directories.
 
 ### Enqueuing the assets
 

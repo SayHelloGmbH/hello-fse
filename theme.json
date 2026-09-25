@@ -1,6 +1,12 @@
 {
 	"settings": {
-		"appearanceTools": true,
+		"appearanceTools": false,
+		"useRootPaddingAwareAlignments": true,
+		"background": {
+			"backgroundImage": false,
+			"backgroundSize": false,
+			"gradient": false
+		},
 		"border": {
 			"color": false,
 			"radius": false,
@@ -8,11 +14,15 @@
 			"width": false
 		},
 		"color": {
-			"background": true,
+			"background": false,
+			"button": false,
+			"caption": false,
 			"custom": false,
 			"customDuotone": false,
 			"customGradient": false,
+			"heading": false,
 			"link": false,
+			"text": false,
 			"palette": [
 				{
 					"color": "#000",
@@ -54,14 +64,33 @@
 					"name": "Extra-light gray",
 					"slug": "xlight-gray"
 				}
-			],
-			"text": true
+			]
+		},
+		"dimensions": {
+			"aspectRatio": false,
+			"height": false,
+			"minHeight": false,
+			"minWidth": false,
+			"width": false
 		},
 		"layout": {
+			"allowEditing": false,
+			"allowCustomContentAndWideSize": false,
 			"contentSize": "600px",
 			"wideSize": "1200px"
 		},
+		"position": {
+			"fixed": false,
+			"sticky": false
+		},
+		"shadow": {
+			"defaultPresets": false
+		},
 		"spacing": {
+			"blockGap": false,
+			"customSpacingSize": false,
+			"margin": false,
+			"padding": false,
 			"spacingSizes": [
 				{
 					"name": "XS",
@@ -104,6 +133,16 @@
 			"customFontSize": false,
 			"dropCap": false,
 			"fluid": true,
+			"fontStyle": false,
+			"fontWeight": false,
+			"letterSpacing": false,
+			"lineHeight": false,
+			"textAlign": false,
+			"textColumns": false,
+			"textDecoration": false,
+			"textIndent": false,
+			"textTransform": false,
+			"writingMode": false,
 			"fontFamilies": [
 				{
 					"fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
@@ -163,15 +202,31 @@
 					"size": "36px",
 					"slug": "xxxlarge"
 				}
-			],
-			"fontStyle": false,
-			"fontWeight": false,
-			"letterSpacing": false,
-			"lineHeight": false,
-			"textDecoration": false,
-			"textTransform": false
+			]
 		},
-		"useRootPaddingAwareAlignments": true
+		"blocks": {
+			"core/button": {
+				"border": {
+					"radius": false
+				},
+				"dimensions": {
+					"width": false
+				}
+			},
+			"core/icon": {
+				"dimensions": {
+					"width": false
+				}
+			},
+			"core/pullquote": {
+				"border": {
+					"color": false,
+					"radius": false,
+					"style": false,
+					"width": false
+				}
+			}
+		}
 	},
 	"styles": {
 		"blocks": {

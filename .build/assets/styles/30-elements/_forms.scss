@@ -4,12 +4,12 @@ body {
 	--checkbox-size: calc(var(--wp--preset--spacing--regular) * 1.5);
 	--checkbox-size-small: var(--wp--preset--spacing--regular); // used in other SCSS files, not here
 	--field-border: 1px solid var(--wp--preset--color--light-gray);
-	--field-radius: var(--radius);
+	--field-radius: var(--global-radius);
 	--checkbox-radius: #{rem-calc(2px)};
 	--checkbox-background-color: var(--wp--preset--color--white);
 	--checkbox-checked-background-color: var(--wp--preset--color--primary);
 	--checkbox-checked-border-color: var(--wp--preset--color--primary);
-	--field-radius: var(--radius);
+	--field-radius: var(--global-radius);
 	--field-placeholder-color: var(--wp--preset--color--light-gray);
 	--field-border-focus-color: var(--wp--preset--color--primary);
 }
@@ -82,7 +82,7 @@ input {
 	overflow: hidden;
 	pointer-events: none;
 
-	~ label {
+	~label {
 		display: flex !important;
 		align-items: center;
 
@@ -108,18 +108,18 @@ input {
 		}
 	}
 
-	&:checked ~ label:before {
+	&:checked~label:before {
 		background-color: var(--checkbox-checked-background-color);
 		border-color: var(--checkbox-checked-border-color);
 		background-size: contain;
 	}
 }
 
-[type='checkbox'] ~ label:before {
+[type='checkbox']~label:before {
 	border-radius: var(--checkbox-radius);
 }
 
-[type='radio'] ~ label:before {
+[type='radio']~label:before {
 	border-radius: 50%;
 }
 

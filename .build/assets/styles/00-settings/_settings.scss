@@ -1,6 +1,5 @@
-// Get the "rem-base" font size from the assets.json file
-// This must be a pixel value, so that the calculation function rem-calc works.
-// In most cases, leave the value as 16px.
+// The "rem-base" font size is always 16px.
+// It must be a unitless pixel value, so that the calculation function rem-calc works.
 $rem-base: 16 !default;
 
 $rem-font-size: $rem-base + 0px;
@@ -18,4 +17,4 @@ $breakpoints: (
 	desktop: 1440,
 	desktop_large: 1600,
 	desktop_xlarge: 1920,
-) !default;
+	) !default;

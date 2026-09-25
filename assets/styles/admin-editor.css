@@ -22,14 +22,8 @@
 }
 
 .editor-styles-wrapper {
-  --body-color: var(--wp--preset--color--black);
-  --body-background-color: var(--wp--preset--color--white);
-  color: var(--body-color);
-  background-color: var(--body-background-color);
-}
-
-.editor-styles-wrapper {
-  scroll-margin-top: var(--wp--preset--spacing--regular);
+  --sht--scroll-margin-top: var(--wp--preset--spacing--regular);
+  scroll-margin-top: var(--sht--scroll-margin-top);
 }
 .editor-styles-wrapper {
   overflow-x: hidden;
@@ -57,12 +51,12 @@
   --checkbox-size: calc(var(--wp--preset--spacing--regular) * 1.5);
   --checkbox-size-small: var(--wp--preset--spacing--regular);
   --field-border: 1px solid var(--wp--preset--color--light-gray);
-  --field-radius: var(--radius);
+  --field-radius: var(--global-radius);
   --checkbox-radius: rem-calc(2px);
   --checkbox-background-color: var(--wp--preset--color--white);
   --checkbox-checked-background-color: var(--wp--preset--color--primary);
   --checkbox-checked-border-color: var(--wp--preset--color--primary);
-  --field-radius: var(--radius);
+  --field-radius: var(--global-radius);
   --field-placeholder-color: var(--wp--preset--color--light-gray);
   --field-border-focus-color: var(--wp--preset--color--primary);
 }
@@ -207,8 +201,7 @@
 .editor-styles-wrapper {
   --font-weight-normal: 400;
   --font-weight-bold: 700;
-  --radius: 0;
-  --wp--preset--font-size--rem-base: 16px;
+  --global-radius: 0;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -375,25 +368,6 @@
   border: none !important;
 }
 
-/**
- * VH is the viewport height. This works fine in most browsers,
- * but Safari changes the vieport height on scrolling, which
- * messes up calculations based on vh. The new viewport unit svh
- * is being introduced, which is the smallest viewport height,
- * i.e. the viewport height before Safari fucks it up.
- * https://dev.to/frehner/css-vh-dvh-lvh-svh-and-vw-units-27k4
- *
- * Since March 2025
- **/
-.editor-styles-wrapper {
-  --dvh: 1vh;
-}
-
-@supports (--dvh: 1dvh) {
-  .editor-styles-wrapper {
-    --svh: 1dvh;
-  }
-}
 .editor-styles-wrapper video {
   max-width: 100%;
 }
@@ -404,7 +378,7 @@
   display: block;
 }
 
-.editor-styles-wrapper {
+.editor-styles-wrapper .wp-block.is-reusable {
   max-width: 100%;
 }
 
@@ -651,7 +625,7 @@
   top: var(--masthead--height);
   left: 0;
   width: 100%;
-  height: calc(100 * var(--dvh));
+  height: 100dvh;
   transform: translateX(100%);
   opacity: 0;
   z-index: 2;
@@ -678,10 +652,10 @@
 .editor-styles-wrapper .wp-site-blocks__inner {
   display: flex;
   flex-direction: column;
-  min-height: calc(100 * var(--dvh));
+  min-height: 100dvh;
 }
 .editor-styles-wrapper .admin-bar .wp-site-blocks__inner {
-  min-height: calc(100 * var(--dvh) - var(--wp-admin--admin-bar--height));
+  min-height: calc(100dvh - var(--wp-admin--admin-bar--height));
 }
 
 .editor-styles-wrapper .alignleft {
