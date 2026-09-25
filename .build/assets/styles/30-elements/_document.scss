@@ -7,17 +7,10 @@
 	}
 }
 
-body {
-	--body-color: var(--wp--preset--color--black);
-	--body-background-color: var(--wp--preset--color--white);
-
-	color: var(--body-color);
-	background-color: var(--body-background-color);
-}
-
 :not(.editor-styles-wrapper) {
 	[id] {
-		scroll-margin-top: var(--wp--preset--spacing--regular);
+		--sht--scroll-margin-top: var(--wp--preset--spacing--regular);
+		scroll-margin-top: var(--sht--scroll-margin-top);
 	}
 
 	body {
