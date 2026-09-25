@@ -10,16 +10,6 @@ namespace SayHello\Theme\Controller;
 class Navigation
 {
 
-	private $menus;
-
-	public function __construct()
-	{
-		$this->menus = [
-			'primary' => _x('Primary', 'Menu navigation label', 'sha'),
-			'mobile' => _x('Mobile', 'Menu navigation label', 'sha'),
-		];
-	}
-
 	public function run()
 	{
 		add_action('after_setup_theme', [$this, 'themeSupport']);
@@ -27,7 +17,10 @@ class Navigation
 
 	public function themeSupport()
 	{
-		add_theme_support('menu');
-		register_nav_menus($this->menus);
+		// Translated here rather than in the constructor, which runs before after_setup_theme.
+		register_nav_menus([
+			'primary' => _x('Primary', 'Menu navigation label', 'sha'),
+			'mobile' => _x('Mobile', 'Menu navigation label', 'sha'),
+		]);
 	}
 }
