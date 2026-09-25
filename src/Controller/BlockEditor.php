@@ -76,7 +76,6 @@ class BlockEditor
 		 * their own, individual Block Package files.
 		 */
 		if (file_exists(get_template_directory() . '/assets/scripts/block-editor.js')) {
-
 			$script_asset_path = get_template_directory() . '/assets/scripts/block-editor.asset.php';
 			$script_asset = file_exists($script_asset_path) ? require($script_asset_path) : ['dependencies' => [], 'version' => wp_get_theme()->get('Version')];
 
@@ -117,7 +116,6 @@ class BlockEditor
 		);
 
 		foreach ($block_namespaces as $block_namespace) {
-
 			// Get all available block styles of the given block namespace.
 			$block_styles = glob("{$root_folder}/{$block_namespace}/*{$min}.css");
 			$block_styles = array_map(
@@ -133,13 +131,13 @@ class BlockEditor
 				}
 				wp_enqueue_block_style(
 					$block_namespace . '/' . str_replace('.min', '', $block_style),
-					array(
+					[
 						'handle' => "{$block_namespace}-{$block_style}-styles",
 						'src'    => get_theme_file_uri("assets/styles/blocks/{$block_namespace}/{$block_style}{$min}.css"),
 						// Add "path" to allow inlining of block styles when possible.
 						'path'   => get_theme_file_path("assets/styles/blocks/{$block_namespace}/{$block_style}{$min}.css"),
 						'ver' => filemtime(get_theme_file_path("assets/styles/blocks/{$block_namespace}/{$block_style}{$min}.css"))
-					),
+					],
 				);
 			}
 		}
