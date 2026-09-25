@@ -84,6 +84,29 @@ Using this hook will enqueue the asset file in the frontend, WordPress Admin _an
 
 This action is specifically for adding styles and scripts that impact the editor **interface** (e.g., the Block Sidebar or Toolbar). For styling editor **content**, use `enqueue_block_assets`.
 
+### Editor controls in theme.json
+
+Most of the design controls that the Block Editor and Site Editor normally offer to editors are **turned off** in `theme.json`. This keeps the design in the hands of the theme's developers. Editors can't set their own colours, font sizes, spacing or borders that later have to be tracked down and cleaned up. Styling belongs in the theme's SCSS and in the `styles` section of `theme.json`.
+
+The following are disabled under `settings`:
+
+- **`appearanceTools`** is set to `false`, so WordPress does not switch on its bundle of border, spacing, dimension and typography controls automatically.
+- **Background**: background images, background size and gradients.
+- **Border**: colour, radius, style and width.
+- **Color**: background, button, caption, heading, link and text colours, as well as custom colours, gradients and duotones.
+- **Dimensions**: aspect ratio, height, min-height, min-width and width.
+- **Layout**: `allowEditing` and `allowCustomContentAndWideSize`, so editors can't change a block's layout or the content and wide widths.
+- **Position**: fixed and sticky positioning.
+- **Shadow**: WordPress's default shadow presets.
+- **Spacing**: block gap, margin, padding and custom spacing sizes.
+- **Typography**: custom font sizes, drop caps, font style, font weight, letter spacing, line height, text alignment, text columns, text decoration, text indent, text transform and writing mode.
+
+Some blocks have their own supports that are also turned off under `settings.blocks`, for example the border radius and width on `core/button` and the border controls on `core/pullquote`.
+
+The theme's presets are still defined: the colour palette, spacing sizes, font families and font sizes (with `fluid` typography). They are available as CSS custom properties (e.g. `var(--wp--preset--color--primary)`) for use in SCSS and in `styles`, even though the matching editor controls are hidden.
+
+To make a control available again, set its value to `true`. You can do this for the whole site under `settings`, or for a single block under `settings.blocks.{block-name}`. Enabling a control for one block is usually the better choice, because it keeps the rest of the editor restricted.
+
 ## Author
 
 [Say Hello GmbH](https://sayhello.ch/) in Spiez, Switzerland. Specifically Mark Howells-Mead since 2024.
