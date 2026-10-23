@@ -4,7 +4,7 @@
 
 	<!-- Set the PHPCompatibility standard and PHP version -->
     <rule ref="PHPCompatibility">
-        <property name="testVersion" value="8.3" />
+        <property name="testVersion" value="8.5" />
     </rule>
 
 	<arg name="tab-width" value="4"/>
