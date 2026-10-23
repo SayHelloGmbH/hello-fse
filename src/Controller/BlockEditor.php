@@ -110,7 +110,7 @@ class BlockEditor
 		$min = $this->min ? '.min' : '';
 
 		// Get all available block namespaces.
-		$block_namespaces = glob("{$root_folder}/*/");
+		$block_namespaces = glob("{$root_folder}/*/") ?: [];
 		$block_namespaces = array_map(
 			function ($type_path) {
 				return basename($type_path);
@@ -120,7 +120,7 @@ class BlockEditor
 
 		foreach ($block_namespaces as $block_namespace) {
 			// Get all available block styles of the given block namespace.
-			$block_styles = glob("{$root_folder}/{$block_namespace}/*{$min}.css");
+			$block_styles = glob("{$root_folder}/{$block_namespace}/*{$min}.css") ?: [];
 			$block_styles = array_map(
 				function ($styles_path) use ($min) {
 					return basename($styles_path, "{$min}.css");

@@ -9,7 +9,7 @@ namespace SayHello\Theme\Controller;
  */
 class General
 {
-	public function run()
+	public function run(): void
 	{
 		add_action('after_setup_theme', [$this, 'themeSupports']);
 	}
@@ -17,7 +17,7 @@ class General
 	/**
 	 * Allow the Theme to use additional core features
 	 */
-	public function themeSupports()
+	public function themeSupports(): void
 	{
 		add_theme_support('automatic-feed-links');
 		add_theme_support('html5', ['comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script']);

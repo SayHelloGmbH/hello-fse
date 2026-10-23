@@ -1,5 +1,5 @@
 parameters:
-  phpVersion: 80416
+  phpVersion: 80500
   level: 5
   excludePaths:
     - vendor/*

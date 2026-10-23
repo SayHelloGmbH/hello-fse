@@ -10,12 +10,12 @@ namespace SayHello\Theme\Controller;
 class Navigation
 {
 
-	public function run()
+	public function run(): void
 	{
 		add_action('after_setup_theme', [$this, 'themeSupport']);
 	}
 
-	public function themeSupport()
+	public function themeSupport(): void
 	{
 		// Translated here rather than in the constructor, which runs before after_setup_theme.
 		register_nav_menus([
