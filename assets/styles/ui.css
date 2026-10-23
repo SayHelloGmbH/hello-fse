@@ -43,7 +43,7 @@ The structure follows the principles of ITCSS (http://www.creativebloq.com/web-d
   box-sizing: border-box;
 }
 
-[id] {
+html {
   --sht--scroll-margin-top: var(--wp--preset--spacing--regular);
   scroll-margin-top: var(--sht--scroll-margin-top);
 }

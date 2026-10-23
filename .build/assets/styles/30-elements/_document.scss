@@ -10,7 +10,7 @@
 }
 
 @include context.view {
-	[id] {
+	html {
 		--sht--scroll-margin-top: var(--wp--preset--spacing--regular);
 		scroll-margin-top: var(--sht--scroll-margin-top);
 	}
